@@ -166,9 +166,9 @@ namespace AHKPOSENKTHESIS
                 }
                 else
                 {
-                    FrmSearchProduct_StockIn frm = new FrmSearchProduct_StockIn(this);
-                    frm.LoadProduct();
-                    frm.ShowDialog();
+                    //FrmSearchProduct_StockIn frm = new FrmSearchProduct_StockIn(this);
+                    //frm.ShowProducts();
+                    //frm.ShowDialog();
                 }
             }
             catch (Exception ex)

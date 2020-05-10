@@ -16,12 +16,13 @@ namespace AHKPOSENKTHESIS
         string titlesataas = "Search Product";
         FrmCreateNewInvoice F2;
 
-
         public FrmLookUp(FrmCreateNewInvoice Fr2)
         {
             InitializeComponent();
             cn = new SqlConnection(dbcon.MyConnection());
             F2 = Fr2;
+
+            this.KeyPreview = true;
         }
 
         //display the data searched tblProduct in datagridview 
@@ -30,16 +31,33 @@ namespace AHKPOSENKTHESIS
             int i = 0;
             dataGridView1.Rows.Clear();
             cn.Open();
-            cm = new SqlCommand("SELECT id, prodcode, proddescrip, prodprice, category, prodqty, warningqty, prodstatus FROM tblProduct WHERE proddescrip like '%" + txtSearch.Text + "%' order by proddescrip", cn);
+            cm = new SqlCommand("SELECT prodcode, proddescrip, prodprice, category, prodqty, warningqty, prodstatus FROM tblProduct WHERE proddescrip like '%" + txtSearch.Text + "%' order by proddescrip", cn);
             dr = cm.ExecuteReader();
             while (dr.Read())
             {
                 i++;
-                dataGridView1.Rows.Add(i, dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString());
+                dataGridView1.Rows.Add(i, dr["prodcode"].ToString(), dr["proddescrip"].ToString(), dr["prodprice"].ToString(), dr["category"].ToString(), dr["prodqty"].ToString(), dr["warningqty"].ToString(), dr["prodstatus"].ToString());
             }
+            IndicateThatProductReachedWarningLevel();
             dr.Close();
             cn.Close();
         }
+
+        public void IndicateThatProductReachedWarningLevel()
+        {
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                if (int.Parse(dataGridView1.Rows[i].Cells[5].Value.ToString()) <= int.Parse(dataGridView1.Rows[i].Cells[6].Value.ToString()))
+                {
+                    // get the path of the image
+                    Image reachedwarning = Image.FromFile(@"C:\Users\Arjie\source\repos\AHKPOSENKTHESIS MASTER\AHKPOSENKTHESIS WIP\AHKPOSENKTHESIS\bin\Debug\Icons\icon_critical.png");
+
+                    // Add a row set the value
+                    dataGridView1.Rows[i].Cells[8].Value = reachedwarning;
+                }
+            }
+        }
+
 
         //select product in search product form and add it in invoice datagrid
         private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -97,6 +115,34 @@ namespace AHKPOSENKTHESIS
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void FrmLookUp_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void FrmLookUp_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Dispose();
+            }
+        }
+
+        private void dataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            lblRowProductCount.Text = dataGridView1.Rows.Count.ToString() + " Products Shown";
+        }
+
+        private void dataGridView1_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            lblRowProductCount.Text = dataGridView1.Rows.Count.ToString() + " Products Shown";
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
         }

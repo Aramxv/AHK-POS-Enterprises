@@ -20,7 +20,8 @@ namespace AHKPOSENKTHESIS
         SqlDataReader dr;
         string titlesataas = "Invoice Module";
 
-                
+        private const Int32 CUSTOM_CONTENT_HEIGHT = 18;
+
         public Frm2SavedInvoices( )
         {
             InitializeComponent();
@@ -29,9 +30,9 @@ namespace AHKPOSENKTHESIS
         }
 
         public void LoadInvoiceRecords()
-        { 
+        {
             // get the path of the image
-            Image img = Image.FromFile(@"C:\Users\Arjie\source\repos\AHKPOSENKTHESIS MASTER\AHKPOSENKTHESIS WIP\AHKPOSENKTHESIS\bin\Debug\Icons\icons8-purchase-order-30.png");
+            Image img = Image.FromFile(@"C:\Users\Arjie\source\repos\AHKPOSENKTHESIS MASTER\AHKPOSENKTHESIS WIP\AHKPOSENKTHESIS\bin\Debug\Icons\invoice_approved.png");
 
             int i = 0;
             dataGridView1.Rows.Clear();
@@ -41,10 +42,64 @@ namespace AHKPOSENKTHESIS
             while (dr.Read())
             {
                 i++;
-                dataGridView1.Rows.Add(i, img, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), double.Parse(dr[4].ToString()).ToString("#,##0.00"), dr[5].ToString(), dr[6].ToString(), dr[7].ToString(), dr[8].ToString(), dr[9].ToString(), dr[10].ToString(), dr[11].ToString(), dr[12].ToString());
+                dataGridView1.Rows.Add(i, img, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), double.Parse(dr[4].ToString()).ToString("#,##0.00"), dr[5].ToString(), dr[6].ToString(), dr[7].ToString(), dr[8].ToString(), dr[9].ToString(), dr[10].ToString(), dr[11].ToString(), dr[12].ToString(), dr[15].ToString());
+            }
+            DraftInvoiceIndicator();
+            dr.Close();
+            cn.Close();
+        }
+
+        public void ShowAllCompleteInvoices()
+        {
+            // get the path of the image
+            Image img = Image.FromFile(@"C:\Users\Arjie\source\repos\AHKPOSENKTHESIS MASTER\AHKPOSENKTHESIS WIP\AHKPOSENKTHESIS\bin\Debug\Icons\invoice_approved.png");
+
+            int i = 0;
+            dataGridView1.Rows.Clear();
+            cn.Open();
+            cm = new SqlCommand("SELECT * FROM tblInvoiceRecords WHERE customer like '%" + txtSearch.Text + "%' and status != 'Pending' order by invoiceno desc", cn);
+            dr = cm.ExecuteReader();
+            while (dr.Read())
+            {
+                i++;
+                dataGridView1.Rows.Add(i, img, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), double.Parse(dr[4].ToString()).ToString("#,##0.00"), dr[5].ToString(), dr[6].ToString(), dr[7].ToString(), dr[8].ToString(), dr[9].ToString(), dr[10].ToString(), dr[11].ToString(), dr[12].ToString(), dr[15].ToString());
             }
             dr.Close();
             cn.Close();
+        }
+
+        public void ShowOnlyDraftsInvoices()
+        {
+            // get the path of the image
+            Image draftimg = Image.FromFile(@"C:\Users\Arjie\source\repos\AHKPOSENKTHESIS MASTER\AHKPOSENKTHESIS WIP\AHKPOSENKTHESIS\bin\Debug\Icons\invoice_draft.png");
+
+            int i = 0;
+            dataGridView1.Rows.Clear();
+            cn.Open();
+            cm = new SqlCommand("SELECT * FROM tblInvoiceRecords WHERE customer like '%" + txtSearch.Text + "%' and status = 'Pending' order by invoiceno desc", cn);
+            dr = cm.ExecuteReader();
+            while (dr.Read())
+            {
+                i++;
+                dataGridView1.Rows.Add(i, draftimg, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), double.Parse(dr[4].ToString()).ToString("#,##0.00"), dr[5].ToString(), dr[6].ToString(), dr[7].ToString(), dr[8].ToString(), dr[9].ToString(), dr[10].ToString(), dr[11].ToString(), dr[12].ToString(), dr[15].ToString());
+            }
+            dr.Close();
+            cn.Close();
+        }
+        public void DraftInvoiceIndicator()
+        {
+            // Create a loop
+            for (int i =0; i < dataGridView1.Rows.Count; i++)
+            {
+                if (dataGridView1.Rows[i].Cells[15].Value.ToString() == "Draft")
+                {
+                    // Change the picture of the cell that is in critical quantity count 
+                      Image draftimg = Image.FromFile(@"C:\Users\Arjie\source\repos\AHKPOSENKTHESIS MASTER\AHKPOSENKTHESIS WIP\AHKPOSENKTHESIS\bin\Debug\Icons\invoice_draft.png");
+
+                    // Add a row set the value
+                    dataGridView1.Rows[i].Cells[1].Value = draftimg;
+                }
+            }
         }
 
         private void FrmSavedInvoices_Load(object sender, EventArgs e)
@@ -60,6 +115,20 @@ namespace AHKPOSENKTHESIS
             dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(20, 25, 72);
             dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+
+            // Set a cell padding to provide space for the top of the focus 
+            // rectangle and for the content that spans multiple columns. 
+            Padding newPadding = new Padding(0, 5, 0, 5);
+            this.dataGridView1.RowTemplate.DefaultCellStyle.Padding = newPadding;
+
+            // Set the selection background color to transparent so 
+            // the cell won't paint over the custom selection background.
+            this.dataGridView1.RowTemplate.DefaultCellStyle.SelectionBackColor =
+                Color.FromArgb(2, 119, 231);
+
+            // Set the row height to accommodate the content that 
+            // spans multiple columns.
+            this.dataGridView1.RowTemplate.Height += CUSTOM_CONTENT_HEIGHT;
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
@@ -95,7 +164,7 @@ namespace AHKPOSENKTHESIS
                 while (dr.Read())
                 {
                     i++;
-                    edit.dataGridView1.Rows.Add(i, dr[0].ToString(), edit.addqty, dr[7].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString(), dr[8].ToString(), dr[9].ToString());
+                    edit.dataGridView1.Rows.Add(i, dr[0].ToString(), dr[7].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString(), dr[8].ToString(), dr[9].ToString());
                 }
                 cn.Close();
                 //Compute automatically the amount of the ordered products
@@ -122,6 +191,41 @@ namespace AHKPOSENKTHESIS
                 }
             }
            
+        }
+
+        // Show all completed invoices and seperates the draft invoices
+        private void BtnInvoices_Click(object sender, EventArgs e)
+        {
+            ShowAllCompleteInvoices();
+        }
+
+        // Show only saved as drafts invoices and hides the complete invoices
+        private void BtnDrafts_Click(object sender, EventArgs e)
+        {
+            ShowOnlyDraftsInvoices();
+        }
+
+        // Show all complete invoices and drafts invoices
+        private void BtnShowAllInvoices_Click(object sender, EventArgs e)
+        {
+            LoadInvoiceRecords();
+        }
+
+        private void BtnSearch_Click(object sender, EventArgs e)
+        {
+            txtSearch.Focus();
+        }
+
+        // Count the number of rows displayed in DGV
+        private void dataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            lblInvRowCount.Text = dataGridView1.Rows.Count.ToString() + " Invoices Shown";
+        }
+
+        // Count the number of rows displayed in DGV
+        private void dataGridView1_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            lblInvRowCount.Text = dataGridView1.Rows.Count.ToString() + " Invoices Shown"; 
         }
     }
 }

@@ -22,7 +22,8 @@ namespace AHKPOSENKTHESIS
         SqlDataAdapter da = new SqlDataAdapter();
         DataTable dt = new DataTable();
         SqlDataReader dr;
-        FrmInvoiceList inv;
+
+        AdminInvoices inv;
        
         string stitle = "Invoice Module";
         string titlesataas = "Stock In Module";
@@ -32,7 +33,7 @@ namespace AHKPOSENKTHESIS
 
         String InvoiceDate;
 
-        public FrmCancelInvoice(FrmInvoiceList list)
+        public FrmCancelInvoice(AdminInvoices list)
         {
             InitializeComponent();
             cn = new SqlConnection(dbcon.MyConnection());
@@ -41,7 +42,6 @@ namespace AHKPOSENKTHESIS
             InvoiceDate = bunifuDatepicker1.Value.ToString("MMM-dd-yyyy");
 
             bunifuCustomLabel1.Text = InvoiceDate;
-
         }
 
         private void FrmCancelInvoice_Load(object sender, EventArgs e)
@@ -148,15 +148,15 @@ namespace AHKPOSENKTHESIS
                                 }
                                 InsertionOfCancelledInvoice();
                                 MoveInvoiceInCancelledInvoice();
-                                inv.LoadCancelInvoice();
-                                inv.LoadInvoiceRecords();
+                                //inv.LoadCancelInvoice();
+                                //inv.LoadInvoiceRecords();
                                 this.Dispose();
                             }
                             else
                             {
                                 InsertionOfCancelledInvoice();
-                                inv.LoadCancelInvoice();
-                                inv.LoadInvoiceRecords();
+                                //inv.LoadCancelInvoice();
+                                //inv.LoadInvoiceRecords();
                                 this.Dispose();
                             }
                         }

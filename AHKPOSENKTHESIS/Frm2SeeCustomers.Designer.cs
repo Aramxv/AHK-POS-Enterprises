@@ -38,8 +38,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtSearch = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.invoicesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,8 +49,16 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.invoicesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.BtnSearchCustomer = new System.Windows.Forms.PictureBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblCustomerRowCount = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnSearchCustomer)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtSearch
@@ -60,8 +66,9 @@
             this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSearch.Depth = 0;
+            this.txtSearch.Font = new System.Drawing.Font("Roboto", 8.25F);
             this.txtSearch.Hint = "Search customer\'s name here";
-            this.txtSearch.Location = new System.Drawing.Point(12, 21);
+            this.txtSearch.Location = new System.Drawing.Point(50, 18);
             this.txtSearch.MaxLength = 32767;
             this.txtSearch.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtSearch.Name = "txtSearch";
@@ -69,7 +76,7 @@
             this.txtSearch.SelectedText = "";
             this.txtSearch.SelectionLength = 0;
             this.txtSearch.SelectionStart = 0;
-            this.txtSearch.Size = new System.Drawing.Size(1506, 28);
+            this.txtSearch.Size = new System.Drawing.Size(850, 28);
             this.txtSearch.TabIndex = 18;
             this.txtSearch.TabStop = false;
             this.txtSearch.UseSystemPasswordChar = false;
@@ -140,22 +147,10 @@
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1506, 644);
+            this.dataGridView1.Size = new System.Drawing.Size(1506, 630);
             this.dataGridView1.TabIndex = 19;
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.invoicesToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(132, 28);
-            // 
-            // invoicesToolStripMenuItem
-            // 
-            this.invoicesToolStripMenuItem.Name = "invoicesToolStripMenuItem";
-            this.invoicesToolStripMenuItem.Size = new System.Drawing.Size(131, 24);
-            this.invoicesToolStripMenuItem.Text = "Invoices";
+            this.dataGridView1.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridView1_RowsAdded);
+            this.dataGridView1.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dataGridView1_RowsRemoved);
             // 
             // Column1
             // 
@@ -184,7 +179,7 @@
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
             this.Column5.Visible = false;
-            this.Column5.Width = 57;
+            this.Column5.Width = 59;
             // 
             // ProductCode
             // 
@@ -240,7 +235,7 @@
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             this.Column3.Visible = false;
-            this.Column3.Width = 150;
+            this.Column3.Width = 152;
             // 
             // Column2
             // 
@@ -262,12 +257,60 @@
             this.Column4.ReadOnly = true;
             this.Column4.Width = 106;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.invoicesToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(132, 28);
+            // 
+            // invoicesToolStripMenuItem
+            // 
+            this.invoicesToolStripMenuItem.Name = "invoicesToolStripMenuItem";
+            this.invoicesToolStripMenuItem.Size = new System.Drawing.Size(131, 24);
+            this.invoicesToolStripMenuItem.Text = "Invoices";
+            // 
+            // BtnSearchCustomer
+            // 
+            this.BtnSearchCustomer.Image = ((System.Drawing.Image)(resources.GetObject("BtnSearchCustomer.Image")));
+            this.BtnSearchCustomer.Location = new System.Drawing.Point(12, 14);
+            this.BtnSearchCustomer.Name = "BtnSearchCustomer";
+            this.BtnSearchCustomer.Size = new System.Drawing.Size(32, 32);
+            this.BtnSearchCustomer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.BtnSearchCustomer.TabIndex = 90;
+            this.BtnSearchCustomer.TabStop = false;
+            this.toolTip1.SetToolTip(this.BtnSearchCustomer, "Search Customers, Enter the Customer\'s name in the search textbox. It will automa" +
+        "tically look for the customer you are looking for.");
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(25)))), ((int)(((byte)(72)))));
+            this.panel1.Controls.Add(this.lblCustomerRowCount);
+            this.panel1.Location = new System.Drawing.Point(12, 686);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1506, 23);
+            this.panel1.TabIndex = 91;
+            // 
+            // lblCustomerRowCount
+            // 
+            this.lblCustomerRowCount.AutoSize = true;
+            this.lblCustomerRowCount.Font = new System.Drawing.Font("Roboto", 8F);
+            this.lblCustomerRowCount.ForeColor = System.Drawing.Color.White;
+            this.lblCustomerRowCount.Location = new System.Drawing.Point(14, 2);
+            this.lblCustomerRowCount.Name = "lblCustomerRowCount";
+            this.lblCustomerRowCount.Size = new System.Drawing.Size(80, 18);
+            this.lblCustomerRowCount.TabIndex = 0;
+            this.lblCustomerRowCount.Text = "0 Customer";
+            // 
             // Frm2SeeCustomers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
             this.ClientSize = new System.Drawing.Size(1530, 721);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.BtnSearchCustomer);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.txtSearch);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
@@ -277,7 +320,11 @@
             this.Load += new System.EventHandler(this.Frm2SeeCustomers_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.BtnSearchCustomer)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -297,5 +344,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.PictureBox BtnSearchCustomer;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lblCustomerRowCount;
     }
 }

@@ -24,8 +24,10 @@ namespace AHKPOSENKTHESIS
             {
                 timer1.Stop();
                 FrmMain2 inv = new FrmMain2();
-                inv.lblUsername.Text = FrmLogin.InvPassName;
-                inv.lblAccount.Text = FrmLogin.InvPassAccount;
+                inv.lblUsername.Text = Login.InvPassName;
+                inv.lblName.Text = Login.InvPassName;
+                inv.lblAccount.Text = Login.InvPassAccount;
+                inv.lblPosition.Text = Login.InvPassAccount;
                 inv.Show();
                 this.Hide();
             }

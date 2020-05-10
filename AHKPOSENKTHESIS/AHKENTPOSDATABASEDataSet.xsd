@@ -46,7 +46,7 @@
   <xs:element name="AHKENTPOSDATABASEDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="AHKENTPOSDATABASEDataSet" msprop:Generator_UserDSName="AHKENTPOSDATABASEDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="OrderbyInvoiceNo" msprop:Generator_TableClassName="OrderbyInvoiceNoDataTable" msprop:Generator_TableVarName="tableOrderbyInvoiceNo" msprop:Generator_RowChangedName="OrderbyInvoiceNoRowChanged" msprop:Generator_TablePropName="OrderbyInvoiceNo" msprop:Generator_RowDeletingName="OrderbyInvoiceNoRowDeleting" msprop:Generator_RowChangingName="OrderbyInvoiceNoRowChanging" msprop:Generator_RowEvHandlerName="OrderbyInvoiceNoRowChangeEventHandler" msprop:Generator_RowDeletedName="OrderbyInvoiceNoRowDeleted" msprop:Generator_RowClassName="OrderbyInvoiceNoRow" msprop:Generator_UserTableName="OrderbyInvoiceNo" msprop:Generator_RowEvArgName="OrderbyInvoiceNoRowChangeEvent">
+        <xs:element name="OrderbyInvoiceNo" msprop:Generator_TableClassName="OrderbyInvoiceNoDataTable" msprop:Generator_TableVarName="tableOrderbyInvoiceNo" msprop:Generator_TablePropName="OrderbyInvoiceNo" msprop:Generator_RowDeletingName="OrderbyInvoiceNoRowDeleting" msprop:Generator_RowChangingName="OrderbyInvoiceNoRowChanging" msprop:Generator_RowEvHandlerName="OrderbyInvoiceNoRowChangeEventHandler" msprop:Generator_RowDeletedName="OrderbyInvoiceNoRowDeleted" msprop:Generator_UserTableName="OrderbyInvoiceNo" msprop:Generator_RowChangedName="OrderbyInvoiceNoRowChanged" msprop:Generator_RowEvArgName="OrderbyInvoiceNoRowChangeEvent" msprop:Generator_RowClassName="OrderbyInvoiceNoRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
@@ -108,6 +108,7 @@
               <xs:element name="billaddress" msprop:Generator_ColumnVarNameInTable="columnbilladdress" msprop:Generator_ColumnPropNameInRow="billaddress" msprop:Generator_ColumnPropNameInTable="billaddressColumn" msprop:Generator_UserColumnName="billaddress" type="xs:string" minOccurs="0" />
               <xs:element name="days" msprop:Generator_ColumnVarNameInTable="columndays" msprop:Generator_ColumnPropNameInRow="days" msprop:Generator_ColumnPropNameInTable="daysColumn" msprop:Generator_UserColumnName="days" type="xs:string" minOccurs="0" />
               <xs:element name="duedate" msprop:Generator_ColumnVarNameInTable="columnduedate" msprop:Generator_ColumnPropNameInRow="duedate" msprop:Generator_ColumnPropNameInTable="duedateColumn" msprop:Generator_UserColumnName="duedate" type="xs:string" minOccurs="0" />
+              <xs:element name="remarks" msprop:Generator_ColumnVarNameInTable="columnremarks" msprop:Generator_ColumnPropNameInRow="remarks" msprop:Generator_ColumnPropNameInTable="remarksColumn" msprop:Generator_UserColumnName="remarks" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

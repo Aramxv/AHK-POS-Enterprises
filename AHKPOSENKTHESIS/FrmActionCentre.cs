@@ -25,14 +25,9 @@ namespace AHKPOSENKTHESIS
             cn = new SqlConnection(dbcon.MyConnection());
         }
 
-        private void BtnUserAccount_Click(object sender, EventArgs e)
+        // Show the change password dialog
+        private void BtnChangePass_Click_1(object sender, EventArgs e)
         {
-
-        }
-
-        private void BtnChangePass_Click(object sender, EventArgs e)
-        {
-           
             FrmChangePassword change = new FrmChangePassword();
             change.ShowDialog();
         }

@@ -246,39 +246,39 @@ namespace AHKPOSENKTHESIS
             }
             else if (colName == "Cancel")
             {
-                if (MessageBox.Show("Are you sure you want to Cancel this Invoice? Once this done, You can never get the Invoice back!", "Cancelling Invoice", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    FrmCancelInvoice cancel = new FrmCancelInvoice(this);
+                //if (MessageBox.Show("Are you sure you want to Cancel this Invoice? Once this done, You can never get the Invoice back!", "Cancelling Invoice", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                //{
+                //    //FrmCancelInvoice cancel = new FrmCancelInvoice(this);
 
-                    cancel.lblID.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-                    cancel.lblInvoiceNo.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
-                    cancel.txtCustomer.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
-                    cancel.txtAddress.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
-                    cancel.cbxPayment.Text = dataGridView1.Rows[e.RowIndex].Cells[10].Value.ToString();
-                    cancel.Dmdays.Text = dataGridView1.Rows[e.RowIndex].Cells[11].Value.ToString();
-                    cancel.txtBilling.Text = dataGridView1.Rows[e.RowIndex].Cells[12].Value.ToString();
-                    cancel.lblSalesTotal.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
-                    cancel.lblDiscount.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
-                    cancel.lblVAT.Text = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
-                    cancel.lblVatable.Text = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
-                    cancel.lblTotalAmount.Text = dataGridView1.Rows[e.RowIndex].Cells[9].Value.ToString();
-                    cancel.dataGridView1.Rows.Clear();
+                //    //cancel.lblID.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+                //    //cancel.lblInvoiceNo.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+                //    //cancel.txtCustomer.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+                //    //cancel.txtAddress.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+                //    //cancel.cbxPayment.Text = dataGridView1.Rows[e.RowIndex].Cells[10].Value.ToString();
+                //    //cancel.Dmdays.Text = dataGridView1.Rows[e.RowIndex].Cells[11].Value.ToString();
+                //    //cancel.txtBilling.Text = dataGridView1.Rows[e.RowIndex].Cells[12].Value.ToString();
+                //    //cancel.lblSalesTotal.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
+                //    //cancel.lblDiscount.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
+                //    //cancel.lblVAT.Text = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
+                //    //cancel.lblVatable.Text = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
+                //    //cancel.lblTotalAmount.Text = dataGridView1.Rows[e.RowIndex].Cells[9].Value.ToString();
+                //    //cancel.dataGridView1.Rows.Clear();
 
-                    int i = 0;
-                    cn.Open();
-                    cm = new SqlCommand("SELECT * FROM tblInvoiceOrder WHERE invoiceno like '" + dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString() + "'", cn);
-                    dr = cm.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        i++;
-                        cancel.dataGridView1.Rows.Add(i, dr[0].ToString(), dr[7].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString(), dr[8].ToString(), dr[9].ToString());
-                    }
-                    cn.Close();
-                    //Compute automatically the amount of the ordered products
-                    cancel.txtUsername.Text = FrmMain1.PassCanName;
-                    cancel.GetOrderTotal();
-                    cancel.Show();
-                }
+                //    int i = 0;
+                //    cn.Open();
+                //    cm = new SqlCommand("SELECT * FROM tblInvoiceOrder WHERE invoiceno like '" + dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString() + "'", cn);
+                //    dr = cm.ExecuteReader();
+                //    while (dr.Read())
+                //    {
+                //        i++;
+                //        cancel.dataGridView1.Rows.Add(i, dr[0].ToString(), dr[7].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString(), dr[8].ToString(), dr[9].ToString());
+                //    }
+                //    cn.Close();
+                //    //Compute automatically the amount of the ordered products
+                //    cancel.txtUsername.Text = FrmMain1.PassCanName;
+                //    cancel.GetOrderTotal();
+                //    cancel.Show();
+                //}
             }
         }
 
@@ -438,6 +438,11 @@ namespace AHKPOSENKTHESIS
             }
             dr.Close();
             cn.Close();
+        }
+
+        private void cmbCustomer_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

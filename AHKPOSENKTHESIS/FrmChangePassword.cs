@@ -22,7 +22,7 @@ namespace AHKPOSENKTHESIS
             InitializeComponent();
             cn = new SqlConnection(dbcon.MyConnection());
 
-            txtUsername.Text = FrmLogin.InvPassUser;
+            txtUsername.Text = Login.InvPassUser;
         }
 
         public void ClearPassword()
@@ -32,7 +32,8 @@ namespace AHKPOSENKTHESIS
             txtConfirmPass.Clear();
         }
 
-        private void BtnConfirm_Click_1(object sender, EventArgs e)
+
+        private void BtnConfirm_Click(object sender, EventArgs e)
         {
             FrmMain2 main = new FrmMain2();
             try
@@ -58,6 +59,7 @@ namespace AHKPOSENKTHESIS
                         cn.Close();
                         MessageBox.Show("Password has been Successfully Changed! You may now continue your work.", "Password Changed", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Dispose();
+                        ClearPassword();
                     }
                 }
             }

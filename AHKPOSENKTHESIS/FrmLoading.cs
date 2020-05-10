@@ -18,41 +18,38 @@ namespace AHKPOSENKTHESIS
         {
             InitializeComponent();
         }
-
       
         private void FrmLoading_Load(object sender, EventArgs e)
         {
           
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
         private void timer1_Tick_1(object sender, EventArgs e)
         {
-            panel2.Width += 50;
-            if (panel2.Width >= 329)
+            panel2.Width += 24;
+            if (panel2.Width >= 769)
             {
                 timer1.Stop();
-                FrmMain1 Ad = new FrmMain1();
-                Ad.lblUsername.Text = FrmLogin.ClickPassName;
-                Ad.lblAccount.Text = FrmLogin.ClickPassAccount;
-                Ad.Show();
+                AdminAdministrator admin = new AdminAdministrator();
+                admin.lblUsername.Text = Login.ClickPassName;
+                admin.lblAccount.Text = Login.ClickPassAccount;
+                admin.Show();
                 this.Hide();
-                
             }
         }
 
         private void timer2_Tick(object sender, EventArgs e)
         {
             panel4.Width += 87;
-            if (panel2.Width >= 329)
+            if (panel2.Width >= 769)
             {
                 panel4.Width = 25;
             }
         }
+
+
+        // icons8.com/preloaders/en/circular - for circular spinners 
+        // unsplash.com/ - for the image 
+
     }
 }

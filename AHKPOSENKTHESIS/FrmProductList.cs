@@ -38,55 +38,55 @@ namespace AHKPOSENKTHESIS
 
         private void BtnAddprod_Click(object sender, EventArgs e)
         {
-            FrmProduct shit = new FrmProduct(this);
+            //FrmProduct shit = new FrmProduct();
 
-            //if the add product button is click 
-            //save button is present in the form
-            shit.BtnSave.Visible = true;
+            ////if the add product button is click 
+            ////save button is present in the form
+            //shit.BtnSave.Visible = true;
 
-            //change the location of save button next to cancel button
-            shit.BtnSave.Location = new System.Drawing.Point(360, 520);
+            ////change the location of save button next to cancel button
+            //shit.BtnSave.Location = new System.Drawing.Point(360, 520);
 
-            //update button is not present in the form
-            shit.BtnUpdate.Visible = false;
-            shit.ShowDialog();
+            ////update button is not present in the form
+            //shit.BtnUpdate.Visible = false;
+            //shit.ShowDialog();
         }
 
         private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            string colName = dataGridView1.Columns[e.ColumnIndex].Name;
-            if (colName == "Edit")
-            {
-                FrmProduct Frp = new FrmProduct(this);
-                Frp.BtnSave.Enabled = false;
-                Frp.BtnUpdate.Enabled = true;
-                Frp.lbl1.Text = "UPDATE PRODUCT";
+            //string colName = dataGridView1.Columns[e.ColumnIndex].Name;
+            //if (colName == "Edit")
+            //{
+            //    FrmProduct Frp = new FrmProduct(this);
+            //    Frp.BtnSave.Enabled = false;
+            //    Frp.BtnUpdate.Enabled = true;
+            //    Frp.lbl1.Text = "UPDATE PRODUCT";
 
-                Frp.lblID.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-                Frp.txtCode.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
-                Frp.txtDesc.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
-                Frp.txtPrice.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
-                Frp.txtCategory.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
-                Frp.txtQuan.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
-                Frp.txtWarnqty.Text = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
+            //    Frp.lblID.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+            //    Frp.txtCode.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+            //    Frp.txtDesc.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+            //    Frp.txtPrice.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
+            //    Frp.txtCategory.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+            //    Frp.txtQuan.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
+            //    Frp.txtWarnqty.Text = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
 
-                LoadShitData();
-                Frp.BtnSave.Visible = false;
-                Frp.BtnUpdate.Visible = true;
-                Frp.ShowDialog();
-            }
-            else if (colName == "Delete")
-            {
-                if (MessageBox.Show("Are you sure you want to delete this Product's Information?", "Deleting Product Information", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    cn.Open();
-                    cm = new SqlCommand("Delete FROM tblProduct WHERE id like '" + dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString() + "'", cn);
-                    cm.ExecuteNonQuery();
-                    cn.Close();
-                    MessageBox.Show("Product's Information Successfully Deleted.", "Deleting Product Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LoadShitData();
-                }
-            }
+            //    LoadShitData();
+            //    Frp.BtnSave.Visible = false;
+            //    Frp.BtnUpdate.Visible = true;
+            //    Frp.ShowDialog();
+            //}
+            //else if (colName == "Delete")
+            //{
+            //    if (MessageBox.Show("Are you sure you want to delete this Product's Information?", "Deleting Product Information", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            //    {
+            //        cn.Open();
+            //        cm = new SqlCommand("Delete FROM tblProduct WHERE id like '" + dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString() + "'", cn);
+            //        cm.ExecuteNonQuery();
+            //        cn.Close();
+            //        MessageBox.Show("Product's Information Successfully Deleted.", "Deleting Product Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //        LoadShitData();
+            //    }
+            //}
         }
 
 

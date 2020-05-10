@@ -52,33 +52,31 @@
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "icons8-product-96.png");
-            this.imageList1.Images.SetKeyName(1, "icons8-about-100.png");
-            this.imageList1.Images.SetKeyName(2, "icons8-ok-100.png");
-            this.imageList1.Images.SetKeyName(3, "icons8-cancel-100.png");
+            this.imageList1.Images.SetKeyName(0, "alertproduct_64px.png");
+            this.imageList1.Images.SetKeyName(1, "alerthigh_importance_64px.png");
+            this.imageList1.Images.SetKeyName(2, "alerttask_completed_64px.png");
+            this.imageList1.Images.SetKeyName(3, "alertcancel_64px.png");
             // 
             // icon
             // 
             this.icon.BackColor = System.Drawing.Color.Transparent;
-            this.icon.Image = ((System.Drawing.Image)(resources.GetObject("icon.Image")));
-            this.icon.Location = new System.Drawing.Point(5, 9);
+            this.icon.Location = new System.Drawing.Point(12, 22);
             this.icon.Name = "icon";
-            this.icon.Size = new System.Drawing.Size(96, 96);
+            this.icon.Size = new System.Drawing.Size(64, 64);
             this.icon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.icon.TabIndex = 0;
             this.icon.TabStop = false;
             // 
             // messages
             // 
-            this.messages.AutoSize = true;
             this.messages.BackColor = System.Drawing.Color.Transparent;
-            this.messages.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.messages.Font = new System.Drawing.Font("Poppins", 8F);
             this.messages.ForeColor = System.Drawing.Color.White;
-            this.messages.Location = new System.Drawing.Point(109, 46);
+            this.messages.Location = new System.Drawing.Point(82, 22);
             this.messages.Name = "messages";
-            this.messages.Size = new System.Drawing.Size(96, 23);
+            this.messages.Size = new System.Drawing.Size(284, 64);
             this.messages.TabIndex = 1;
-            this.messages.Text = "Message";
+            this.messages.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // BtnClose
             // 
@@ -86,9 +84,9 @@
             this.BtnClose.BackColor = System.Drawing.Color.Transparent;
             this.BtnClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnClose.Image = ((System.Drawing.Image)(resources.GetObject("BtnClose.Image")));
-            this.BtnClose.Location = new System.Drawing.Point(380, 4);
+            this.BtnClose.Location = new System.Drawing.Point(368, 4);
             this.BtnClose.Name = "BtnClose";
-            this.BtnClose.Size = new System.Drawing.Size(24, 24);
+            this.BtnClose.Size = new System.Drawing.Size(36, 36);
             this.BtnClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.BtnClose.TabIndex = 2;
             this.BtnClose.TabStop = false;
@@ -119,8 +117,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(42)))), ((int)(((byte)(61)))));
-            this.ClientSize = new System.Drawing.Size(413, 115);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(60)))), ((int)(((byte)(78)))));
+            this.ClientSize = new System.Drawing.Size(413, 109);
             this.Controls.Add(this.BtnClose);
             this.Controls.Add(this.messages);
             this.Controls.Add(this.icon);

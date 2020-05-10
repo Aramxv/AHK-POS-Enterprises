@@ -40,13 +40,15 @@ namespace AHKPOSENKTHESIS
             ShowInvoiceInFront();
 
             PassAdminName = lblUsername.Text;
+            PassAdminName = lblName.Text;
             PassAccountType = lblAccount.Text;
+            PassAccountType = lblPosition.Text;
         }
 
         //Control Box
         private void BtnClose_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Shutting down the AHK POSIM. Confirm?", "Close Application", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            if (MessageBox.Show("Are you sure you want to exit Application?", "Exit Application", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk) == DialogResult.Yes)
             {
                 System.Windows.Forms.Application.Exit();
             }
@@ -88,11 +90,12 @@ namespace AHKPOSENKTHESIS
             //Container 1
             FrmCreateNewInvoice XXL = new FrmCreateNewInvoice();  //Set a variable to call the form
             XXL.Size = Container1.Size;
-            XXL.TopLevel = false;                           //Make the toplevel = 0
-            Container1.Controls.Clear();                    //Clear the Container first (Para kung may laman matatanggal muna bago mo ilagay kung anung form man ilalagay mo)
+            XXL.TopLevel = false;                                //Make the toplevel = 0
+            Container1.Controls.Clear();                         //Clear the Container first (Para kung may laman matatanggal muna bago mo ilagay kung anung form man ilalagay mo)
             Container1.Controls.Add(XXL);
-            XXL.BringToFront();                             //Bring the form in front of the other peripherals
-            XXL.Show();                                     //Show the form
+            XXL.BringToFront();                                  //Bring the form in front of the other peripherals
+            XXL.LoadCustomersFromDatabaseToCustomerCombobox();   // Populate the Customer Combobox with Customer name in the database
+            XXL.Show();                                          //Show the form
 
             //Indicators
             Indicator1.Visible = true;  //1
@@ -122,7 +125,6 @@ namespace AHKPOSENKTHESIS
             //so, we can record the name of the invoicer who process the order.
             PasslblName = lblUsername.Text;
 
-
             //Container 1
             FrmCreateNewInvoice XXL = new FrmCreateNewInvoice();  //Set a variable to call the form
             XXL.Size = Container1.Size;
@@ -140,7 +142,7 @@ namespace AHKPOSENKTHESIS
             Indicator5.Visible = false; //0
             Indicator6.Visible = false; //0
             Indicator7.Visible = false; //0
-            IndicatorLogout.Visible = false;
+
         }
 
         private void BtnProducts_Click(object sender, EventArgs e)
@@ -163,11 +165,18 @@ namespace AHKPOSENKTHESIS
             Indicator2.Visible = true;  //1
             Indicator3.Visible = false; //0
             Indicator4.Visible = false; //0
-            Indicator5.Visible = false; //0
+            Indicator5.Visible = true;  //1
             Indicator6.Visible = false; //0
             Indicator7.Visible = false; //0
-            IndicatorLogout.Visible = false;
 
+            // Show the Products list 
+            Frm2SeeProducts CC = new Frm2SeeProducts();
+            CC.Size = Container1.Size;
+            CC.TopLevel = false;
+            Container1.Controls.Clear();
+            Container1.Controls.Add(CC);
+            CC.BringToFront();
+            CC.Show();
         }
 
         private void BtnRecords_Click(object sender, EventArgs e)
@@ -194,13 +203,16 @@ namespace AHKPOSENKTHESIS
             Indicator3.Visible = true;  //1
             Indicator4.Visible = false; //0
             Indicator5.Visible = false; //0
-            Indicator6.Visible = false; //0
+            Indicator6.Visible = true; //1
             Indicator7.Visible = false; //0
-            IndicatorLogout.Visible = false;
 
-
-            //Containers
+            //Show the Invoice List 
+            Frm2SavedInvoices SV = new Frm2SavedInvoices();
+            SV.TopLevel = false;
             Container1.Controls.Clear();
+            Container1.Controls.Add(SV);
+            SV.BringToFront();
+            SV.Show();
         }
        
         private void BtnSeeProducts_Click(object sender, EventArgs e)
@@ -227,8 +239,6 @@ namespace AHKPOSENKTHESIS
             Indicator6.Visible = false; //0
             Indicator7.Visible = false; //0
             Indicator5.Visible = true; //1
-            IndicatorLogout.Visible = false;
-
 
             Frm2SeeProducts CC = new Frm2SeeProducts();
             CC.Size = Container1.Size;
@@ -266,7 +276,6 @@ namespace AHKPOSENKTHESIS
             Indicator5.Visible = false;
             Indicator6.Visible = true;
             Indicator7.Visible = false; //0
-            IndicatorLogout.Visible = false;
 
             Frm2SavedInvoices SV = new Frm2SavedInvoices();
             SV.TopLevel = false;
@@ -295,8 +304,6 @@ namespace AHKPOSENKTHESIS
             Indicator5.Visible = false; //0
             Indicator6.Visible = false; //0
             Indicator7.Visible = true;  //1
-            IndicatorLogout.Visible = false;
-
 
             //Off the visibility of the Button of see products
             BtnSeeProducts.Visible = false;
@@ -327,8 +334,6 @@ namespace AHKPOSENKTHESIS
             Indicator6.Visible = false; //0
             Indicator7.Visible = false; //0
             Indicator8.Visible = false; //0
-            IndicatorLogout.Visible = false;
-
         }
 
         private void BtnUserAccount_Click(object sender, EventArgs e)
@@ -353,8 +358,6 @@ namespace AHKPOSENKTHESIS
             Indicator6.Visible = false; //0
             Indicator7.Visible = false; //0
             Indicator8.Visible = true;
-            IndicatorLogout.Visible = false;
-
 
             FrmActionCentre act = new FrmActionCentre();
             act.TopLevel = false;
@@ -364,29 +367,6 @@ namespace AHKPOSENKTHESIS
             act.Show();
 
          
-        }
-
-        private void BtnLogOut_Click(object sender, EventArgs e)
-        {
-            //light the indicator
-            IndicatorLogout.Visible = true;
-
-            if (MessageBox.Show("Are you sure you want to Log out?", "Logging Out", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)==DialogResult.Yes)
-            {
-                //Terminate the application
-                //System.Windows.Forms.Application.Exit();
-                this.Dispose();
-
-                //Return to the login form
-                FrmLogin login = new FrmLogin();
-                login.ShowDialog();
-            }
-            else
-            {
-                this.Activate();
-                IndicatorLogout.Visible = false;
-
-            }
         }
 
         private void BtnBackAdminMode_Click(object sender, EventArgs e)
@@ -443,10 +423,73 @@ namespace AHKPOSENKTHESIS
             {
                 BtnUserAccount_Click(sender, e);
             }
-            else if (e.KeyCode == Keys.Escape)
+        }
+
+        private void BtnAvatar_Click(object sender, EventArgs e)
+        {
+            if (AvatarPanel.Visible == false)
             {
-                BtnLogOut_Click(sender, e);
+                AvatarPanel.Visible = true;
             }
+            else
+            {
+                AvatarPanel.Visible = false;
+            }
+        }
+
+        private void panel1_Click(object sender, EventArgs e)
+        {
+            if (AvatarPanel.Visible == true)
+            {
+                AvatarPanel.Visible = false;
+            }
+            else
+            {
+                AvatarPanel.Visible = false;
+            }
+        }
+
+        private void Container1_Click(object sender, EventArgs e)
+        {
+            if (AvatarPanel.Visible == true)
+            {
+                AvatarPanel.Visible = false;
+            }
+            else
+            {
+                AvatarPanel.Visible = false;
+            }
+        }
+
+        private void BtnOpLogOut_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to Log out?", "Logging Out", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                //Terminate the application
+                //System.Windows.Forms.Application.Exit();
+                this.Dispose();
+
+                //Return to the login form
+                Login login = new Login();
+                login.ShowDialog();
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        // Show the Change password dialog 
+        private void BtnOpChangePass_Click(object sender, EventArgs e)
+        {
+            FrmChangePassword pass = new FrmChangePassword();
+            pass.Show();
+        }
+
+        private void BtnOpUserProf_Click(object sender, EventArgs e)
+        {
+            FrmUserProfile profile = new FrmUserProfile();
+            profile.ShowDialog();
         }
     }
 }

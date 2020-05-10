@@ -207,9 +207,9 @@ namespace AHKPOSENKTHESIS
             var chart = TopSellingChart;
 
             TopSellingChart.Visible = true;
-            
 
-            // set series Xvalue base on value of Sorting 
+
+            // set series Xvalue base on value of Sorting
             chart.Series[0].XValueMember = "proddescrip";
             chart.Series[0].IsXValueIndexed = true;
             chart.Series[0].LabelAngle = 45;

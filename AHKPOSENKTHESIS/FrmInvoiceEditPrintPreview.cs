@@ -13,9 +13,9 @@ namespace AHKPOSENKTHESIS
 {
     public partial class FrmInvoiceEditPrintPreview : Form
     {
-        Frm2EditInvoices edit;
+        AdminUpdateInvoice edit;
 
-        public FrmInvoiceEditPrintPreview(Frm2EditInvoices idit)
+        public FrmInvoiceEditPrintPreview(AdminUpdateInvoice idit)
         {
             InitializeComponent();
             edit = idit;

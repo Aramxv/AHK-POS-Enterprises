@@ -42,11 +42,11 @@ namespace AHKPOSENKTHESIS
 
         private void BtnAddprod_Click(object sender, EventArgs e)
         {
-            FrmCategory cat = new FrmCategory(this);
-            cat.BtnSave.Visible = true;
-            cat.BtnSave.Location = new System.Drawing.Point(394, 159);
-            cat.BtnUpdate.Visible = false;
-            cat.ShowDialog();
+            //FrmCategory cat = new FrmCategory();
+            //cat.BtnSave.Visible = true;
+            //cat.BtnSave.Location = new System.Drawing.Point(394, 159);
+            //cat.BtnUpdate.Visible = false;
+            //cat.ShowDialog();
         }
 
         private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -54,13 +54,13 @@ namespace AHKPOSENKTHESIS
             string colName = dataGridView1.Columns[e.ColumnIndex].Name;
             if (colName == "Edit")
             {
-                FrmCategory frm = new FrmCategory(this);
-                frm.txtCategory.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
-                frm.lblID.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-                frm.BtnSave.Visible = false;
-                frm.BtnUpdate.Visible = true;
-                frm.lbl1.Text = "UPDATE CATEGORY";
-                frm.ShowDialog();
+                //FrmCategory frm = new FrmCategory(this);
+                //frm.txtCategory.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+                //frm.lblID.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+                //frm.BtnSave.Visible = false;
+                //frm.BtnUpdate.Visible = true;
+                //frm.lbl1.Text = "UPDATE CATEGORY";
+                //frm.ShowDialog();
             }
             else if (colName == "Delete")
             {

@@ -3,7 +3,8 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
-
+using MaterialSkin;
+using MaterialSkin.Controls;
 
 namespace AHKPOSENKTHESIS
 {
@@ -27,6 +28,9 @@ namespace AHKPOSENKTHESIS
         String Pending = "Pending";
         String Paid = "Paid";
 
+        // variable for character counting in remarks and private comment section
+        int remcharcount = 0;
+        int prvcharcount = 0;
 
         public FrmCreateNewInvoice()
         {
@@ -35,6 +39,7 @@ namespace AHKPOSENKTHESIS
             this.KeyPreview = true;
 
             bunifuDatepicker1.Value = DateTime.Now;
+            bunifuDatepicker2.Value = DateTime.Now;
 
             DueDateAutomation();
         }
@@ -95,12 +100,12 @@ namespace AHKPOSENKTHESIS
             }
         }
 
-        private void LoadInvoiceRecord()
+        private void InsertDataInInvoiceRecord()
         {
             try
             {
                 cn.Open();
-                cm = new SqlCommand("INSERT INTO tblInvoiceRecords (invoiceno, customer, address, salestotal, discount, vat, vatable, total, payment, days, billaddress, datecreated, duedate, status) VALUES (@invoice, @customer, @address, @sales, @discount, @vat, @vatable, @total, @payment, @days, @billaddress, @date, @duedate, @status)", cn);
+                cm = new SqlCommand("INSERT INTO tblInvoiceRecords (invoiceno, customer, address, salestotal, discount, vat, vatable, total, payment, days, billaddress, datecreated, duedate, status, remarks, prvcomment) VALUES (@invoice, @customer, @address, @sales, @discount, @vat, @vatable, @total, @payment, @days, @billaddress, @date, @duedate, @status, @remarks, @prvcomment)", cn);
                 cm.Parameters.AddWithValue("@invoice", lblInvoiceNo.Text);
                 cm.Parameters.AddWithValue("@customer", txtCustomer.Text);
                 cm.Parameters.AddWithValue("@address", txtAddress.Text);
@@ -115,6 +120,8 @@ namespace AHKPOSENKTHESIS
                 cm.Parameters.AddWithValue("@date", bunifuDatepicker1.Value);
                 cm.Parameters.AddWithValue("@duedate", DueDateCalendar.Value);
                 cm.Parameters.AddWithValue("@status", txtStatus.Text);
+                cm.Parameters.AddWithValue("@remarks", txtRemarks.Text);
+                cm.Parameters.AddWithValue("@prvcomment", txtPrvComment.Text);
                 cm.ExecuteNonQuery();
                 cn.Close();
             }
@@ -191,16 +198,38 @@ namespace AHKPOSENKTHESIS
         // Clear the texboxes values
         private void Clear()
         {
-            txtCustomer.Clear();
+            // dropdowns
+            txtCustomer.Text = "";
+            Dmdays.Text = "0";
+            cbxPayment.Text = "Cash";
+
+            //textboxes
             txtAddress.Clear();
             txtBilling.Clear();
+            txtPrvComment.Clear();
+            txtRemarks.Clear();
+
+            // checkboxes
             ChkSameBill.Checked = false;
             CheckSameAdd.Checked = false;
-            cbxPayment.Text = "Cash";
-            Dmdays.Text = "0";
         }
 
-        public void UpdateInvoiceRecords()
+        // This method is to bind the combobox with database 
+        public void LoadCustomersFromDatabaseToCustomerCombobox()
+        {
+            txtCustomer.Items.Clear();
+            cn.Open();
+            cm = new SqlCommand("SELECT customername FROM tblCustomer WHERE customername like '%" + txtCustomer.Text + "%' order by customername asc", cn);
+            dr = cm.ExecuteReader();
+            while (dr.Read())
+            {
+                txtCustomer.Items.Add(dr[0].ToString());
+            }
+            dr.Close();
+            cn.Close();
+        }
+
+        public void UpdateDataInInvoiceRecords()
         {
             // Update the tblInvoicerecords columns set SalesTotal, Discount, VAT, Vatable, Total and Dateupdated.
             cn.Open();
@@ -217,14 +246,12 @@ namespace AHKPOSENKTHESIS
         // Function for enabling the BOX image in the form
         public void EnableProductSelect()
         {
-            label9.Enabled = true;
             BtnSelectProduct.Enabled = true;
         }
 
         private void CustomerFocus()
         {
             txtCustomer.Focus();
-            waterMark1.Enabled = true;
         }
 
         public void Enabletextboxes()
@@ -235,13 +262,17 @@ namespace AHKPOSENKTHESIS
 
         public void EnableContinue()
         {
+            txtCustomer.Enabled = true;
             bunifuDatepicker1.Enabled = true;
+            bunifuDatepicker2.Enabled = true;
             bunifuCustomLabel1.Enabled = true;
             BtnCreateInvoice.Enabled = true;
             CheckSameAdd.Checked = true;
             ChkSameBill.Enabled = true;
             CheckSameAdd.Enabled = true;
             txtStatus.Enabled = true;
+            txtRemarks.Enabled = true;
+            txtPrvComment.Enabled = true;
         }
 
         public void PassTheUsername()
@@ -256,7 +287,7 @@ namespace AHKPOSENKTHESIS
             // Edit Columns > DataGridViewImageColumn > Unbound Column Properties > Design > Name
             if (colName == "Delete")
             {
-                if (MessageBox.Show("Are you sure you want to Remove this Item?", "Creating New Invoice", MessageBoxButtons.OK, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Are you sure you want to Remove this Item?", "Creating New Invoice", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     cn.Open();
                     cm = new SqlCommand("DELETE FROM tblInvoiceOrder WHERE id like '" + dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString() + "'", cn);
@@ -266,6 +297,53 @@ namespace AHKPOSENKTHESIS
                     // Prompt a side popup notification 
                     Alert.Show("Item Removed", Alert.AlertType.success);
                     LoadInvoiceOrder();
+                }
+            }
+            else if (colName == "ccAdd")
+            {
+                int i = 0;
+                cn.Open();
+                cm = new SqlCommand("SELECT sum(prodqty) as qty FROM tblProduct WHERE prodcode like '" + dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString() + "' group by prodcode", cn);
+                i = int.Parse(cm.ExecuteScalar().ToString());
+                cn.Close();
+
+                if (int.Parse(dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString()) < i)
+                {
+                    cn.Open();
+                    cm = new SqlCommand("UPDATE tblInvoiceOrder SET qty = qty + '" + int.Parse(txtQty.Text) + "' WHERE invoiceno like '" + lblInvoiceNo.Text + "' and prodcode like '" + dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString() + "'", cn);
+                    cm.ExecuteNonQuery();
+                    cn.Close();
+
+                    LoadInvoiceOrder();
+                }
+                else
+                {
+                    MessageBox.Show("Remaining Quantity on hand is " + i + "!", "Out of Stock", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+            }
+            else if (colName == "ccLess")
+            {
+                int i = 0;
+                cn.Open();
+                cm = new SqlCommand("SELECT sum(qty) as qty FROM tblInvoiceOrder WHERE prodcode like '" + dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString() + "' and invoiceno like '" + lblInvoiceNo.Text + "' group by prodcode", cn);
+                i = int.Parse(cm.ExecuteScalar().ToString());
+                cn.Close();
+
+                // if you somehow change the condition to ( i > 0 ) the row will dissappear if the quantity is equal to 1 and you still cliked the less quantity button 
+                if ( i > 1 )
+                {
+                    cn.Open();
+                    cm = new SqlCommand("UPDATE tblInvoiceOrder SET qty = qty - '" + int.Parse(txtQty.Text) + "' WHERE invoiceno like '" + lblInvoiceNo.Text + "' and prodcode like '" + dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString() + "'", cn);
+                    cm.ExecuteNonQuery();
+                    cn.Close();
+
+                    LoadInvoiceOrder();
+                }
+                else
+                {
+                    MessageBox.Show("Remaining Quantity ordered is " + i + "!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    return;
                 }
             }
         }
@@ -280,6 +358,7 @@ namespace AHKPOSENKTHESIS
 
         private void FrmCreateNewInvoice_Load(object sender, EventArgs e)
         {
+            // DGV Style
             dataGridView1.BorderStyle = BorderStyle.None;
             dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
             dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
@@ -293,6 +372,9 @@ namespace AHKPOSENKTHESIS
 
             // This line of code here is attaching the text of lblUsername in the static string of FrmMain2
             lblUsername.Text = FrmMain2.PasslblName;
+
+            // Populate the Customer Combobox with Customer name in the database
+            LoadCustomersFromDatabaseToCustomerCombobox();  
         }
 
         // Autocomplete textbox code 
@@ -378,22 +460,17 @@ namespace AHKPOSENKTHESIS
             bunifuCustomLabel1.Text = bunifuDatepicker1.Value.ToString("MMM-dd-yyyy");
         }
 
-        private void FrmCreateNewInvoice_KeyDown(object sender, KeyEventArgs e)
+        // Print the value of the datetimepicker
+        private void bunifuDatepicker2_onValueChanged(object sender, EventArgs e)
         {
-           
+            bunifuCustomLabel2.Text = bunifuDatepicker2.Value.ToString("MMM-dd-yyyy");
         }
 
-        // Select button for selecting or looking for product list
-        private void BtnSelectProduct_Click(object sender, EventArgs e)
+        private void FrmCreateNewInvoice_KeyDown(object sender, KeyEventArgs e)
         {
-            if (lblInvoiceNo.Text == "00000000000")
-            {
-                return;
-            }
-            FrmLookUp look = new FrmLookUp(this);
-            look.LoadShitData();
-            look.ShowDialog();
+
         }
+
 
         // Create New Invoice and Enable the textboxes in Customer Infomation
         private void BtnNewInvoice_Click_1(object sender, EventArgs e)
@@ -404,13 +481,14 @@ namespace AHKPOSENKTHESIS
             }
             else
             {
-                Alert.Show("New Invoice is on Process", Alert.AlertType.info);
+                Alert.Show("New Invoice is on Process", Alert.AlertType.success);
                 GetInvoiceNo();
                 Enabletextboxes();
                 DueDateAutomation();
                 EnableContinue();
                 PassTheUsername();
                 Clear();
+                LoadCustomersFromDatabaseToCustomerCombobox();
             }
         }
 
@@ -440,7 +518,7 @@ namespace AHKPOSENKTHESIS
                     Alert.Show("Customer Exist", Alert.AlertType.success); // Show side popup notification
                     cn.Close();
                     GetInvoiceNo();
-                    LoadInvoiceRecord();
+                    InsertDataInInvoiceRecord();
                     EnableProductSelect();
                     CustomerFocus();
                 }
@@ -461,7 +539,7 @@ namespace AHKPOSENKTHESIS
                 cn.Close();
 
                 GetInvoiceNo();
-                LoadInvoiceRecord();
+                InsertDataInInvoiceRecord();
                 EnableProductSelect();
                 CustomerFocus();
             }
@@ -473,9 +551,45 @@ namespace AHKPOSENKTHESIS
 
         private void lblSalesTotal_MouseHover(object sender, EventArgs e)
         {
-            
+
         }
 
+        private void BtnSaveAsDraft_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtCustomer.Text == String.Empty || txtAddress.Text == String.Empty)
+                {
+                    MessageBox.Show("Please Fill the Customer's Name and Address to Create a New Invoice.", "Saving As Draft", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    return;
+                }
+                else
+                {
+                    for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                    {
+                        // SQL<tblInvoiceOrder> Update the status to 'Draft' after the draft processed
+                        cn.Open();
+                        cm = new SqlCommand("UPDATE tblInvoiceOrder SET status = 'Draft' WHERE id = '" + dataGridView1.Rows[i].Cells[1].Value.ToString() + "'", cn);
+                        cm.ExecuteNonQuery();
+                        cn.Close();
+
+                        // SQL<tblInvoiceRecords> Update the status to 'Draft  after the draft processed
+                        cn.Open();
+                        cm = new SqlCommand("UPDATE tblInvoiceRecords SET status = 'Draft' WHERE invoiceno like '" + lblInvoiceNo.Text + "' and customer like '" + txtCustomer.Text + "' and address like '" + txtAddress.Text + "'", cn);
+                        cm.ExecuteNonQuery();
+                        cn.Close();
+                    }
+                    Alert.Show("Saved as Draft Successfully", Alert.AlertType.success);
+                    UpdateDataInInvoiceRecords();
+                    LoadInvoiceOrder();
+                }
+            }
+            catch (Exception ex)
+            {
+                cn.Close();
+                MessageBox.Show(ex.Message, "Application Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
         // Save the invoice and store it in invoice list
         private void BtnRecord_Click_1(object sender, EventArgs e)
@@ -506,7 +620,7 @@ namespace AHKPOSENKTHESIS
                         cn.Close();
                     }
                     Alert.Show("Saved Successfully", Alert.AlertType.success);
-                    UpdateInvoiceRecords();
+                    UpdateDataInInvoiceRecords();
                     LoadInvoiceOrder();
                 }
             }
@@ -549,7 +663,57 @@ namespace AHKPOSENKTHESIS
                     Alert.Show("Saved Successfully", Alert.AlertType.success);
                     FrmInvoicePreview inv = new FrmInvoicePreview(this);
                     inv.ShowDialog();
-                    UpdateInvoiceRecords();
+                    UpdateDataInInvoiceRecords();
+                    LoadInvoiceOrder();
+                }
+            }
+            catch (Exception ex)
+            {
+                cn.Close();
+                MessageBox.Show(ex.Message, "Application Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // Save the invoice and store it in invoice list
+        // Show the print preview of the invoice receipt
+        private void bunifuThinButton23_Click_1(object sender, EventArgs e)
+        {
+            
+        }
+
+        // Save the invoice and store it in invoice list
+        // Show the print preview of the invoice receipt
+        private void BtnSavePrint_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtCustomer.Text == String.Empty || txtAddress.Text == String.Empty)
+                {
+                    MessageBox.Show("Please Fill the Customer's Name and Address to Create a New Invoice.", "Printing Invoice", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    return;
+                }
+                else
+                {
+                    for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                    {
+                        // SQL<tblProduct> Update the quantity of the onhand product;  
+                        // SQL<tblProduct> Subtract the quantity of ordered product in datagrid 
+                        // For the sake of the inventory purposes
+                        cn.Open();
+                        cm = new SqlCommand("UPDATE tblProduct SET prodqty = prodqty - '" + int.Parse(dataGridView1.Rows[i].Cells[2].Value.ToString()) + "' WHERE prodcode = '" + dataGridView1.Rows[i].Cells[3].Value.ToString() + "'", cn);
+                        cm.ExecuteNonQuery();
+                        cn.Close();
+
+                        // SQL<tblInvoiceOrder> Update the status to 'Sold' after the recording procesed
+                        cn.Open();
+                        cm = new SqlCommand("UPDATE tblInvoiceOrder SET status = 'Sold' WHERE id = '" + dataGridView1.Rows[i].Cells[1].Value.ToString() + "'", cn);
+                        cm.ExecuteNonQuery();
+                        cn.Close();
+                    }
+                    Alert.Show("Saved Successfully", Alert.AlertType.success);
+                    FrmInvoicePreview inv = new FrmInvoicePreview(this);
+                    inv.ShowDialog();
+                    UpdateDataInInvoiceRecords();
                     LoadInvoiceOrder();
                 }
             }
@@ -577,49 +741,270 @@ namespace AHKPOSENKTHESIS
             }
         }
 
-        private void waterMark1_TextChanged(object sender, EventArgs e)
+        private void label2_Click(object sender, EventArgs e)
         {
-            try
+
+        }
+
+        private void DescriptionDropDown_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = false;
+        }
+
+        private void panel6_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+        private void BtnBilling_MouseHover(object sender, EventArgs e)
+        {
+
+        }
+
+        // Actions of billing button when clicked
+        private void BtnBilling_Click(object sender, EventArgs e)
+        {
+            // change the forecolor of text to blue Argb(62, 99, 246)
+            BtnBilling.ForeColor = System.Drawing.Color.FromArgb(62, 99, 246);
+            BtnPayment.ForeColor = System.Drawing.Color.FromArgb(181, 190, 198);
+            BtnRemarks.ForeColor = System.Drawing.Color.FromArgb(181, 190, 198);
+            
+            // light indicator
+            IndicatorBilling.Visible = true;
+            IndicatorPayment.Visible = false;
+            IndicatorRemarks.Visible = false;
+
+            // set billin pannel to visible 
+            BillingPanel.Visible = true;
+            PaymentPanel.Visible = false;
+            RemarksPanel.Visible = false;
+
+            // set the location of billing panel
+            BillingPanel.Location = new System.Drawing.Point(876, 102);
+        }
+
+        private void BtnPayment_Click(object sender, EventArgs e)
+        {
+            // change the forecolor of text to blue Argb(62, 99, 246)
+            BtnBilling.ForeColor = System.Drawing.Color.FromArgb(181, 190, 198);
+            BtnPayment.ForeColor = System.Drawing.Color.FromArgb(62, 99, 246);
+            BtnRemarks.ForeColor = System.Drawing.Color.FromArgb(181, 190, 198);
+
+            // light indicator
+            IndicatorBilling.Visible = false;
+            IndicatorPayment.Visible = true;
+            IndicatorRemarks.Visible = false;
+
+            // set billin pannel to visible 
+            BillingPanel.Visible = false;
+            PaymentPanel.Visible = true;
+            RemarksPanel.Visible = false;
+
+            // set the location of billing panel
+            PaymentPanel.Location = new System.Drawing.Point(876, 102);
+        }
+        private void BtnRemarks_Click(object sender, EventArgs e)
+        {
+            // change the forecolor of text to blue Argb(62, 99, 246)
+            BtnBilling.ForeColor = System.Drawing.Color.FromArgb(181, 190, 198);
+            BtnPayment.ForeColor = System.Drawing.Color.FromArgb(181, 190, 198);
+            BtnRemarks.ForeColor = System.Drawing.Color.FromArgb(62, 99, 246);
+
+            // light indicator
+            IndicatorBilling.Visible = false;
+            IndicatorPayment.Visible = false;
+            IndicatorRemarks.Visible = true;
+
+            // set billin pannel to visible 
+            BillingPanel.Visible = false;
+            PaymentPanel.Visible = false;
+            RemarksPanel.Visible = true;
+
+            // set the location of billing panel
+            RemarksPanel.Location = new System.Drawing.Point(876, 102);
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RemarksPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        // Open the window form for adding goods 
+        private void BtnSelectProduct_Click_1(object sender, EventArgs e)
+        {
+            if (lblInvoiceNo.Text == "00000000000")
             {
-                if (waterMark1.Text == String.Empty)
-                {
-                    return;
-                }
-                else
-                {
-                    //AUTOCOMPLETE TEXTBOX BASED ON PRODUCT DESCRIPTION
-                    cn.Open();
-                    cm = new SqlCommand("SELECT proddescrip FROM tblProduct WHERE proddescrip LIKE @name", cn);
-                    cm.Parameters.Add(new SqlParameter("@name", "%" + waterMark1.Text + "%"));
-                    cm.ExecuteNonQuery();
-                    dr = cm.ExecuteReader();
-
-                    AutoCompleteStringCollection com = new AutoCompleteStringCollection();
-                    while (dr.Read())
-                    {
-                        com.Add(dr.GetString(0));
-                    }
-                    waterMark1.AutoCompleteCustomSource = com;
-                    cn.Close();
-
-                    cn.Open();
-                    cm = new SqlCommand("SELECT * FROM tblProduct WHERE proddescrip like '" + waterMark1.Text + "'", cn);
-                    dr = cm.ExecuteReader();
-                    dr.Read();
-                    if (dr.HasRows)
-                    {
-                        FrmQuantity Quantity = new FrmQuantity(this);
-                        Quantity.ProductDetails(dr["prodcode"].ToString(), dr["proddescrip"].ToString(), double.Parse(dr["prodprice"].ToString()), lblInvoiceNo.Text, txtCustomer.Text, int.Parse(dr["prodqty"].ToString()));
-                        Quantity.ShowDialog();
-                    }
-                    cn.Close();
-                }
+                return;
             }
-            catch (Exception ex)
+            FrmLookUp look = new FrmLookUp(this);
+            look.LoadShitData();
+            look.ShowDialog();
+        }
+
+        // Shows the  option panel
+        private void bunifuThinButton25_Click(object sender, EventArgs e)
+        {
+            if (OptionPanel.Visible == false)
             {
-                cn.Close();
-                MessageBox.Show(ex.Message, "Application Error", MessageBoxButtons.OK, MessageBoxIcon.Error); // Prompt a  messagebox to notify the user for an error
+                OptionPanel.Visible = true;
+                OptionPanel.Location = new System.Drawing.Point(1282, 63); // set the location of option panel under option button
+            }
+            else
+            {
+                OptionPanel.Visible = false;
             }
         }
+
+        // Hides the save as panel if the form is clicked
+        private void FrmCreateNewInvoice_Click(object sender, EventArgs e)
+        {
+            if (OptionPanel.Visible == true)
+            {
+                OptionPanel.Visible = false;
+            }
+            else
+            {
+                OptionPanel.Visible = false;
+            }
+        }
+
+        private void BtnCancelInvoice_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Do you want to Cancel this Invoice?", "Confirm Cancel", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                cn.Open();
+                cm = new SqlCommand("DELETE FROM tblInvoiceRecords WHERE invoiceno like '" + lblInvoiceNo.Text + "' and customer like '" + txtCustomer.Text + "'", cn);
+                cm.ExecuteNonQuery();
+                cn.Close();
+
+                cn.Open();
+                cm = new SqlCommand("DELETE FROM tblInvoiceOrder WHERE invoiceno like '" + lblInvoiceNo.Text + "' and customer like '" + txtCustomer.Text + "'", cn);
+                cm.ExecuteNonQuery();
+                cn.Close();
+            }
+            else
+            {
+                return;
+            }
+            Clear();
+            LoadInvoiceOrder();
+            Alert.Show("Invoice Cancelled", Alert.AlertType.critical);
+        }
+
+        // It will fetch data from database when combobox index is change
+        // If you select a customer's name in combobox, shipping address and billing address will fetch in to other textboxes
+        private void txtCustomer_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string billaddress;
+            string shippingaddress;
+
+            cn.Open();
+            cm = new SqlCommand("SELECT * FROM tblCustomer WHERE customername =@customer", cn);
+            cm.Parameters.AddWithValue("@customer", txtCustomer.Text);
+            dr = cm.ExecuteReader();
+            while (dr.Read())
+            {
+                shippingaddress = (string)dr["address"].ToString();
+                txtAddress.Text = shippingaddress;
+
+                billaddress = (string)dr["billaddress"].ToString();
+                txtBilling.Text = billaddress;
+            }
+            cn.Close();
+        }
+
+        private void txtRemarks_TextChanged(object sender, EventArgs e)
+        {
+            remcharcount = txtRemarks.Text.Length;               // simply gettin the current length value of remarks textbox element
+            lblRemCount.Text = remcharcount.ToString() + "/100"; // and convert the integer (int) to string for output
+        }
+
+        private void txtPrvComment_TextChanged(object sender, EventArgs e)
+        {
+            prvcharcount = txtPrvComment.Text.Length;             // simply getting the current length value of private comment textbox element
+            lblPrvCount.Text = prvcharcount.ToString() + "100";   // and convert the integer (int) to string for output
+        }
+
+        // Row count of DGV when a product is added ++ 
+        private void dataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            lblDataRowCount.Text = dataGridView1.Rows.Count.ToString() + " Products";
+        }
+
+        // Row count of DGV when a product is removed --
+        private void dataGridView1_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            lblDataRowCount.Text = dataGridView1.Rows.Count.ToString() + " Products";
+        }
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //private void waterMark1_TextChanged(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        if (waterMark1.Text == String.Empty)
+        //        {
+        //            return;
+        //        }
+        //        else
+        //        {
+        //            //AUTOCOMPLETE TEXTBOX BASED ON PRODUCT DESCRIPTION
+        //            cn.Open();
+        //            cm = new SqlCommand("SELECT proddescrip FROM tblProduct WHERE proddescrip LIKE @name", cn);
+        //            cm.Parameters.Add(new SqlParameter("@name", "%" + waterMark1.Text + "%"));
+        //            cm.ExecuteNonQuery();
+        //            dr = cm.ExecuteReader();
+
+        //            AutoCompleteStringCollection com = new AutoCompleteStringCollection();
+        //            while (dr.Read())
+        //            {
+        //                com.Add(dr.GetString(0));
+        //            }
+        //            waterMark1.AutoCompleteCustomSource = com;
+        //            cn.Close();
+
+        //            cn.Open();
+        //            cm = new SqlCommand("SELECT * FROM tblProduct WHERE proddescrip like '" + waterMark1.Text + "'", cn);
+        //            dr = cm.ExecuteReader();
+        //            dr.Read();
+        //            if (dr.HasRows)
+        //            {
+        //                FrmQuantity Quantity = new FrmQuantity(this);
+        //                Quantity.ProductDetails(dr["prodcode"].ToString(), dr["proddescrip"].ToString(), double.Parse(dr["prodprice"].ToString()), lblInvoiceNo.Text, txtCustomer.Text, int.Parse(dr["prodqty"].ToString()));
+        //                Quantity.ShowDialog();
+        //            }
+        //            cn.Close();
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        cn.Close();
+        //        MessageBox.Show(ex.Message, "Application Error", MessageBoxButtons.OK, MessageBoxIcon.Error); // Prompt a  messagebox to notify the user for an error
+        //    }
+        //}
     }
 }

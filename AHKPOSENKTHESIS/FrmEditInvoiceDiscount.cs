@@ -19,9 +19,9 @@ namespace AHKPOSENKTHESIS
         DatabaseConnection dbcon = new DatabaseConnection();
         SqlDataReader dr;
       
-        Frm2EditInvoices edit;
+        AdminUpdateInvoice edit;
 
-        public FrmEditInvoiceDiscount(Frm2EditInvoices idit)
+        public FrmEditInvoiceDiscount(AdminUpdateInvoice idit)
         {
             InitializeComponent();
             cn = new SqlConnection(dbcon.MyConnection());

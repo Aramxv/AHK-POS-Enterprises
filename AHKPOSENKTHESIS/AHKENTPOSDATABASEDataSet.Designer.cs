@@ -313,6 +313,8 @@ namespace AHKPOSENKTHESIS {
             
             private global::System.Data.DataColumn columnduedate;
             
+            private global::System.Data.DataColumn columnremarks;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public OrderbyInvoiceNoDataTable() {
@@ -484,6 +486,14 @@ namespace AHKPOSENKTHESIS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn remarksColumn {
+                get {
+                    return this.columnremarks;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -535,7 +545,8 @@ namespace AHKPOSENKTHESIS {
                         string payment, 
                         string billaddress, 
                         string days, 
-                        string duedate) {
+                        string duedate, 
+                        string remarks) {
                 OrderbyInvoiceNoRow rowOrderbyInvoiceNoRow = ((OrderbyInvoiceNoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -554,7 +565,8 @@ namespace AHKPOSENKTHESIS {
                         payment,
                         billaddress,
                         days,
-                        duedate};
+                        duedate,
+                        remarks};
                 rowOrderbyInvoiceNoRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowOrderbyInvoiceNoRow);
                 return rowOrderbyInvoiceNoRow;
@@ -601,6 +613,7 @@ namespace AHKPOSENKTHESIS {
                 this.columnbilladdress = base.Columns["billaddress"];
                 this.columndays = base.Columns["days"];
                 this.columnduedate = base.Columns["duedate"];
+                this.columnremarks = base.Columns["remarks"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -640,6 +653,8 @@ namespace AHKPOSENKTHESIS {
                 base.Columns.Add(this.columndays);
                 this.columnduedate = new global::System.Data.DataColumn("duedate", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnduedate);
+                this.columnremarks = new global::System.Data.DataColumn("remarks", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnremarks);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid}, true));
                 this.columnid.AutoIncrement = true;
@@ -1054,6 +1069,22 @@ namespace AHKPOSENKTHESIS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string remarks {
+                get {
+                    try {
+                        return ((string)(this[this.tableOrderbyInvoiceNo.remarksColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'remarks\' in table \'OrderbyInvoiceNo\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOrderbyInvoiceNo.remarksColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsinvoicenoNull() {
                 return this.IsNull(this.tableOrderbyInvoiceNo.invoicenoColumn);
             }
@@ -1218,6 +1249,18 @@ namespace AHKPOSENKTHESIS {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetduedateNull() {
                 this[this.tableOrderbyInvoiceNo.duedateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsremarksNull() {
+                return this.IsNull(this.tableOrderbyInvoiceNo.remarksColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetremarksNull() {
+                this[this.tableOrderbyInvoiceNo.remarksColumn] = global::System.Convert.DBNull;
             }
         }
         

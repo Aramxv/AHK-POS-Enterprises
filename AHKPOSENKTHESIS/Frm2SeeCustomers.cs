@@ -93,5 +93,15 @@ namespace AHKPOSENKTHESIS
             dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(20, 25, 72);
             dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
         }
+
+        private void dataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            lblCustomerRowCount.Text = dataGridView1.Rows.Count.ToString() + " Products Shown";
+        }
+
+        private void dataGridView1_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            lblCustomerRowCount.Text = dataGridView1.Rows.Count.ToString() + " Products Shown";
+        }
     }
 }

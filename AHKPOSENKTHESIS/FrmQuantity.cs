@@ -27,6 +27,8 @@ namespace AHKPOSENKTHESIS
             InitializeComponent();
             cn = new SqlConnection(dbcon.MyConnection());
             F2 = frm;
+
+            this.KeyPreview = true;
         }
 
         private void TxtQty_TextChanged(object sender, EventArgs e)
@@ -104,8 +106,6 @@ namespace AHKPOSENKTHESIS
                         cm.ExecuteNonQuery();
                         cn.Close();
 
-                        F2.waterMark1.Clear();
-                        F2.waterMark1.Focus();
                         F2.LoadInvoiceOrder();
                         this.Dispose();
                     }
@@ -137,8 +137,6 @@ namespace AHKPOSENKTHESIS
                         cm.ExecuteNonQuery();
                         cn.Close();
 
-                        F2.waterMark1.Clear();
-                        F2.waterMark1.Focus();
                         F2.LoadInvoiceOrder();
                         this.Dispose();
                     }
@@ -155,6 +153,14 @@ namespace AHKPOSENKTHESIS
         private void BtnClose_Click_1(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void FrmQuantity_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Dispose();
+            }
         }
     }
 }

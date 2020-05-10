@@ -19,7 +19,7 @@ namespace AHKPOSENKTHESIS
         DatabaseConnection dbcon = new DatabaseConnection();
         SqlDataReader dr;
 
-        private int rowindex = 0;
+        
 
         private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -60,12 +60,12 @@ namespace AHKPOSENKTHESIS
 
         private void BtnAddprod_Click(object sender, EventArgs e)
         {
-            FrmCustomer cust = new FrmCustomer(this);
-            cust.BtnSave.Visible = true;
-            cust.BtnSave.Location = new System.Drawing.Point(324, 658);
-            cust.BtnUpdate.Visible = false;
-          //  cust.LoadRoutes(); 
-            cust.Show();
+          //  FrmCustomer cust = new FrmCustomer(this);
+          //  cust.BtnSave.Visible = true;
+          //  cust.BtnSave.Location = new System.Drawing.Point(324, 658);
+          //  cust.BtnUpdate.Visible = false;
+          ////  cust.LoadRoutes(); 
+          //  cust.Show();
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
@@ -75,41 +75,41 @@ namespace AHKPOSENKTHESIS
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            string colName = dataGridView1.Columns[e.ColumnIndex].Name;
-             if (colName == "Edit")
-             {
-                FrmCustomer c = new FrmCustomer(this);
+            //string colName = dataGridView1.Columns[e.ColumnIndex].Name;
+            // if (colName == "Edit")
+            // {
+            //    FrmCustomer c = new FrmCustomer(this);
 
-                c.lblID.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-                c.txtCustomerName.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
-                c.txtOwnerName.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
-                c.txtAddress.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
-                c.txtRoute.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
-                c.txtPhone.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
-                c.txtTelephone.Text = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
-                c.txtEmail.Text = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
-                c.cbxActive.Text = dataGridView1.Rows[e.RowIndex].Cells[9].Value.ToString();
+            //    c.lblID.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+            //    c.txtCustomerName.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+            //    c.txtOwnerName.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+            //    c.txtAddress.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+            //    c.txtRoute.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
+            //    c.txtPhone.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
+            //    c.txtTelephone.Text = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
+            //    c.txtEmail.Text = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
+            //    c.cbxActive.Text = dataGridView1.Rows[e.RowIndex].Cells[9].Value.ToString();
 
-                //Hide the Save Button
-                c.BtnSave.Visible = false;
+            //    //Hide the Save Button
+            //    c.BtnSave.Visible = false;
 
-                //Show Only the Update Button
-                c.BtnUpdate.Visible = true;
-                c.lbl1.Text = "UPDATE CUSTOMER INFORMATION";
-                c.Show();
-             }
-            else if (colName == "Delete")
-            {
-                if (MessageBox.Show("Are you sure you want to delete the Customer Information?", "Customer Module", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-                {
-                    cn.Open();
-                    cm = new SqlCommand("DELETE FROM tblCustomer WHERE id like '" + dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString() + "'", cn);
-                    cm.ExecuteNonQuery();
-                    cn.Close();
-                    MessageBox.Show("Customer Information has been successfully Deleted", "Customer Module", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LoadCustomersInfo();
-                }
-            }
+            //    //Show Only the Update Button
+            //    c.BtnUpdate.Visible = true;
+            //    c.lbl1.Text = "UPDATE CUSTOMER INFORMATION";
+            //    c.Show();
+            // }
+            //else if (colName == "Delete")
+            //{
+            //    if (MessageBox.Show("Are you sure you want to delete the Customer Information?", "Customer Module", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            //    {
+            //        cn.Open();
+            //        cm = new SqlCommand("DELETE FROM tblCustomer WHERE id like '" + dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString() + "'", cn);
+            //        cm.ExecuteNonQuery();
+            //        cn.Close();
+            //        MessageBox.Show("Customer Information has been successfully Deleted", "Customer Module", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //        LoadCustomersInfo();
+            //    }
+            //}
         }
 
         private void FrmCustomerList_Load(object sender, EventArgs e)
@@ -129,88 +129,88 @@ namespace AHKPOSENKTHESIS
 
         private void dataGridView1_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Right)
-            {
-                //Transfer the data into a buffer when clicked(right)
-                this.ID.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-                this.label2.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
-                this.label3.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
-                this.label4.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
-                this.label5.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
-                this.label6.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
-                this.label7.Text = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
-                this.label8.Text = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
-                this.label9.Text = dataGridView1.Rows[e.RowIndex].Cells[9].Value.ToString();
+            //if (e.Button == MouseButtons.Right)
+            //{
+            //    //Transfer the data into a buffer when clicked(right)
+            //    this.ID.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+            //    this.label2.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+            //    this.label3.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+            //    this.label4.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+            //    this.label5.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
+            //    this.label6.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
+            //    this.label7.Text = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
+            //    this.label8.Text = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
+            //    this.label9.Text = dataGridView1.Rows[e.RowIndex].Cells[9].Value.ToString();
 
-                this.dataGridView1.Rows[e.RowIndex].Selected = true;
-                this.rowindex = e.RowIndex;
-                this.dataGridView1.CurrentCell = this.dataGridView1.Rows[e.RowIndex].Cells[0];
-                this.contextMenuStrip1.Show(this.dataGridView1, e.Location);
-                contextMenuStrip1.Show(Cursor.Position);
-            }
+            //    this.dataGridView1.Rows[e.RowIndex].Selected = true;
+            //    this.rowindex = e.RowIndex;
+            //    this.dataGridView1.CurrentCell = this.dataGridView1.Rows[e.RowIndex].Cells[0];
+            //    this.contextMenuStrip1.Show(this.dataGridView1, e.Location);
+            //    contextMenuStrip1.Show(Cursor.Position);
+            //}
         }
 
         private void contextMenuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-            //File a switch case statement
-            switch (e.ClickedItem.Name.ToString())
-            {
-                case "edi":
+            ////File a switch case statement
+            //switch (e.ClickedItem.Name.ToString())
+            //{
+            //    case "edi":
                     
-                    contextMenuStrip1.Hide();
-                    FrmCustomer c = new FrmCustomer(this);
+            //        contextMenuStrip1.Hide();
+            //        FrmCustomer c = new FrmCustomer(this);
 
-                    c.lblID.Text = ID.Text;
-                    c.txtCustomerName.Text = label2.Text;
-                    c.txtOwnerName.Text = label3.Text;
-                    c.txtAddress.Text = label4.Text;
-                    c.txtRoute.Text = label5.Text;
-                    c.txtPhone.Text = label6.Text;
-                    c.txtTelephone.Text = label7.Text;
-                    c.txtEmail.Text = label8.Text;
-                    c.cbxActive.Text = label9.Text;
+            //        c.lblID.Text = ID.Text;
+            //        c.txtCustomerName.Text = label2.Text;
+            //        c.txtOwnerName.Text = label3.Text;
+            //        c.txtAddress.Text = label4.Text;
+            //        c.txtRoute.Text = label5.Text;
+            //        c.txtPhone.Text = label6.Text;
+            //        c.txtTelephone.Text = label7.Text;
+            //        c.txtEmail.Text = label8.Text;
+            //        c.cbxActive.Text = label9.Text;
 
-                    //Hide the Save Button
-                    c.BtnSave.Visible = false;
+            //        //Hide the Save Button
+            //        c.BtnSave.Visible = false;
 
-                    //Show Only the Update Button
-                    c.BtnUpdate.Visible = true;
-                    c.lbl1.Text = "UPDATE CUSTOMER INFORMATION";
-                    c.Show();
+            //        //Show Only the Update Button
+            //        c.BtnUpdate.Visible = true;
+            //        c.lbl1.Text = "UPDATE CUSTOMER INFORMATION";
+            //        c.Show();
 
-                    break;
+            //        break;
 
-                case "del":
+            //    case "del":
 
-                    contextMenuStrip1.Hide();
-                    if (MessageBox.Show("Are you sure you want to delete the Customer Information?", "Customer Module", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-                    {
-                        cn.Open();
-                        cm = new SqlCommand("DELETE FROM tblCustomer WHERE id like '" + ID.Text + "'", cn);
-                        cm.ExecuteNonQuery();
-                        cn.Close();
-                        MessageBox.Show("Customer Information has been successfully Deleted", "Customer Module", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        LoadCustomersInfo();
-                    }
+            //        contextMenuStrip1.Hide();
+            //        if (MessageBox.Show("Are you sure you want to delete the Customer Information?", "Customer Module", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            //        {
+            //            cn.Open();
+            //            cm = new SqlCommand("DELETE FROM tblCustomer WHERE id like '" + ID.Text + "'", cn);
+            //            cm.ExecuteNonQuery();
+            //            cn.Close();
+            //            MessageBox.Show("Customer Information has been successfully Deleted", "Customer Module", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //            LoadCustomersInfo();
+            //        }
 
-                    break;
+            //        break;
 
-                case "deta":
+            //    case "deta":
 
-                    contextMenuStrip1.Hide();
+            //        contextMenuStrip1.Hide();
 
-                    FrmCustomerDetails cd = new FrmCustomerDetails();
+            //        FrmCustomerDetails cd = new FrmCustomerDetails();
 
-                    cd.materialLabel1.Text = label2.Text; 
-                    cd.materialLabel3.Text = label4.Text;
-                    cd.materialLabel4.Text = label5.Text;
-                    cd.materialLabel5.Text = label6.Text;
-                    cd.materialLabel6.Text = label7.Text;
-                    cd.materialLabel7.Text = label8.Text;
-                    cd.Show();
+            //        cd.materialLabel1.Text = label2.Text; 
+            //        cd.materialLabel3.Text = label4.Text;
+            //        cd.materialLabel4.Text = label5.Text;
+            //        cd.materialLabel5.Text = label6.Text;
+            //        cd.materialLabel6.Text = label7.Text;
+            //        cd.materialLabel7.Text = label8.Text;
+            //        cd.Show();
 
-                    break;
-            }
+            //        break;
+            //}
         }
 
         private void deta_Click(object sender, EventArgs e)

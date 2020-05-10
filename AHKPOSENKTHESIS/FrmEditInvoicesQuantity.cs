@@ -20,7 +20,7 @@ namespace AHKPOSENKTHESIS
         SqlDataReader dr;
         string titlesataas = "Quantity";
 
-        Frm2EditInvoices edit;
+        AdminUpdateInvoice edit;
 
         private String transno;
         private String customer;
@@ -32,14 +32,16 @@ namespace AHKPOSENKTHESIS
 
 
 
-        public FrmEditInvoicesQuantity(Frm2EditInvoices idit)
+        public FrmEditInvoicesQuantity(AdminUpdateInvoice idit)
         {
             InitializeComponent();
             cn = new SqlConnection(dbcon.MyConnection());
             edit = idit;
+
+            this.KeyPreview = true;
         }
 
-        public void ProductDetails(String prodcode, String proddescrip, double prodprice, String transno, String customer, int qty, int addqty)
+        public void ProductDetails(String prodcode, String proddescrip, double prodprice, String transno, String customer, int qty)
         {
             this.prodcode = prodcode;
             this.proddescrip = proddescrip;
@@ -47,7 +49,6 @@ namespace AHKPOSENKTHESIS
             this.transno = transno;
             this.customer = customer;
             this.qty = qty;
-            this.addqty = addqty;
         }
 
         private void txtQty_KeyPress(object sender, KeyPressEventArgs e)
@@ -94,14 +95,18 @@ namespace AHKPOSENKTHESIS
 
                     if (found == true)
                     {
+                        Frm2EditInvoices up = new Frm2EditInvoices();
+
+                        for (int i = 0; i < up.dataGridView1.Rows.Count; i++)
+                        {
+                            up.dataGridView1.Rows[i].Cells[2].Value = txtQty.Text;
+                        }
+
                         cn.Open();
                         cm = new SqlCommand("UPDATE tblInvoiceOrder SET qty = (qty + " + int.Parse(txtQty.Text) + ") WHERE id = '" + id + "'", cn);
                         cm.ExecuteNonQuery();
                         cn.Close();
 
-                        edit.AddQuantityProcess();
-                        edit.waterMark1.Clear();
-                        edit.waterMark1.Focus();
                         edit.LoadInvoiceOrder();
                         this.Dispose();
                     }
@@ -126,8 +131,6 @@ namespace AHKPOSENKTHESIS
                         cm.ExecuteNonQuery();
                         cn.Close();
 
-                        edit.waterMark1.Clear();
-                        edit.waterMark1.Focus();
                         edit.LoadInvoiceOrder();
                         this.Dispose();
                     }
@@ -140,14 +143,27 @@ namespace AHKPOSENKTHESIS
             }
         }
 
-        private void BtnClose_Click(object sender, EventArgs e)
+        private void txtQty_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnClose_Click_1(object sender, EventArgs e)
         {
             this.Dispose();
         }
 
-        private void txtQty_TextChanged(object sender, EventArgs e)
+        private void FrmEditInvoicesQuantity_KeyDown(object sender, KeyEventArgs e)
         {
-
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Dispose();
+            }
         }
     }
 }

@@ -43,44 +43,44 @@ namespace AHKPOSENKTHESIS
 
         private void BtnAddprod_Click(object sender, EventArgs e)
         {
-            FrmRoute route = new FrmRoute(this);
+            //FrmRoute route = new FrmRoute(this);
 
-            //Show the Save button 
-            route.BtnSave.Visible = true;
-            route.BtnUpdate.Visible = false;
+            ////Show the Save button 
+            //route.BtnSave.Visible = true;
+            //route.BtnUpdate.Visible = false;
 
-            //Relocate the Save button
-            route.BtnSave.Location = new System.Drawing.Point(438, 167);
+            ////Relocate the Save button
+            //route.BtnSave.Location = new System.Drawing.Point(438, 167);
 
-            //Show the Add new Route Form
-            route.Show();
+            ////Show the Add new Route Form
+            //route.Show();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            string colName = dataGridView1.Columns[e.ColumnIndex].Name;
-            if (colName == "Edit")
-            {
-                FrmRoute frm = new FrmRoute(this);
-                frm.lblID.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-                frm.txtRoute.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
-                frm.BtnSave.Visible = false;
-                frm.BtnUpdate.Visible = true;
-                frm.lbl1.Text = "UPDATE ROUTE";
-                frm.ShowDialog();
-            }
-            else if (colName == "Delete")
-            {
-                if (MessageBox.Show("Are you sure you want to Delete this Route?", "AHK Routes", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    cn.Open();
-                    cm = new SqlCommand("DELETE FROM tblRoutes WHERE rid like '" + dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString() + "'", cn);
-                    cm.ExecuteNonQuery();
-                    cn.Close();
-                    MessageBox.Show("Route has been Successfully Deleted", "AHK Routes", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LoadRoutes();
-                }
-            }
+            //string colName = dataGridView1.Columns[e.ColumnIndex].Name;
+            //if (colName == "Edit")
+            //{
+            //    FrmRoute frm = new FrmRoute(this);
+            //    frm.lblID.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+            //    frm.txtRoute.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+            //    frm.BtnSave.Visible = false;
+            //    frm.BtnUpdate.Visible = true;
+            //    frm.lbl1.Text = "UPDATE ROUTE";
+            //    frm.ShowDialog();
+            //}
+            //else if (colName == "Delete")
+            //{
+            //    if (MessageBox.Show("Are you sure you want to Delete this Route?", "AHK Routes", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            //    {
+            //        cn.Open();
+            //        cm = new SqlCommand("DELETE FROM tblRoutes WHERE rid like '" + dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString() + "'", cn);
+            //        cm.ExecuteNonQuery();
+            //        cn.Close();
+            //        MessageBox.Show("Route has been Successfully Deleted", "AHK Routes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //        LoadRoutes();
+            //    }
+            //}
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)

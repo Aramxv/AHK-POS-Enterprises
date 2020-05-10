@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using System.Drawing;
 
 namespace AHKPOSENKTHESIS
 {
@@ -28,8 +27,6 @@ namespace AHKPOSENKTHESIS
             cn = new SqlConnection(dbcon.MyConnection());
 
             txtAdjustBy.Text = FrmMain1.PassStockUsername;
-
-
         }
 
         private void FrmStockAdjustment_Load(object sender, EventArgs e)
@@ -87,14 +84,70 @@ namespace AHKPOSENKTHESIS
             }
         }
 
-        private void BtnSaveAdjustment_Click(object sender, EventArgs e)
+        
+        public void SqlStatement(string _sql)
+        {
+            cn.Open();
+            cm = new SqlCommand(_sql, cn);
+            cm.ExecuteNonQuery();
+            cn.Close();
+        }
+
+        public void Clear()
+        {
+            txtReferenceNo.Clear();
+            txtProductCode.Clear();
+            txtDescription.Clear();
+            txtQuantity.Clear();
+            cmbCommand.SelectedIndex = -1;
+            txtRemarks.Clear();
+        }
+
+        private void FrmStockAdjustment_FormClosed(object sender, FormClosedEventArgs e)
+        {
+          
+        }
+
+        private void dataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            lblDataRowCount.Text = dataGridView1.Rows.Count.ToString() + " Inventory Products Shown";
+        }
+
+        private void dataGridView1_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            lblDataRowCount.Text = dataGridView1.Rows.Count.ToString() + " Inventory Products Shown";
+        }
+
+        private void BtnClose_Click(object sender, EventArgs e)
+        {
+            cn.Close();
+            this.Dispose();
+        }
+
+        private void BtnSaveAdjustment_Click_1(object sender, EventArgs e)
         {
             try
             {
                 //Validation for empty fields
-                if (cmbCommand.Text == String.Empty || txtRemarks.Text == String.Empty)
+                if (txtProductCode.Text == String.Empty)
                 {
-                    MessageBox.Show("Please Fill the empty field/s to Continue!", "Stock Adjustment", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    pnlWarning.Visible = true;
+
+                    lblWarning.Text = "Select a Product in Inventory first.";
+                    return;
+                }
+                if (cmbCommand.Text == String.Empty)
+                {
+                    pnlWarning.Visible = true;
+
+                    lblWarning.Text = "Must Provide a command to Continue.";
+                    return;
+                }
+                if (txtRemarks.Text == String.Empty)
+                {
+                    pnlWarning.Visible = true;
+
+                    lblWarning.Text = "Specify a Remarks/Note/Comment for this Adjustment.";
                     return;
                 }
                 //Validate the quantity input 
@@ -126,28 +179,16 @@ namespace AHKPOSENKTHESIS
                 MessageBox.Show(ex.Message);
             }
         }
-        
-        public void SqlStatement(string _sql)
+
+        private void BtnCancel_Click(object sender, EventArgs e)
         {
-            cn.Open();
-            cm = new SqlCommand(_sql, cn);
-            cm.ExecuteNonQuery();
             cn.Close();
+            this.Dispose();
         }
 
-        public void Clear()
+        private void FrmStockAdjustment_Click(object sender, EventArgs e)
         {
-            txtReferenceNo.Clear();
-            txtProductCode.Clear();
-            txtDescription.Clear();
-            txtQuantity.Clear();
-            cmbCommand.SelectedIndex = -1;
-            txtRemarks.Clear();
-        }
-
-        private void FrmStockAdjustment_FormClosed(object sender, FormClosedEventArgs e)
-        {
-          
+            pnlWarning.Visible = false;
         }
     }
 }

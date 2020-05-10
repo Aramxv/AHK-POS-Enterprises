@@ -26,6 +26,7 @@ namespace AHKPOSENKTHESIS
         {
             InitializeComponent();
             cn = new SqlConnection(dbcon.MyConnection());
+
             rep = port;
         }
 

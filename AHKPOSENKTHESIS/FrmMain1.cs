@@ -14,8 +14,8 @@ namespace AHKPOSENKTHESIS
         DatabaseConnection dbcon = new DatabaseConnection();
         SqlDataReader dr;
 
-        public static string PasslblName;
-        public static string PassCanName;
+        public static string PasslblName; // check
+        public static string PassCanName; // check
 
         public static string PassAdminName;
         public static string PassAccount;
@@ -23,7 +23,7 @@ namespace AHKPOSENKTHESIS
         public static string PassToPOSName;
         public static string PassToPOSAccount;
 
-        public static string PassStockUsername;
+        public static string PassStockUsername; // check
 
         public FrmMain1()
         {
@@ -380,7 +380,7 @@ namespace AHKPOSENKTHESIS
             if (MessageBox.Show("Are you sure you want to Log out as Administrator?", "AHK Security", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
                 //Show the Login Form 
-                FrmLogin log = new FrmLogin();
+                Login log = new Login();
                 log.Show();
 
                 //Dispose this Form
@@ -400,6 +400,11 @@ namespace AHKPOSENKTHESIS
                 this.WindowState = FormWindowState.Normal;
                 Container.Size = Container.Size;
             }
+        }
+
+        private void materialFlatButton9_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

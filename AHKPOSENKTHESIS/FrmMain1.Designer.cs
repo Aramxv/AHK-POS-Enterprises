@@ -419,7 +419,7 @@
             this.MngtDashboardPanel.Controls.Add(this.BtnLogOut);
             this.MngtDashboardPanel.Controls.Add(this.materialFlatButton9);
             this.MngtDashboardPanel.Controls.Add(this.materialFlatButton12);
-            this.MngtDashboardPanel.Location = new System.Drawing.Point(1194, 170);
+            this.MngtDashboardPanel.Location = new System.Drawing.Point(1058, 71);
             this.MngtDashboardPanel.Name = "MngtDashboardPanel";
             this.MngtDashboardPanel.Size = new System.Drawing.Size(324, 708);
             this.MngtDashboardPanel.TabIndex = 23;
@@ -459,6 +459,7 @@
             this.materialFlatButton9.TabIndex = 15;
             this.materialFlatButton9.Text = "SYSTEM SETTINGS";
             this.materialFlatButton9.UseVisualStyleBackColor = true;
+            this.materialFlatButton9.Click += new System.EventHandler(this.materialFlatButton9_Click);
             // 
             // materialFlatButton12
             // 
@@ -709,7 +710,7 @@
             this.MngtCustomerPanel.Controls.Add(this.MngtSalesRecords);
             this.MngtCustomerPanel.Controls.Add(this.BtnRoutes);
             this.MngtCustomerPanel.Controls.Add(this.BtnInvoices);
-            this.MngtCustomerPanel.Location = new System.Drawing.Point(1194, 170);
+            this.MngtCustomerPanel.Location = new System.Drawing.Point(826, 12);
             this.MngtCustomerPanel.Name = "MngtCustomerPanel";
             this.MngtCustomerPanel.Size = new System.Drawing.Size(330, 708);
             this.MngtCustomerPanel.TabIndex = 23;
@@ -752,7 +753,7 @@
             this.MngtSales.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(231)))));
             this.MngtSales.Controls.Add(this.panel3);
             this.MngtSales.Controls.Add(this.materialFlatButton17);
-            this.MngtSales.Location = new System.Drawing.Point(1194, 170);
+            this.MngtSales.Location = new System.Drawing.Point(1374, 79);
             this.MngtSales.Name = "MngtSales";
             this.MngtSales.Size = new System.Drawing.Size(330, 708);
             this.MngtSales.TabIndex = 25;
@@ -844,6 +845,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.MngtDashboardPanel);
             this.Controls.Add(this.lblAccount);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.lblUsername);
@@ -864,7 +866,6 @@
             this.Controls.Add(this.BtnClose);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.MngtDashboardPanel);
             this.Controls.Add(this.MngtCustomerPanel);
             this.Controls.Add(this.MngtSales);
             this.Controls.Add(this.MngtProductsPanel);

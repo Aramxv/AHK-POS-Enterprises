@@ -25,7 +25,9 @@ namespace AHKPOSENKTHESIS
                 timer1.Stop();
                 FrmMain2 load = new FrmMain2();
                 load.lblUsername.Text = FrmMain1.PassToPOSName;
+                load.lblName.Text = FrmMain1.PassToPOSName;
                 load.lblAccount.Text = FrmMain1.PassToPOSAccount;
+                load.lblPosition.Text = FrmMain1.PassToPOSAccount;
                 load.BtnBackAdminMode.Visible = true;
                 load.Show();
 

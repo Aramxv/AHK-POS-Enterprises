@@ -13,13 +13,15 @@ namespace AHKPOSENKTHESIS
         DatabaseConnection dbcon = new DatabaseConnection();
         SqlDataReader dr;
 
-        Frm2EditInvoices edit;
+        AdminUpdateInvoice edit;
 
-        public FrmEditInvoiceLookUp(Frm2EditInvoices idit)
+        public FrmEditInvoiceLookUp(AdminUpdateInvoice idit)
         {
             InitializeComponent();
             cn = new SqlConnection(dbcon.MyConnection());
             edit = idit;
+
+            this.KeyPreview = true;
         }
 
         private void FrmEditInvoiceLookUp_Load(object sender, EventArgs e)
@@ -39,40 +41,32 @@ namespace AHKPOSENKTHESIS
         //display the data searched tblProduct in datagridview 
         public void LoadShitData()
         {
-            // get the path of the image
-            Image img = Image.FromFile(@"C:\Users\Arjie\source\repos\AHKPOSENKTHESIS MASTER\AHKPOSENKTHESIS WIP\AHKPOSENKTHESIS\bin\Debug\Icons\icons8-box-242.png");
-
             int i = 0;
             dataGridView1.Rows.Clear();
             cn.Open();
-            cm = new SqlCommand("SELECT id, prodcode, proddescrip, prodprice, category, prodqty, warningqty, prodstatus FROM tblProduct WHERE proddescrip like '%" + txtSearch.Text + "%' order by proddescrip asc", cn);
+            cm = new SqlCommand("SELECT prodcode, proddescrip, prodprice, category, prodqty, warningqty, prodstatus FROM tblProduct WHERE proddescrip like '%" + txtSearch.Text + "%' order by proddescrip", cn);
             dr = cm.ExecuteReader();
             while (dr.Read())
             {
                 i++;
-                dataGridView1.Rows.Add(i, img, dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString());
+                dataGridView1.Rows.Add(i, dr["prodcode"].ToString(), dr["proddescrip"].ToString(), dr["prodprice"].ToString(), dr["category"].ToString(), dr["prodqty"].ToString(), dr["warningqty"].ToString(), dr["prodstatus"].ToString());
             }
+            IndicateThatProductReachedWarningLevel();
             dr.Close();
             cn.Close();
         }
 
-        public void NotifyTheUserForTheProductQuantityLevel()
+        public void IndicateThatProductReachedWarningLevel()
         {
-            if (dataGridView1.Rows.Count > 0)
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
-                // Create loop
-                for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                if (int.Parse(dataGridView1.Rows[i].Cells[5].Value.ToString()) <= int.Parse(dataGridView1.Rows[i].Cells[6].Value.ToString()))
                 {
-                    // condition
-                    if (int.Parse(dataGridView1.Rows[i].Cells[6].Value.ToString()) <= int.Parse(dataGridView1.Rows[i].Cells[7].Value.ToString()))
-                    {
-                        // Get the path of the image
-                        Image imglink = Image.FromFile(@"C:\Users\Arjie\source\repos\AHKPOSENKTHESIS MASTER\AHKPOSENKTHESIS WIP\AHKPOSENKTHESIS\bin\Debug\Icons\icon_critical.png");
+                    // get the path of the image
+                    Image reachedwarning = Image.FromFile(@"C:\Users\Arjie\source\repos\AHKPOSENKTHESIS MASTER\AHKPOSENKTHESIS WIP\AHKPOSENKTHESIS\bin\Debug\Icons\icon_critical.png");
 
-                        // Add a row and set a value 
-                        // Change the pucture of the cell that s critical quantity count
-                        dataGridView1.Rows[i].Cells[8].Value = imglink;
-                    }
+                    // Add a row set the value
+                    dataGridView1.Rows[i].Cells[8].Value = reachedwarning;
                 }
             }
         }
@@ -83,19 +77,40 @@ namespace AHKPOSENKTHESIS
             if (colName == "Select")
             {
                 FrmEditInvoicesQuantity frm = new FrmEditInvoicesQuantity(edit);
-                frm.ProductDetails(dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString(), dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString(), double.Parse(dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString()), edit.lblInvoiceNo.Text, edit.txtCustomer.Text, int.Parse(dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString()), edit.addqty);
+                frm.ProductDetails(dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString(), dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString(), double.Parse(dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString()), edit.lblInvoiceNo.Text, edit.txtCustomer.Text, int.Parse(dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString()));
                 frm.ShowDialog();
             }
-        }
-
-        private void BtnClose_Click(object sender, EventArgs e)
-        {
-            this.Dispose();
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             LoadShitData();
+        }
+
+        // Counting the rows and displaying it in string
+        private void dataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            lblRowProductCount.Text = dataGridView1.Rows.Count.ToString() + " Products Shown";
+        }
+
+        // Counting the rows and displaying it in string
+        private void dataGridView1_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            lblRowProductCount.Text = dataGridView1.Rows.Count.ToString() + " Products Shown";
+        }
+
+        // Escape key to close 
+        private void FrmEditInvoiceLookUp_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Dispose();
+            }
+        }
+
+        private void BtnClose_Click_1(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
     }
 }

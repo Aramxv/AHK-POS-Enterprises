@@ -27,6 +27,8 @@ namespace AHKPOSENKTHESIS
             InitializeComponent();
             cn = new SqlConnection(dbcon.MyConnection());
             dis = count;
+
+            this.KeyPreview = true;
         }
 
         private void TxtPercentDiscount_TextChanged(object sender, EventArgs e)
@@ -68,6 +70,19 @@ namespace AHKPOSENKTHESIS
             {
                 cn.Close();
                 MessageBox.Show(ex.Message, "Application Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void FrmDiscount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void FrmDiscount_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Dispose();
             }
         }
     }

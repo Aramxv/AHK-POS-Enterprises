@@ -13,11 +13,11 @@ namespace AHKPOSENKTHESIS
             switch (type)
             {
                 case AlertType.critical:
-                    this.BackColor = Color.FromArgb(236, 42, 61);
+                    this.BackColor = Color.FromArgb(59, 60, 78);
                     icon.Image = imageList1.Images[0];
                     break;
                 case AlertType.info:
-                    this.BackColor = Color.Gray;
+                    this.BackColor = Color.FromArgb(59, 60, 78);
                     icon.Image = imageList1.Images[1];
                     break;
                 case AlertType.success:
@@ -25,7 +25,7 @@ namespace AHKPOSENKTHESIS
                     icon.Image = imageList1.Images[2];
                     break;
                 case AlertType.error:
-                    this.BackColor = Color.FromArgb(255, 128, 0);
+                    this.BackColor = Color.FromArgb(59, 60, 78);
                     icon.Image = imageList1.Images[3];
                     break;
             }
@@ -42,7 +42,7 @@ namespace AHKPOSENKTHESIS
 
         private void Alert_Load(object sender, EventArgs e)
         {
-            //set position to top left
+            //set position to bottom right
             // this.Bottom; //* (this.Height);
             // this.Left = Screen.PrimaryScreen.Bounds.Width - this.Width - 1;
 
@@ -87,7 +87,7 @@ namespace AHKPOSENKTHESIS
         {
             if (this.Opacity>0)
             {
-                this.Opacity -= 0.001; //reduce opactity to zero
+                this.Opacity -= 1; //reduce opactity to zero
             }
             else
             {
