@@ -12,9 +12,7 @@ namespace AHKPOSENKTHESIS
         SqlCommand cm = new SqlCommand();
         SqlDataAdapter da = new SqlDataAdapter();
         DataTable dt = new DataTable();
-        SqlDataReader dr;
         DatabaseConnection dbcon = new DatabaseConnection();
-        string title = "Security [Changing Password]";
 
 
         public FrmChangePassword()

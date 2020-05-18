@@ -122,7 +122,7 @@ namespace AHKPOSENKTHESIS
             }
             else if (cmbSort.Text == "Cheque")
             {
-                cm = new SqlCommand("SELECT * from tblInvoiceRecords WHERE status like 'Paid' payment like '" + cmbSort.Text + "' order by invoiceno desc", cn);
+                cm = new SqlCommand("SELECT * from tblInvoiceRecords WHERE status like 'Paid' and payment like '" + cmbSort.Text + "' order by invoiceno desc", cn);
             }
             dr = cm.ExecuteReader();
             while (dr.Read())

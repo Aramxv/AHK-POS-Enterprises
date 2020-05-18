@@ -11,7 +11,6 @@ namespace AHKPOSENKTHESIS
         SqlCommand cm = new SqlCommand();
         DatabaseConnection dbcon = new DatabaseConnection();
         SqlDataReader dr;
-        string titlesataas = "Quantity";
 
         FrmCreateNewInvoice F2;
 

@@ -87,21 +87,28 @@ namespace AHKPOSENKTHESIS
         }
         private void BtnAddProduct_Click_1(object sender, EventArgs e)
         {
-            AdminAddProduct shit = new AdminAddProduct(this);
+            try
+            {
+                AdminAddProducts addProduct = new AdminAddProducts(this);
 
-            //if the add product button is click 
-            //save button is present in the form
-            shit.BtnSave.Visible = true;
+                //if the add product button is click 
+                //save button is present in the form
+                addProduct.BtnSave.Visible = true;
 
-            //change the location of save button next to cancel button
-            shit.BtnSave.Location = new System.Drawing.Point(133, 515);
+                //change the location of save button next to cancel button
+                addProduct.BtnSave.Location = new System.Drawing.Point(133, 515);
 
-            //update button is not present in the form
-            shit.BtnUpdate.Visible = false;
-            shit.ShowDialog();
+                //update button is not present in the form
+                addProduct.BtnUpdate.Visible = false;
+                addProduct.Show();
 
-            // Populate the Combobox with category 
-            shit.PopulateCategoryInCombobox();
+                // Populate the Combobox with category 
+                addProduct.PopulateCategoryInCombobox();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Oops Something came up", MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
         }
      
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -109,7 +116,7 @@ namespace AHKPOSENKTHESIS
             string colName = dataGridView1.Columns[e.ColumnIndex].Name;
             if (colName == "Edit")
             {
-                AdminAddProduct Frp = new AdminAddProduct(this);
+                AdminAddProducts Frp = new AdminAddProducts(this);
                 Frp.BtnSave.Enabled = false;
                 Frp.BtnUpdate.Enabled = true;
                 Frp.lbl1.Text = "Update Product";
@@ -249,7 +256,7 @@ namespace AHKPOSENKTHESIS
                 case "edi":
 
                     contextMenuStrip1.Hide();
-                    AdminAddProduct c = new AdminAddProduct(this);
+                    AdminAddProducts c = new AdminAddProducts(this);
 
                     c.lblID.Text = ID.Text;
                     c.txtDesc.Text = label3.Text;

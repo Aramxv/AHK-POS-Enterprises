@@ -1,6 +1,6 @@
 ﻿namespace AHKPOSENKTHESIS
 {
-    partial class FrmTrackSalesPreview
+    partial class AdminPreviewTrackSales
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmTrackSalesPreview));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminPreviewTrackSales));
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.SuspendLayout();
             // 
@@ -42,14 +42,14 @@
             this.reportViewer1.TabIndex = 0;
             this.reportViewer1.Load += new System.EventHandler(this.reportViewer1_Load);
             // 
-            // FrmTrackSalesPreview
+            // AdminPreviewTrackSales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1142, 739);
             this.Controls.Add(this.reportViewer1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FrmTrackSalesPreview";
+            this.Name = "AdminPreviewTrackSales";
             this.Text = "Print Preview";
             this.Load += new System.EventHandler(this.FrmTrackSalesPreview_Load);
             this.ResumeLayout(false);

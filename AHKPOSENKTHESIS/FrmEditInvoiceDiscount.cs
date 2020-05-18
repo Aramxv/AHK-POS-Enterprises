@@ -17,7 +17,6 @@ namespace AHKPOSENKTHESIS
         SqlConnection cn = new SqlConnection();
         SqlCommand cm = new SqlCommand();
         DatabaseConnection dbcon = new DatabaseConnection();
-        SqlDataReader dr;
       
         AdminUpdateInvoice edit;
 
@@ -40,7 +39,7 @@ namespace AHKPOSENKTHESIS
                 double discount = Double.Parse(txtPrice.Text) * Double.Parse(txtPercentDiscount.Text);
                 txtAmountDiscount.Text = discount.ToString("#,##0.00");
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 txtAmountDiscount.Text = "0.00";
             }

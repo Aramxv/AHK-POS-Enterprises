@@ -194,8 +194,8 @@ namespace AHKPOSENKTHESIS
 
                 MessageBox.Show("Stock Adjustment Process Completely", "Stock Adjustment Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ShowStockAdjustmentInInventory();
-                FrmInventory inv = new FrmInventory();
-                inv.LoadShitData();
+                AdminInventory inv = new AdminInventory();
+                inv.ShowInventoryProducts();
                 Clear();
             }
             catch (Exception ex)

@@ -17,7 +17,6 @@ namespace AHKPOSENKTHESIS
         SqlConnection cn = new SqlConnection();
         SqlCommand cm = new SqlCommand();
         DatabaseConnection dbcon = new DatabaseConnection();
-        SqlDataReader dr;
 
         public FrmActionCentre()
         {

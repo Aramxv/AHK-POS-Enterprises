@@ -215,10 +215,6 @@ namespace AHKPOSENKTHESIS
             chart.Series[0].LabelAngle = 45;
             chart.Series[0].YValuesPerPoint = 10;
 
-
-
-
-
             if (cmbSortTop.Text == "Total Amount") { chart.Series[0].YValueMembers = "total"; }
             if (cmbSortTop.Text == "Quantity") { chart.Series[0].YValueMembers = "qty"; }
 
@@ -342,9 +338,9 @@ namespace AHKPOSENKTHESIS
         //Print Preview Button of Sold Products tab
         private void BtnPrint_Click(object sender, EventArgs e)
         {
-            FrmSoldProductsPrintPreview rep = new FrmSoldProductsPrintPreview(this);
-            rep.LoadSoldReport();
-            rep.ShowDialog();
+            //FrmSoldProductsPrintPreview rep = new FrmSoldProductsPrintPreview(this);
+            //rep.LoadSoldReport();
+            //rep.ShowDialog();
         }
         //Load Button of Top 10 Selling Products
         private void button2_Click(object sender, EventArgs e)
@@ -365,9 +361,9 @@ namespace AHKPOSENKTHESIS
                 MessageBox.Show("Please Select on Sort Options to Continue.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            FrmTopSellingProductsPrintPreview top = new FrmTopSellingProductsPrintPreview(this);
-            top.LoadTopSellingProducts();
-            top.ShowDialog();
+            //AdminPreviewTopSelling top = new AdminPreviewTopSelling();
+            //top.LoadTopSellingProducts();
+            //top.ShowDialog();
         }
         //Automatically Loads the Top 10 selling products when the value is changed
         private void date1_ValueChanged(object sender, EventArgs e)
@@ -417,11 +413,13 @@ namespace AHKPOSENKTHESIS
 
         }
 
+        // Done
         private void bunifuDatepicker1_onValueChanged(object sender, EventArgs e)
         {
             bunifuCustomLabel1.Text = bunifuDatepicker1.Value.ToString("dd-MMM-yyyy");
         }
 
+        // Done
         private void bunifuDatepicker2_onValueChanged(object sender, EventArgs e)
         {
             bunifuCustomLabel2.Text = bunifuDatepicker2.Value.ToString("dd-MMM-yyyy");
@@ -487,6 +485,7 @@ namespace AHKPOSENKTHESIS
 
         }
 
+        // Done
         private void BtnLoadTrackSales_Click(object sender, EventArgs e)
         {
             if (cmbTerms.Text == String.Empty)
@@ -497,6 +496,7 @@ namespace AHKPOSENKTHESIS
             LoadTrackSales();
         }
 
+        // Done
         private void BtnPrintTrackSales_Click(object sender, EventArgs e)
         {
             if (cmbTerms.Text == String.Empty)
@@ -504,11 +504,12 @@ namespace AHKPOSENKTHESIS
                 MessageBox.Show("Please Select on Payment Terms Options to Continue.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            FrmTrackSalesPreview tra = new FrmTrackSalesPreview(this);
-            tra.LoadTrackSales();
-            tra.ShowDialog();
+            //AdminPreviewTrackSales tra = new AdminPreviewTrackSales(this);
+            //tra.LoadTrackSales();
+            //tra.ShowDialog();
         }
 
+        // Done
         public void LoadTrackSales()
         {
             try

@@ -18,15 +18,10 @@ namespace AHKPOSENKTHESIS
         DataTable dt = new DataTable();
         SqlDataReader dr;
 
-        int qty;
 
         // Declare a variable as buffer to pass value in discount form
         String id;
         String price;
-
-        // Declare a variable for updating the order status
-        String Pending = "Pending";
-        String Paid = "Paid";
 
         // variable for character counting in remarks and private comment section
         int remcharcount = 0;

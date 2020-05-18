@@ -13,7 +13,7 @@ namespace AHKPOSENKTHESIS
         SqlCommand cm = new SqlCommand();
         DatabaseConnection dbcon = new DatabaseConnection();
         SqlDataReader dr;
-        string titlesataas = "Search Product";
+
         FrmCreateNewInvoice F2;
 
         public FrmLookUp(FrmCreateNewInvoice Fr2)

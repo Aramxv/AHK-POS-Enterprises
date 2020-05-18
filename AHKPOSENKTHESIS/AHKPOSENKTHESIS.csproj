@@ -60,6 +60,9 @@
   <PropertyGroup>
     <SignManifests>true</SignManifests>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>AHKPOSENKTHESIS.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="AxShockwaveFlashObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="Bunifu_UI_v1.52">
@@ -129,6 +132,12 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminAddProducts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminAddProducts.Designer.cs">
+      <DependentUpon>AdminAddProducts.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminApprovedInvoices.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -206,6 +215,24 @@
     </Compile>
     <Compile Include="AdminProducts.Designer.cs">
       <DependentUpon>AdminProducts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminReportSold.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminReportSold.Designer.cs">
+      <DependentUpon>AdminReportSold.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminReportsTopSelling.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminReportsTopSelling.Designer.cs">
+      <DependentUpon>AdminReportsTopSelling.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminReportsTrackSales.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminReportsTrackSales.Designer.cs">
+      <DependentUpon>AdminReportsTrackSales.cs</DependentUpon>
     </Compile>
     <Compile Include="AdminResources.cs">
       <SubType>UserControl</SubType>
@@ -293,12 +320,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Frm2EditInvoices.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -322,12 +343,6 @@
     </Compile>
     <Compile Include="FrmActionCentre.Designer.cs">
       <DependentUpon>FrmActionCentre.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmCancelInvoice.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmCancelInvoice.Designer.cs">
-      <DependentUpon>FrmCancelInvoice.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmChangePassword.cs">
       <SubType>Form</SubType>
@@ -370,12 +385,6 @@
     </Compile>
     <Compile Include="FrmEditInvoicesQuantity.Designer.cs">
       <DependentUpon>FrmEditInvoicesQuantity.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmInventory.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmInventory.Designer.cs">
-      <DependentUpon>FrmInventory.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmInventoryPreview.cs">
       <SubType>Form</SubType>
@@ -437,41 +446,17 @@
     <Compile Include="AdminAddCategory.Designer.cs">
       <DependentUpon>AdminAddCategory.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmCategoryList.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmCategoryList.Designer.cs">
-      <DependentUpon>FrmCategoryList.cs</DependentUpon>
-    </Compile>
     <Compile Include="AdminAddCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AdminAddCustomer.Designer.cs">
       <DependentUpon>AdminAddCustomer.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmCustomerList.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmCustomerList.Designer.cs">
-      <DependentUpon>FrmCustomerList.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmDashboard.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmDashboard.Designer.cs">
-      <DependentUpon>FrmDashboard.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmDiscount.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmDiscount.Designer.cs">
       <DependentUpon>FrmDiscount.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmInvoiceList.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmInvoiceList.Designer.cs">
-      <DependentUpon>FrmInvoiceList.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmLoading.cs">
       <SubType>Form</SubType>
@@ -521,29 +506,18 @@
     <Compile Include="AdminAddRoutes.Designer.cs">
       <DependentUpon>AdminAddRoutes.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmRoutelist.cs">
+    <Compile Include="AdminPreviewSoldProducts.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmRoutelist.Designer.cs">
-      <DependentUpon>FrmRoutelist.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmSoldProductsPrintPreview.cs">
+    <Compile Include=".Designer.cs">
+      <DependentUpon>AdminPreviewSoldProducts.cs</DependentUpon>
       <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmSoldProductsPrintPreview.Designer.cs">
-      <DependentUpon>FrmSoldProductsPrintPreview.cs</DependentUpon>
     </Compile>
     <Compile Include="AdminStockAdjustDatePicker.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AdminStockAdjustDatePicker.Designer.cs">
       <DependentUpon>AdminStockAdjustDatePicker.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmStockAdjustment.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmStockAdjustment.Designer.cs">
-      <DependentUpon>FrmStockAdjustment.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmStockInPrintPreview.cs">
       <SubType>Form</SubType>
@@ -557,23 +531,17 @@
     <Compile Include="AdminAddSupplier.Designer.cs">
       <DependentUpon>AdminAddSupplier.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmSupplierList.cs">
+    <Compile Include="AdminPreviewTopSelling.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSupplierList.Designer.cs">
-      <DependentUpon>FrmSupplierList.cs</DependentUpon>
+    <Compile Include="AdminPreviewTopSelling.Designer.cs">
+      <DependentUpon>AdminPreviewTopSelling.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmTopSellingProductsPrintPreview.cs">
+    <Compile Include="AdminPreviewTrackSales.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmTopSellingProductsPrintPreview.Designer.cs">
-      <DependentUpon>FrmTopSellingProductsPrintPreview.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmTrackSalesPreview.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmTrackSalesPreview.Designer.cs">
-      <DependentUpon>FrmTrackSalesPreview.cs</DependentUpon>
+    <Compile Include="AdminPreviewTrackSales.Designer.cs">
+      <DependentUpon>AdminPreviewTrackSales.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmUserFiles.cs">
       <SubType>Form</SubType>
@@ -587,18 +555,6 @@
     <Compile Include="FrmLookUp.Designer.cs">
       <DependentUpon>FrmLookUp.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminAddProduct.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AdminAddProduct.Designer.cs">
-      <DependentUpon>AdminAddProduct.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmProductList.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmProductList.Designer.cs">
-      <DependentUpon>FrmProductList.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmQuantity.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -610,12 +566,6 @@
     </Compile>
     <Compile Include="AdminSearchProductStockIn.Designer.cs">
       <DependentUpon>AdminSearchProductStockIn.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmStockIn.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmStockIn.Designer.cs">
-      <DependentUpon>FrmStockIn.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmUserList.cs">
       <SubType>Form</SubType>
@@ -640,6 +590,9 @@
     <Compile Include="Watermark.cs">
       <SubType>Component</SubType>
     </Compile>
+    <EmbeddedResource Include="AdminAddProducts.resx">
+      <DependentUpon>AdminAddProducts.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminApprovedInvoices.resx">
       <DependentUpon>AdminApprovedInvoices.cs</DependentUpon>
     </EmbeddedResource>
@@ -679,6 +632,15 @@
     <EmbeddedResource Include="AdminProducts.resx">
       <DependentUpon>AdminProducts.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AdminReportSold.resx">
+      <DependentUpon>AdminReportSold.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminReportsTopSelling.resx">
+      <DependentUpon>AdminReportsTopSelling.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminReportsTrackSales.resx">
+      <DependentUpon>AdminReportsTrackSales.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminResources.resx">
       <DependentUpon>AdminResources.cs</DependentUpon>
     </EmbeddedResource>
@@ -715,9 +677,6 @@
     <EmbeddedResource Include="Alert.resx">
       <DependentUpon>Alert.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Frm2EditInvoices.resx">
       <DependentUpon>Frm2EditInvoices.cs</DependentUpon>
     </EmbeddedResource>
@@ -729,9 +688,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmActionCentre.resx">
       <DependentUpon>FrmActionCentre.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmCancelInvoice.resx">
-      <DependentUpon>FrmCancelInvoice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmChangePassword.resx">
       <DependentUpon>FrmChangePassword.cs</DependentUpon>
@@ -753,9 +709,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmEditInvoicesQuantity.resx">
       <DependentUpon>FrmEditInvoicesQuantity.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmInventory.resx">
-      <DependentUpon>FrmInventory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmInventoryPreview.resx">
       <DependentUpon>FrmInventoryPreview.cs</DependentUpon>
@@ -787,23 +740,11 @@
     <EmbeddedResource Include="AdminAddCategory.resx">
       <DependentUpon>AdminAddCategory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmCategoryList.resx">
-      <DependentUpon>FrmCategoryList.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="AdminAddCustomer.resx">
       <DependentUpon>AdminAddCustomer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmCustomerList.resx">
-      <DependentUpon>FrmCustomerList.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmDashboard.resx">
-      <DependentUpon>FrmDashboard.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmDiscount.resx">
       <DependentUpon>FrmDiscount.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmInvoiceList.resx">
-      <DependentUpon>FrmInvoiceList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLoading.resx">
       <DependentUpon>FrmLoading.cs</DependentUpon>
@@ -829,17 +770,11 @@
     <EmbeddedResource Include="AdminAddRoutes.resx">
       <DependentUpon>AdminAddRoutes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmRoutelist.resx">
-      <DependentUpon>FrmRoutelist.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmSoldProductsPrintPreview.resx">
-      <DependentUpon>FrmSoldProductsPrintPreview.cs</DependentUpon>
+    <EmbeddedResource Include="AdminPreviewSoldProducts.resx">
+      <DependentUpon>AdminPreviewSoldProducts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminStockAdjustDatePicker.resx">
       <DependentUpon>AdminStockAdjustDatePicker.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmStockAdjustment.resx">
-      <DependentUpon>FrmStockAdjustment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmStockInPrintPreview.resx">
       <DependentUpon>FrmStockInPrintPreview.cs</DependentUpon>
@@ -847,14 +782,11 @@
     <EmbeddedResource Include="AdminAddSupplier.resx">
       <DependentUpon>AdminAddSupplier.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSupplierList.resx">
-      <DependentUpon>FrmSupplierList.cs</DependentUpon>
+    <EmbeddedResource Include="AdminPreviewTopSelling.resx">
+      <DependentUpon>AdminPreviewTopSelling.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmTopSellingProductsPrintPreview.resx">
-      <DependentUpon>FrmTopSellingProductsPrintPreview.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmTrackSalesPreview.resx">
-      <DependentUpon>FrmTrackSalesPreview.cs</DependentUpon>
+    <EmbeddedResource Include="AdminPreviewTrackSales.resx">
+      <DependentUpon>AdminPreviewTrackSales.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUserFiles.resx">
       <DependentUpon>FrmUserFiles.cs</DependentUpon>
@@ -862,20 +794,11 @@
     <EmbeddedResource Include="FrmLookUp.resx">
       <DependentUpon>FrmLookUp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminAddProduct.resx">
-      <DependentUpon>AdminAddProduct.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmProductList.resx">
-      <DependentUpon>FrmProductList.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmQuantity.resx">
       <DependentUpon>FrmQuantity.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminSearchProductStockIn.resx">
       <DependentUpon>AdminSearchProductStockIn.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmStockIn.resx">
-      <DependentUpon>FrmStockIn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUserList.resx">
       <DependentUpon>FrmUserList.cs</DependentUpon>
@@ -943,17 +866,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
-  </ItemGroup>
-  <ItemGroup>
-    <COMReference Include="WMPLib">
-      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">

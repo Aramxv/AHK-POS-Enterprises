@@ -26,7 +26,6 @@ namespace AHKPOSENKTHESIS
         String price;
 
         // Variable for storing the datepicker value to be able to send to date label
-        String DueDate;
         String InvoiceDate;
         String SalesDate;
 

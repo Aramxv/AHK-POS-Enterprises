@@ -18,7 +18,6 @@ namespace AHKPOSENKTHESIS
         SqlCommand cm = new SqlCommand();
         DatabaseConnection dbcon = new DatabaseConnection();
         SqlDataReader dr;
-        string titlesataas = "Invoice Module";
 
         private const Int32 CUSTOM_CONTENT_HEIGHT = 18;
 

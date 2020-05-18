@@ -19,7 +19,6 @@ namespace AHKPOSENKTHESIS
         DatabaseConnection dbcon = new DatabaseConnection();
         SqlDataAdapter da = new SqlDataAdapter();
         DataTable dt = new DataTable();
-        SqlDataReader dr;
 
         AdminInvoices inv;
 

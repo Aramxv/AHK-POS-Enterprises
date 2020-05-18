@@ -19,7 +19,6 @@ namespace AHKPOSENKTHESIS
         SqlConnection cn = new SqlConnection();
         SqlCommand cm = new SqlCommand();
         DatabaseConnection dbcon = new DatabaseConnection();
-        SqlDataReader dr;
 
         int sidewidth = 85;
         static AdminAdministrator _obj;
@@ -63,6 +62,12 @@ namespace AHKPOSENKTHESIS
             set { BtnBackToInvoice = value; }
         }
 
+        public Button BackToReportsButton
+        {
+            get { return BtnBacktoReports; }
+            set { BtnBacktoReports = value; }
+        }
+
         public Panel PnlContainer
         {
             get { return pnlContainer; }
@@ -73,6 +78,7 @@ namespace AHKPOSENKTHESIS
         {
             BtnBack.Visible = false;
             BtnBackToInvoice.Visible = false;
+            BtnBacktoReports.Visible = false;
 
             _obj = this;
 
@@ -113,15 +119,22 @@ namespace AHKPOSENKTHESIS
 
         private void BtnReduce_Click(object sender, EventArgs e)
         {
+            // get the path of the image
+            Image compress = Image.FromFile(@"C:\Users\Arjie\source\repos\AHKPOSENKTHESIS MASTER\AHKPOSENKTHESIS WIP\AHKPOSENKTHESIS\bin\Debug\Icons\compress_36px.png");
+
+            // get the path of the image
+            Image fullscreen = Image.FromFile(@"C:\Users\Arjie\source\repos\AHKPOSENKTHESIS MASTER\AHKPOSENKTHESIS WIP\AHKPOSENKTHESIS\bin\Debug\Icons\full_screen_36px.png");
+
             if (this.WindowState != FormWindowState.Maximized)
             {
-                // Reduce the size of the form 
+                BtnReduce.Image = compress;
                 this.WindowState = FormWindowState.Maximized;
                 pnlContainer.Size = pnlContainer.Size;
 
             }
             else
             {
+                BtnReduce.Image = fullscreen;
                 this.WindowState = FormWindowState.Normal;
                 pnlContainer.Size = pnlContainer.Size;
             }
@@ -129,14 +142,23 @@ namespace AHKPOSENKTHESIS
 
         private void panel2_DoubleClick(object sender, EventArgs e)
         {
+            // get the path of the image
+            Image compress = Image.FromFile(@"C:\Users\Arjie\source\repos\AHKPOSENKTHESIS MASTER\AHKPOSENKTHESIS WIP\AHKPOSENKTHESIS\bin\Debug\Icons\compress_36px.png");
+
+            // get the path of the image
+            Image fullscreen = Image.FromFile(@"C:\Users\Arjie\source\repos\AHKPOSENKTHESIS MASTER\AHKPOSENKTHESIS WIP\AHKPOSENKTHESIS\bin\Debug\Icons\full_screen_36px.png");
+
             if (this.WindowState != FormWindowState.Maximized)
             {
+                BtnReduce.Image = compress;
+
                 // Reduce the size of the form 
                 this.WindowState = FormWindowState.Maximized;
                 pnlContainer.Size = pnlContainer.Size;
             }
             else
             {
+                BtnReduce.Image = fullscreen;
                 this.WindowState = FormWindowState.Normal;
                 pnlContainer.Size = pnlContainer.Size;
             }
@@ -189,6 +211,20 @@ namespace AHKPOSENKTHESIS
             BtnBackToInvoice.Visible = false;
         }
 
+        private void BtnBacktoReports_Click(object sender, EventArgs e)
+        {
+            if (!AdminAdministrator.Instance.PnlContainer.Controls.ContainsKey("AdminSalesReportHome"))
+            {
+                AdminSalesReportHome rep = new AdminSalesReportHome();
+                rep.Dock = DockStyle.Fill;
+                AdminAdministrator.Instance.PnlContainer.Controls.Add(rep);
+
+            }
+            AdminAdministrator.Instance.PnlContainer.Controls["AdminSalesReportHome"].BringToFront();
+            AdminAdministrator.Instance.BackButton.Visible = true;
+            AdminAdministrator.Instance.BackToInvoiceButton.Visible = false;
+        }
+
         private void BtnResources_Click(object sender, EventArgs e)
         {
             if (!AdminAdministrator.Instance.PnlContainer.Controls.ContainsKey("AdminResources"))
@@ -206,6 +242,7 @@ namespace AHKPOSENKTHESIS
             AdminAdministrator.Instance.PnlContainer.Controls["AdminResources"].BringToFront();
             AdminAdministrator.Instance.BackButton.Visible = false;
             AdminAdministrator.Instance.BackToInvoiceButton.Visible = false;
+            AdminAdministrator.Instance.BackToReportsButton.Visible = false;
         }
 
         private void BtnProducts_Click(object sender, EventArgs e)
@@ -221,6 +258,7 @@ namespace AHKPOSENKTHESIS
             AdminAdministrator.Instance.PnlContainer.Controls["AdminProducts"].BringToFront();
             AdminAdministrator.Instance.BackButton.Visible = true;
             AdminAdministrator.Instance.BackToInvoiceButton.Visible = false;
+            AdminAdministrator.Instance.BackToReportsButton.Visible = false;
         }
 
         private void BtnInventoryFlow_Click(object sender, EventArgs e)
@@ -238,6 +276,7 @@ namespace AHKPOSENKTHESIS
             }
             AdminAdministrator.Instance.PnlContainer.Controls["AdminInventory"].BringToFront();
             AdminAdministrator.Instance.BackButton.Visible = true;
+            AdminAdministrator.Instance.BackToReportsButton.Visible = false;
         }
 
         private void BtnCustomers_Click(object sender, EventArgs e)
@@ -255,6 +294,7 @@ namespace AHKPOSENKTHESIS
             AdminAdministrator.Instance.PnlContainer.Controls["AdminCustomer"].BringToFront();
             AdminAdministrator.Instance.BackButton.Visible = true;
             AdminAdministrator.Instance.BackToInvoiceButton.Visible = false;
+            AdminAdministrator.Instance.BackToReportsButton.Visible = false;
         }
 
         private void BtnInvoices_Click(object sender, EventArgs e)
@@ -270,6 +310,7 @@ namespace AHKPOSENKTHESIS
             }
             AdminAdministrator.Instance.PnlContainer.Controls["AdminInvoices"].BringToFront();
             AdminAdministrator.Instance.BackButton.Visible = true;
+            AdminAdministrator.Instance.BackToReportsButton.Visible = false;
         }
 
         private void BtnSalesReports_Click(object sender, EventArgs e)
@@ -284,6 +325,7 @@ namespace AHKPOSENKTHESIS
             }
             AdminAdministrator.Instance.PnlContainer.Controls["AdminSalesReportHome"].BringToFront();
             AdminAdministrator.Instance.BackButton.Visible = true;
+            AdminAdministrator.Instance.BackToReportsButton.Visible = false;
         }
 
         private void BtnSettings_Click(object sender, EventArgs e)
@@ -298,6 +340,7 @@ namespace AHKPOSENKTHESIS
             }
             AdminAdministrator.Instance.PnlContainer.Controls["AdminSettings"].BringToFront();
             AdminAdministrator.Instance.BackButton.Visible = true;
+            AdminAdministrator.Instance.BackToReportsButton.Visible = false;
         }
 
 
@@ -356,6 +399,5 @@ namespace AHKPOSENKTHESIS
             }
         }
 
-     
     }
 }

@@ -18,7 +18,6 @@ namespace AHKPOSENKTHESIS
         SqlCommand cm = new SqlCommand();
         DatabaseConnection dbcon = new DatabaseConnection();
         SqlDataReader dr;
-        string titlesataas = "Quantity";
 
         AdminUpdateInvoice edit;
 
@@ -28,7 +27,6 @@ namespace AHKPOSENKTHESIS
         private String proddescrip;
         private double prodprice;
         private int qty;
-        private int addqty;
 
 
 

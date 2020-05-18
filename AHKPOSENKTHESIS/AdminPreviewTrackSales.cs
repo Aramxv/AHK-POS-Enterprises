@@ -12,17 +12,16 @@ using Microsoft.Reporting.WinForms;
 
 namespace AHKPOSENKTHESIS
 {
-    public partial class FrmTrackSalesPreview : Form
+    public partial class AdminPreviewTrackSales : Form
     {
         //declare sqlconnetion
         SqlConnection cn = new SqlConnection();
         SqlCommand cm = new SqlCommand();
         DatabaseConnection dbcon = new DatabaseConnection();
-        SqlDataReader dr;
 
-        FrmReports rep;
+        AdminReportsTrackSales rep;
 
-        public FrmTrackSalesPreview(FrmReports port)
+        public AdminPreviewTrackSales(AdminReportsTrackSales port)
         {
             InitializeComponent();
             cn = new SqlConnection(dbcon.MyConnection());
@@ -47,7 +46,12 @@ namespace AHKPOSENKTHESIS
                 SqlDataAdapter da = new SqlDataAdapter();
 
                 cn.Open();
-                if (rep.cmbTerms.Text == "Cash")
+                if (rep.cmbTerms.Text == "All")
+                {
+                    da.SelectCommand = new SqlCommand("SELECT customer, address, payment, sum(vat) as total_vat, sum(vatable) as total_vatable, sum(discount) as total_discount, sum(salestotal) as total FROM tblInvoiceRecords WHERE datecreated between '" + rep.bunifuDatepicker1.Value.ToString("yyyy-MM-dd") + "' and '" + rep.bunifuDatepicker2.Value.ToString("yyyy-MM-dd") + "' group by customer, address, payment, datecreated order by datecreated desc", cn);
+
+                }
+                else if (rep.cmbTerms.Text == "Cash")
                 {
                     da.SelectCommand = new SqlCommand("SELECT customer, address, payment, sum(vat) as total_vat, sum(vatable) as total_vatable, sum(discount) as total_discount, sum(salestotal) as total FROM tblInvoiceRecords WHERE datecreated between '" + rep.bunifuDatepicker1.Value.ToString("yyyy-MM-dd") + "' and '" + rep.bunifuDatepicker2.Value.ToString("yyyy-MM-dd") + "' and payment like '" + rep.cmbTerms.Text + "' group by customer, address, payment, datecreated order by datecreated desc", cn);
                 }

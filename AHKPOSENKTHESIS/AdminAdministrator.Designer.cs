@@ -53,6 +53,7 @@
             this.BtnMinimize = new Bunifu.Framework.UI.BunifuImageButton();
             this.BtnReduce = new Bunifu.Framework.UI.BunifuImageButton();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.BtnBacktoReports = new System.Windows.Forms.Button();
             this.BtnBackToInvoice = new System.Windows.Forms.Button();
             this.AvatarPanel = new System.Windows.Forms.Panel();
             this.BtnAvatarOut = new Bunifu.Framework.UI.BunifuImageButton();
@@ -111,7 +112,7 @@
             this.panel1.Font = new System.Drawing.Font("Poppins", 9F);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(85, 835);
+            this.panel1.Size = new System.Drawing.Size(85, 925);
             this.panel1.TabIndex = 0;
             // 
             // label9
@@ -196,7 +197,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Poppins", 9F);
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(80, 774);
+            this.label5.Location = new System.Drawing.Point(80, 864);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(74, 26);
             this.label5.TabIndex = 12;
@@ -209,7 +210,7 @@
             this.BtnSettings.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnSettings.Image = ((System.Drawing.Image)(resources.GetObject("BtnSettings.Image")));
             this.BtnSettings.ImageActive = null;
-            this.BtnSettings.Location = new System.Drawing.Point(18, 758);
+            this.BtnSettings.Location = new System.Drawing.Point(18, 848);
             this.BtnSettings.Name = "BtnSettings";
             this.BtnSettings.Size = new System.Drawing.Size(48, 48);
             this.BtnSettings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -226,9 +227,9 @@
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(80, 615);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(52, 26);
+            this.label4.Size = new System.Drawing.Size(96, 26);
             this.label4.TabIndex = 9;
-            this.label4.Text = "Sales";
+            this.label4.Text = "Track Sales";
             // 
             // label3
             // 
@@ -350,7 +351,7 @@
             this.BtnClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnClose.Image = ((System.Drawing.Image)(resources.GetObject("BtnClose.Image")));
             this.BtnClose.ImageActive = null;
-            this.BtnClose.Location = new System.Drawing.Point(1147, 17);
+            this.BtnClose.Location = new System.Drawing.Point(1290, 17);
             this.BtnClose.Name = "BtnClose";
             this.BtnClose.Size = new System.Drawing.Size(36, 36);
             this.BtnClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -367,7 +368,7 @@
             this.BtnMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnMinimize.Image = ((System.Drawing.Image)(resources.GetObject("BtnMinimize.Image")));
             this.BtnMinimize.ImageActive = null;
-            this.BtnMinimize.Location = new System.Drawing.Point(1063, 16);
+            this.BtnMinimize.Location = new System.Drawing.Point(1206, 16);
             this.BtnMinimize.Name = "BtnMinimize";
             this.BtnMinimize.Size = new System.Drawing.Size(36, 36);
             this.BtnMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -384,7 +385,7 @@
             this.BtnReduce.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnReduce.Image = ((System.Drawing.Image)(resources.GetObject("BtnReduce.Image")));
             this.BtnReduce.ImageActive = null;
-            this.BtnReduce.Location = new System.Drawing.Point(1105, 16);
+            this.BtnReduce.Location = new System.Drawing.Point(1248, 16);
             this.BtnReduce.Name = "BtnReduce";
             this.BtnReduce.Size = new System.Drawing.Size(36, 36);
             this.BtnReduce.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -397,6 +398,8 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(54)))), ((int)(((byte)(75)))));
+            this.panel2.Controls.Add(this.BtnAvatarOut);
+            this.panel2.Controls.Add(this.BtnBacktoReports);
             this.panel2.Controls.Add(this.BtnClose);
             this.panel2.Controls.Add(this.BtnMinimize);
             this.panel2.Controls.Add(this.BtnBackToInvoice);
@@ -407,11 +410,25 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(85, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1195, 71);
+            this.panel2.Size = new System.Drawing.Size(1338, 71);
             this.panel2.TabIndex = 1;
             this.panel2.Click += new System.EventHandler(this.panel2_Click);
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             this.panel2.DoubleClick += new System.EventHandler(this.panel2_DoubleClick);
+            // 
+            // BtnBacktoReports
+            // 
+            this.BtnBacktoReports.AutoSize = true;
+            this.BtnBacktoReports.FlatAppearance.BorderSize = 0;
+            this.BtnBacktoReports.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnBacktoReports.Image = ((System.Drawing.Image)(resources.GetObject("BtnBacktoReports.Image")));
+            this.BtnBacktoReports.Location = new System.Drawing.Point(152, 7);
+            this.BtnBacktoReports.Name = "BtnBacktoReports";
+            this.BtnBacktoReports.Size = new System.Drawing.Size(66, 56);
+            this.BtnBacktoReports.TabIndex = 60;
+            this.toolTip1.SetToolTip(this.BtnBacktoReports, "Back");
+            this.BtnBacktoReports.UseVisualStyleBackColor = true;
+            this.BtnBacktoReports.Click += new System.EventHandler(this.BtnBacktoReports_Click);
             // 
             // BtnBackToInvoice
             // 
@@ -430,24 +447,23 @@
             // AvatarPanel
             // 
             this.AvatarPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.AvatarPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(60)))), ((int)(((byte)(78)))));
-            this.AvatarPanel.Controls.Add(this.BtnAvatarOut);
+            this.AvatarPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(231)))), ((int)(((byte)(251)))));
             this.AvatarPanel.Controls.Add(this.lblUsername);
             this.AvatarPanel.Controls.Add(this.lblAccount);
-            this.AvatarPanel.Location = new System.Drawing.Point(768, 2);
+            this.AvatarPanel.Location = new System.Drawing.Point(897, 3);
             this.AvatarPanel.Name = "AvatarPanel";
-            this.AvatarPanel.Size = new System.Drawing.Size(230, 65);
+            this.AvatarPanel.Size = new System.Drawing.Size(199, 65);
             this.AvatarPanel.TabIndex = 58;
             this.AvatarPanel.Visible = false;
             // 
             // BtnAvatarOut
             // 
-            this.BtnAvatarOut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.BtnAvatarOut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnAvatarOut.BackColor = System.Drawing.Color.Transparent;
             this.BtnAvatarOut.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnAvatarOut.Image = ((System.Drawing.Image)(resources.GetObject("BtnAvatarOut.Image")));
             this.BtnAvatarOut.ImageActive = null;
-            this.BtnAvatarOut.Location = new System.Drawing.Point(3, 14);
+            this.BtnAvatarOut.Location = new System.Drawing.Point(1158, 16);
             this.BtnAvatarOut.Name = "BtnAvatarOut";
             this.BtnAvatarOut.Size = new System.Drawing.Size(36, 36);
             this.BtnAvatarOut.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -460,8 +476,8 @@
             // lblUsername
             // 
             this.lblUsername.Font = new System.Drawing.Font("Poppins", 10F);
-            this.lblUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(231)))), ((int)(((byte)(250)))));
-            this.lblUsername.Location = new System.Drawing.Point(57, 6);
+            this.lblUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(54)))), ((int)(((byte)(75)))));
+            this.lblUsername.Location = new System.Drawing.Point(21, 5);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(157, 33);
             this.lblUsername.TabIndex = 57;
@@ -470,8 +486,8 @@
             // lblAccount
             // 
             this.lblAccount.Font = new System.Drawing.Font("Poppins", 8F);
-            this.lblAccount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(231)))), ((int)(((byte)(250)))));
-            this.lblAccount.Location = new System.Drawing.Point(56, 38);
+            this.lblAccount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(54)))), ((int)(((byte)(75)))));
+            this.lblAccount.Location = new System.Drawing.Point(20, 38);
             this.lblAccount.Name = "lblAccount";
             this.lblAccount.Size = new System.Drawing.Size(158, 27);
             this.lblAccount.TabIndex = 57;
@@ -482,7 +498,7 @@
             // 
             this.BtnAvatar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnAvatar.Image = ((System.Drawing.Image)(resources.GetObject("BtnAvatar.Image")));
-            this.BtnAvatar.Location = new System.Drawing.Point(1001, 10);
+            this.BtnAvatar.Location = new System.Drawing.Point(1102, 8);
             this.BtnAvatar.Name = "BtnAvatar";
             this.BtnAvatar.Size = new System.Drawing.Size(50, 50);
             this.BtnAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -510,7 +526,7 @@
             this.pnlContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlContainer.Location = new System.Drawing.Point(85, 71);
             this.pnlContainer.Name = "pnlContainer";
-            this.pnlContainer.Size = new System.Drawing.Size(1195, 764);
+            this.pnlContainer.Size = new System.Drawing.Size(1338, 854);
             this.pnlContainer.TabIndex = 2;
             // 
             // bunifuElipse2
@@ -529,7 +545,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1280, 835);
+            this.ClientSize = new System.Drawing.Size(1423, 925);
             this.Controls.Add(this.pnlContainer);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -555,7 +571,6 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.AvatarPanel.ResumeLayout(false);
-            this.AvatarPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BtnAvatarOut)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnAvatar)).EndInit();
             this.ResumeLayout(false);
@@ -598,5 +613,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private Bunifu.Framework.UI.BunifuImageButton BtnInventoryFlow;
+        private System.Windows.Forms.Button BtnBacktoReports;
     }
 }

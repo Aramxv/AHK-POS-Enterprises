@@ -12,17 +12,16 @@ using Microsoft.Reporting.WinForms;
 
 namespace AHKPOSENKTHESIS
 {
-    public partial class FrmSoldProductsPrintPreview : Form
+    public partial class AdminPreviewSoldProducts : Form
     {
         //declare sqlconnetion
         SqlConnection cn = new SqlConnection();
         SqlCommand cm = new SqlCommand();
         DatabaseConnection dbcon = new DatabaseConnection();
-        SqlDataReader dr;
 
-        FrmReports rep;
+        AdminReportSold rep;
 
-        public FrmSoldProductsPrintPreview(FrmReports port)
+        public AdminPreviewSoldProducts(AdminReportSold port)
         {
             InitializeComponent();
             cn = new SqlConnection(dbcon.MyConnection());
@@ -34,7 +33,7 @@ namespace AHKPOSENKTHESIS
 
         }
 
-        public void LoadSoldReport()
+        public void PreviewSoldReport()
         {
             try
             {
@@ -47,7 +46,7 @@ namespace AHKPOSENKTHESIS
                 SqlDataAdapter da = new SqlDataAdapter();
 
                 cn.Open();
-                da.SelectCommand = new SqlCommand("SELECT c.prodcode, p.proddescrip, c.prodprice, sum(c.qty) as total_qty, sum(c.discount) as total_discount, sum(c.total) as total_total from tblInvoiceOrder as c inner join tblProduct as p on c.prodcode = p.prodcode where status like 'Sold' and stockdate between '" + rep.dt1.Value.ToString("yyyyMMdd") + "' and '" + rep.dt2.Value.ToString("yyyyMMdd") + "' group by c.prodcode, p.proddescrip, c.prodprice", cn);
+                da.SelectCommand = new SqlCommand("SELECT c.prodcode, p.proddescrip, c.prodprice, sum(c.qty) as total_qty, sum(c.discount) as total_discount, sum(c.total) as total_total from tblInvoiceOrder as c inner join tblProduct as p on c.prodcode = p.prodcode where status like 'Sold' and stockdate between '" + rep.bunifuDatepicker1.Value.ToString("yyyyMMdd") + "' and '" + rep.bunifuDatepicker2.Value.ToString("yyyyMMdd") + "' group by c.prodcode, p.proddescrip, c.prodprice", cn);
                 da.Fill(ds.Tables["dbSoldReport"]);
                 cn.Close();
 

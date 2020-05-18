@@ -35,7 +35,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.BtnClose = new System.Windows.Forms.PictureBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.btnEnter = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.txtUser = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -46,10 +47,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.preLoad = new System.Windows.Forms.PictureBox();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.txtUser = new System.Windows.Forms.TextBox();
-            this.txtPassword = new System.Windows.Forms.TextBox();
             this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse3 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.BtnLogin = new Bunifu.Framework.UI.BunifuFlatButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -80,9 +80,9 @@
             this.label1.ForeColor = System.Drawing.Color.Silver;
             this.label1.Location = new System.Drawing.Point(44, 333);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(93, 24);
+            this.label1.Size = new System.Drawing.Size(95, 24);
             this.label1.TabIndex = 49;
-            this.label1.Text = "username";
+            this.label1.Text = "Username";
             this.toolTip1.SetToolTip(this.label1, "Username");
             // 
             // label2
@@ -94,9 +94,9 @@
             this.label2.ForeColor = System.Drawing.Color.Silver;
             this.label2.Location = new System.Drawing.Point(44, 409);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(93, 24);
+            this.label2.Size = new System.Drawing.Size(94, 24);
             this.label2.TabIndex = 50;
-            this.label2.Text = "password";
+            this.label2.Text = "Password";
             this.toolTip1.SetToolTip(this.label2, "Password");
             // 
             // BtnClose
@@ -114,34 +114,30 @@
             this.toolTip1.SetToolTip(this.BtnClose, "Close");
             this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
-            // btnEnter
+            // txtUser
             // 
-            this.btnEnter.ActiveBorderThickness = 1;
-            this.btnEnter.ActiveCornerRadius = 25;
-            this.btnEnter.ActiveFillColor = System.Drawing.Color.White;
-            this.btnEnter.ActiveForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(60)))), ((int)(((byte)(78)))));
-            this.btnEnter.ActiveLineColor = System.Drawing.Color.White;
-            this.btnEnter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEnter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(60)))), ((int)(((byte)(78)))));
-            this.btnEnter.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnEnter.BackgroundImage")));
-            this.btnEnter.ButtonText = "Login";
-            this.btnEnter.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEnter.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Bold);
-            this.btnEnter.ForeColor = System.Drawing.Color.White;
-            this.btnEnter.IdleBorderThickness = 1;
-            this.btnEnter.IdleCornerRadius = 25;
-            this.btnEnter.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(60)))), ((int)(((byte)(78)))));
-            this.btnEnter.IdleForecolor = System.Drawing.Color.White;
-            this.btnEnter.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(60)))), ((int)(((byte)(78)))));
-            this.btnEnter.Location = new System.Drawing.Point(76, 477);
-            this.btnEnter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnEnter.Name = "btnEnter";
-            this.btnEnter.Size = new System.Drawing.Size(214, 60);
-            this.btnEnter.TabIndex = 118;
-            this.btnEnter.TabStop = false;
-            this.btnEnter.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.toolTip1.SetToolTip(this.btnEnter, "Hit to process the making of your Customer\'s Invoice.");
-            this.btnEnter.Click += new System.EventHandler(this.btnEnter_Click);
+            this.txtUser.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtUser.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList;
+            this.txtUser.Font = new System.Drawing.Font("Roboto", 10F);
+            this.txtUser.Location = new System.Drawing.Point(48, 360);
+            this.txtUser.Name = "txtUser";
+            this.txtUser.Size = new System.Drawing.Size(275, 28);
+            this.txtUser.TabIndex = 126;
+            this.toolTip1.SetToolTip(this.txtUser, "Type your username in the textbox provided.");
+            this.txtUser.TextChanged += new System.EventHandler(this.txtUser_TextChanged);
+            this.txtUser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUser_KeyPress);
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Font = new System.Drawing.Font("Roboto", 10F);
+            this.txtPassword.Location = new System.Drawing.Point(48, 436);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '•';
+            this.txtPassword.Size = new System.Drawing.Size(275, 28);
+            this.txtPassword.TabIndex = 127;
+            this.toolTip1.SetToolTip(this.txtPassword, "Type your password in the textbox provided.");
+            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
+            this.txtPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPassword_KeyPress_1);
             // 
             // dateTimePicker1
             // 
@@ -229,35 +225,13 @@
             this.linkLabel1.ActiveLinkColor = System.Drawing.Color.WhiteSmoke;
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Font = new System.Drawing.Font("Poppins", 7.5F);
-            this.linkLabel1.LinkColor = System.Drawing.Color.IndianRed;
+            this.linkLabel1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(14)))), ((int)(((byte)(99)))));
             this.linkLabel1.Location = new System.Drawing.Point(99, 543);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(169, 23);
+            this.linkLabel1.Size = new System.Drawing.Size(157, 23);
             this.linkLabel1.TabIndex = 124;
-            this.linkLabel1.Text = "Request a new account?";
-            // 
-            // txtUser
-            // 
-            this.txtUser.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.txtUser.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList;
-            this.txtUser.Font = new System.Drawing.Font("Roboto", 10F);
-            this.txtUser.Location = new System.Drawing.Point(48, 360);
-            this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(275, 28);
-            this.txtUser.TabIndex = 126;
-            this.toolTip1.SetToolTip(this.txtUser, "Type your username in the textbox provided.");
-            this.txtUser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUser_KeyPress);
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.Font = new System.Drawing.Font("Roboto", 10F);
-            this.txtPassword.Location = new System.Drawing.Point(48, 436);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.PasswordChar = '•';
-            this.txtPassword.Size = new System.Drawing.Size(275, 28);
-            this.txtPassword.TabIndex = 127;
-            this.toolTip1.SetToolTip(this.txtPassword, "Type your password in the textbox provided.");
-            this.txtPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPassword_KeyPress_1);
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Request new account?";
             // 
             // bunifuElipse2
             // 
@@ -269,6 +243,43 @@
             this.bunifuElipse3.ElipseRadius = 5;
             this.bunifuElipse3.TargetControl = this.txtPassword;
             // 
+            // BtnLogin
+            // 
+            this.BtnLogin.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(60)))), ((int)(((byte)(78)))));
+            this.BtnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(60)))), ((int)(((byte)(78)))));
+            this.BtnLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnLogin.BorderRadius = 1;
+            this.BtnLogin.ButtonText = "Log in";
+            this.BtnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnLogin.DisabledColor = System.Drawing.Color.Gray;
+            this.BtnLogin.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Bold);
+            this.BtnLogin.Iconcolor = System.Drawing.Color.Transparent;
+            this.BtnLogin.Iconimage = null;
+            this.BtnLogin.Iconimage_right = null;
+            this.BtnLogin.Iconimage_right_Selected = null;
+            this.BtnLogin.Iconimage_Selected = null;
+            this.BtnLogin.IconMarginLeft = 0;
+            this.BtnLogin.IconMarginRight = 0;
+            this.BtnLogin.IconRightVisible = true;
+            this.BtnLogin.IconRightZoom = 0D;
+            this.BtnLogin.IconVisible = true;
+            this.BtnLogin.IconZoom = 90D;
+            this.BtnLogin.IsTab = false;
+            this.BtnLogin.Location = new System.Drawing.Point(76, 473);
+            this.BtnLogin.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.BtnLogin.Name = "BtnLogin";
+            this.BtnLogin.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(60)))), ((int)(((byte)(78)))));
+            this.BtnLogin.OnHovercolor = System.Drawing.Color.White;
+            this.BtnLogin.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(60)))), ((int)(((byte)(78)))));
+            this.BtnLogin.selected = false;
+            this.BtnLogin.Size = new System.Drawing.Size(214, 60);
+            this.BtnLogin.TabIndex = 130;
+            this.BtnLogin.Text = "Log in";
+            this.BtnLogin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.BtnLogin.Textcolor = System.Drawing.Color.White;
+            this.BtnLogin.TextFont = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Bold);
+            this.BtnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -276,11 +287,11 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(60)))), ((int)(((byte)(78)))));
             this.ClientSize = new System.Drawing.Size(366, 631);
             this.ControlBox = false;
+            this.Controls.Add(this.BtnLogin);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUser);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.preLoad);
-            this.Controls.Add(this.btnEnter);
             this.Controls.Add(this.pnlWarning);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.BtnClose);
@@ -294,6 +305,7 @@
             this.MinimumSize = new System.Drawing.Size(339, 503);
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.FrmLogin_Load);
             this.Click += new System.EventHandler(this.FrmLogin_Click);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -317,7 +329,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        public Bunifu.Framework.UI.BunifuThinButton2 btnEnter;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl2;
         private System.Windows.Forms.Panel pnlWarning;
@@ -329,5 +340,6 @@
         private System.Windows.Forms.TextBox txtUser;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse2;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse3;
+        public Bunifu.Framework.UI.BunifuFlatButton BtnLogin;
     }
 }

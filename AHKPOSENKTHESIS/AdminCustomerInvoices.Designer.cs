@@ -40,27 +40,6 @@
             this.BtnInvoices = new System.Windows.Forms.Label();
             this.txtSearch = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.lblDataRowCount = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.BtnOverdueInvoices = new Bunifu.Framework.UI.BunifuImageButton();
-            this.BtnPaidInvoices = new Bunifu.Framework.UI.BunifuImageButton();
-            this.BtnCancelledInvoices = new Bunifu.Framework.UI.BunifuImageButton();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.BtnFilterByDate = new Bunifu.Framework.UI.BunifuImageButton();
-            this.cmbSort = new System.Windows.Forms.ComboBox();
-            this.BtnClearFilters = new Bunifu.Framework.UI.BunifuImageButton();
-            this.cmbShown = new System.Windows.Forms.ComboBox();
-            this.cmbCustomer = new System.Windows.Forms.ComboBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.lblTotal = new System.Windows.Forms.Label();
-            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.lblTotalDiscount = new System.Windows.Forms.Label();
-            this.lblTotalVat = new System.Windows.Forms.Label();
-            this.lblTotalVatable = new System.Windows.Forms.Label();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column12 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -81,6 +60,27 @@
             this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.lblTotalVatable = new System.Windows.Forms.Label();
+            this.lblTotalVat = new System.Windows.Forms.Label();
+            this.lblTotalDiscount = new System.Windows.Forms.Label();
+            this.lblTotal = new System.Windows.Forms.Label();
+            this.lblDataRowCount = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.BtnOverdueInvoices = new Bunifu.Framework.UI.BunifuImageButton();
+            this.BtnPaidInvoices = new Bunifu.Framework.UI.BunifuImageButton();
+            this.BtnCancelledInvoices = new Bunifu.Framework.UI.BunifuImageButton();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.BtnFilterByDate = new Bunifu.Framework.UI.BunifuImageButton();
+            this.cmbSort = new System.Windows.Forms.ComboBox();
+            this.BtnClearFilters = new Bunifu.Framework.UI.BunifuImageButton();
+            this.cmbShown = new System.Windows.Forms.ComboBox();
+            this.cmbCustomer = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BtnOverdueInvoices)).BeginInit();
@@ -215,6 +215,201 @@
             this.dataGridView1.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridView1_RowsAdded);
             this.dataGridView1.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dataGridView1_RowsRemoved);
             // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column1.HeaderText = "";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 21;
+            // 
+            // Column12
+            // 
+            this.Column12.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column12.HeaderText = "";
+            this.Column12.Image = ((System.Drawing.Image)(resources.GetObject("Column12.Image")));
+            this.Column12.MinimumWidth = 6;
+            this.Column12.Name = "Column12";
+            this.Column12.ReadOnly = true;
+            this.Column12.Width = 6;
+            // 
+            // Column5
+            // 
+            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column5.HeaderText = "ID";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Visible = false;
+            this.Column5.Width = 55;
+            // 
+            // ProductCode
+            // 
+            this.ProductCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ProductCode.HeaderText = "INVOICE";
+            this.ProductCode.MinimumWidth = 6;
+            this.ProductCode.Name = "ProductCode";
+            this.ProductCode.ReadOnly = true;
+            this.ProductCode.Width = 103;
+            // 
+            // Description
+            // 
+            this.Description.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Description.HeaderText = "CUSTOMER NAME";
+            this.Description.MinimumWidth = 6;
+            this.Description.Name = "Description";
+            this.Description.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column2.HeaderText = "ADDRESS";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 110;
+            // 
+            // Column3
+            // 
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Column3.HeaderText = "SALES";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 87;
+            // 
+            // Column4
+            // 
+            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column4.HeaderText = "DISCOUNT";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Visible = false;
+            this.Column4.Width = 121;
+            // 
+            // Column6
+            // 
+            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column6.HeaderText = "VAT";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Visible = false;
+            this.Column6.Width = 71;
+            // 
+            // Column7
+            // 
+            this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column7.HeaderText = "VATABLE";
+            this.Column7.MinimumWidth = 6;
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Visible = false;
+            this.Column7.Width = 112;
+            // 
+            // TOTAL
+            // 
+            this.TOTAL.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.TOTAL.DefaultCellStyle = dataGridViewCellStyle3;
+            this.TOTAL.HeaderText = "TOTAL";
+            this.TOTAL.MinimumWidth = 6;
+            this.TOTAL.Name = "TOTAL";
+            this.TOTAL.ReadOnly = true;
+            this.TOTAL.Visible = false;
+            this.TOTAL.Width = 91;
+            // 
+            // Column8
+            // 
+            this.Column8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column8.HeaderText = "PAYMENT";
+            this.Column8.MinimumWidth = 6;
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            this.Column8.Width = 116;
+            // 
+            // Column9
+            // 
+            this.Column9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column9.HeaderText = "DAYS";
+            this.Column9.MinimumWidth = 6;
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            this.Column9.Visible = false;
+            this.Column9.Width = 81;
+            // 
+            // Column10
+            // 
+            this.Column10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column10.HeaderText = "BILL ADDRESS";
+            this.Column10.MinimumWidth = 6;
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            this.Column10.Visible = false;
+            this.Column10.Width = 150;
+            // 
+            // Price
+            // 
+            this.Price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Price.HeaderText = "DATE";
+            this.Price.MinimumWidth = 6;
+            this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
+            this.Price.Width = 79;
+            // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "DUE DATE";
+            this.Column11.MinimumWidth = 6;
+            this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
+            this.Column11.Visible = false;
+            this.Column11.Width = 125;
+            // 
+            // Column13
+            // 
+            this.Column13.HeaderText = "STATUS";
+            this.Column13.MinimumWidth = 6;
+            this.Column13.Name = "Column13";
+            this.Column13.ReadOnly = true;
+            this.Column13.Visible = false;
+            this.Column13.Width = 125;
+            // 
+            // Column14
+            // 
+            this.Column14.HeaderText = "REMARKS";
+            this.Column14.MinimumWidth = 6;
+            this.Column14.Name = "Column14";
+            this.Column14.ReadOnly = true;
+            this.Column14.Visible = false;
+            this.Column14.Width = 125;
+            // 
+            // Column15
+            // 
+            this.Column15.HeaderText = "PRIVATE COMMENT";
+            this.Column15.MinimumWidth = 6;
+            this.Column15.Name = "Column15";
+            this.Column15.ReadOnly = true;
+            this.Column15.Visible = false;
+            this.Column15.Width = 125;
+            // 
+            // Delete
+            // 
+            this.Delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Delete.HeaderText = "";
+            this.Delete.Image = ((System.Drawing.Image)(resources.GetObject("Delete.Image")));
+            this.Delete.MinimumWidth = 6;
+            this.Delete.Name = "Delete";
+            this.Delete.ReadOnly = true;
+            this.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Delete.ToolTipText = "Delete Invoice";
+            this.Delete.Width = 21;
+            // 
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(54)))), ((int)(((byte)(75)))));
@@ -228,6 +423,54 @@
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(1195, 23);
             this.panel9.TabIndex = 179;
+            // 
+            // lblTotalVatable
+            // 
+            this.lblTotalVatable.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblTotalVatable.AutoSize = true;
+            this.lblTotalVatable.Font = new System.Drawing.Font("Roboto", 8F);
+            this.lblTotalVatable.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lblTotalVatable.Location = new System.Drawing.Point(830, 2);
+            this.lblTotalVatable.Name = "lblTotalVatable";
+            this.lblTotalVatable.Size = new System.Drawing.Size(142, 18);
+            this.lblTotalVatable.TabIndex = 113;
+            this.lblTotalVatable.Text = "₱ 0,000 Vatable Sales";
+            // 
+            // lblTotalVat
+            // 
+            this.lblTotalVat.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblTotalVat.AutoSize = true;
+            this.lblTotalVat.Font = new System.Drawing.Font("Roboto", 8F);
+            this.lblTotalVat.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lblTotalVat.Location = new System.Drawing.Point(654, 2);
+            this.lblTotalVat.Name = "lblTotalVat";
+            this.lblTotalVat.Size = new System.Drawing.Size(120, 18);
+            this.lblTotalVat.TabIndex = 112;
+            this.lblTotalVat.Text = "₱ 0,000 VAT Sales";
+            // 
+            // lblTotalDiscount
+            // 
+            this.lblTotalDiscount.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblTotalDiscount.AutoSize = true;
+            this.lblTotalDiscount.Font = new System.Drawing.Font("Roboto", 8F);
+            this.lblTotalDiscount.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lblTotalDiscount.Location = new System.Drawing.Point(450, 2);
+            this.lblTotalDiscount.Name = "lblTotalDiscount";
+            this.lblTotalDiscount.Size = new System.Drawing.Size(148, 18);
+            this.lblTotalDiscount.TabIndex = 111;
+            this.lblTotalDiscount.Text = "₱ 0,000 Discount Total";
+            // 
+            // lblTotal
+            // 
+            this.lblTotal.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Font = new System.Drawing.Font("Roboto", 8F);
+            this.lblTotal.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lblTotal.Location = new System.Drawing.Point(268, 2);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(126, 18);
+            this.lblTotal.TabIndex = 110;
+            this.lblTotal.Text = "₱ 0,000 Total Sales";
             // 
             // lblDataRowCount
             // 
@@ -442,253 +685,10 @@
             this.label12.TabIndex = 51;
             this.label12.Text = "Customer Name";
             // 
-            // lblTotal
-            // 
-            this.lblTotal.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblTotal.AutoSize = true;
-            this.lblTotal.Font = new System.Drawing.Font("Roboto", 8F);
-            this.lblTotal.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblTotal.Location = new System.Drawing.Point(268, 2);
-            this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(126, 18);
-            this.lblTotal.TabIndex = 110;
-            this.lblTotal.Text = "₱ 0,000 Total Sales";
-            // 
             // bunifuElipse1
             // 
             this.bunifuElipse1.ElipseRadius = 15;
             this.bunifuElipse1.TargetControl = this.dataGridView1;
-            // 
-            // lblTotalDiscount
-            // 
-            this.lblTotalDiscount.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblTotalDiscount.AutoSize = true;
-            this.lblTotalDiscount.Font = new System.Drawing.Font("Roboto", 8F);
-            this.lblTotalDiscount.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblTotalDiscount.Location = new System.Drawing.Point(450, 2);
-            this.lblTotalDiscount.Name = "lblTotalDiscount";
-            this.lblTotalDiscount.Size = new System.Drawing.Size(148, 18);
-            this.lblTotalDiscount.TabIndex = 111;
-            this.lblTotalDiscount.Text = "₱ 0,000 Discount Total";
-            // 
-            // lblTotalVat
-            // 
-            this.lblTotalVat.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblTotalVat.AutoSize = true;
-            this.lblTotalVat.Font = new System.Drawing.Font("Roboto", 8F);
-            this.lblTotalVat.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblTotalVat.Location = new System.Drawing.Point(654, 2);
-            this.lblTotalVat.Name = "lblTotalVat";
-            this.lblTotalVat.Size = new System.Drawing.Size(120, 18);
-            this.lblTotalVat.TabIndex = 112;
-            this.lblTotalVat.Text = "₱ 0,000 VAT Sales";
-            // 
-            // lblTotalVatable
-            // 
-            this.lblTotalVatable.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblTotalVatable.AutoSize = true;
-            this.lblTotalVatable.Font = new System.Drawing.Font("Roboto", 8F);
-            this.lblTotalVatable.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblTotalVatable.Location = new System.Drawing.Point(830, 2);
-            this.lblTotalVatable.Name = "lblTotalVatable";
-            this.lblTotalVatable.Size = new System.Drawing.Size(142, 18);
-            this.lblTotalVatable.TabIndex = 113;
-            this.lblTotalVatable.Text = "₱ 0,000 Vatable Sales";
-            // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column1.HeaderText = "";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 21;
-            // 
-            // Column12
-            // 
-            this.Column12.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column12.HeaderText = "";
-            this.Column12.Image = ((System.Drawing.Image)(resources.GetObject("Column12.Image")));
-            this.Column12.MinimumWidth = 6;
-            this.Column12.Name = "Column12";
-            this.Column12.ReadOnly = true;
-            this.Column12.Width = 6;
-            // 
-            // Column5
-            // 
-            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column5.HeaderText = "ID";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Visible = false;
-            this.Column5.Width = 53;
-            // 
-            // ProductCode
-            // 
-            this.ProductCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ProductCode.HeaderText = "INVOICE";
-            this.ProductCode.MinimumWidth = 6;
-            this.ProductCode.Name = "ProductCode";
-            this.ProductCode.ReadOnly = true;
-            this.ProductCode.Width = 103;
-            // 
-            // Description
-            // 
-            this.Description.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Description.HeaderText = "CUSTOMER NAME";
-            this.Description.MinimumWidth = 6;
-            this.Description.Name = "Description";
-            this.Description.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column2.HeaderText = "ADDRESS";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 110;
-            // 
-            // Column3
-            // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Column3.HeaderText = "SALES";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 87;
-            // 
-            // Column4
-            // 
-            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column4.HeaderText = "DISCOUNT";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Visible = false;
-            this.Column4.Width = 119;
-            // 
-            // Column6
-            // 
-            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column6.HeaderText = "VAT";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.Visible = false;
-            this.Column6.Width = 69;
-            // 
-            // Column7
-            // 
-            this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column7.HeaderText = "VATABLE";
-            this.Column7.MinimumWidth = 6;
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            this.Column7.Visible = false;
-            this.Column7.Width = 110;
-            // 
-            // TOTAL
-            // 
-            this.TOTAL.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.TOTAL.DefaultCellStyle = dataGridViewCellStyle3;
-            this.TOTAL.HeaderText = "TOTAL";
-            this.TOTAL.MinimumWidth = 6;
-            this.TOTAL.Name = "TOTAL";
-            this.TOTAL.ReadOnly = true;
-            this.TOTAL.Visible = false;
-            this.TOTAL.Width = 89;
-            // 
-            // Column8
-            // 
-            this.Column8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column8.HeaderText = "PAYMENT";
-            this.Column8.MinimumWidth = 6;
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            this.Column8.Width = 116;
-            // 
-            // Column9
-            // 
-            this.Column9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column9.HeaderText = "DAYS";
-            this.Column9.MinimumWidth = 6;
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            this.Column9.Visible = false;
-            this.Column9.Width = 79;
-            // 
-            // Column10
-            // 
-            this.Column10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column10.HeaderText = "BILL ADDRESS";
-            this.Column10.MinimumWidth = 6;
-            this.Column10.Name = "Column10";
-            this.Column10.ReadOnly = true;
-            this.Column10.Visible = false;
-            this.Column10.Width = 148;
-            // 
-            // Price
-            // 
-            this.Price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Price.HeaderText = "DATE";
-            this.Price.MinimumWidth = 6;
-            this.Price.Name = "Price";
-            this.Price.ReadOnly = true;
-            this.Price.Width = 79;
-            // 
-            // Column11
-            // 
-            this.Column11.HeaderText = "DUE DATE";
-            this.Column11.MinimumWidth = 6;
-            this.Column11.Name = "Column11";
-            this.Column11.ReadOnly = true;
-            this.Column11.Visible = false;
-            this.Column11.Width = 125;
-            // 
-            // Column13
-            // 
-            this.Column13.HeaderText = "STATUS";
-            this.Column13.MinimumWidth = 6;
-            this.Column13.Name = "Column13";
-            this.Column13.ReadOnly = true;
-            this.Column13.Visible = false;
-            this.Column13.Width = 125;
-            // 
-            // Column14
-            // 
-            this.Column14.HeaderText = "REMARKS";
-            this.Column14.MinimumWidth = 6;
-            this.Column14.Name = "Column14";
-            this.Column14.ReadOnly = true;
-            this.Column14.Visible = false;
-            this.Column14.Width = 125;
-            // 
-            // Column15
-            // 
-            this.Column15.HeaderText = "PRIVATE COMMENT";
-            this.Column15.MinimumWidth = 6;
-            this.Column15.Name = "Column15";
-            this.Column15.ReadOnly = true;
-            this.Column15.Visible = false;
-            this.Column15.Width = 125;
-            // 
-            // Delete
-            // 
-            this.Delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Delete.HeaderText = "";
-            this.Delete.Image = ((System.Drawing.Image)(resources.GetObject("Delete.Image")));
-            this.Delete.MinimumWidth = 6;
-            this.Delete.Name = "Delete";
-            this.Delete.ReadOnly = true;
-            this.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Delete.ToolTipText = "Delete Invoice";
-            this.Delete.Width = 21;
             // 
             // AdminCustomerInvoices
             // 

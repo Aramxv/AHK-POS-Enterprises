@@ -1,12 +1,17 @@
 ﻿using System;
-using System.Drawing;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace AHKPOSENKTHESIS
 {
-    public partial class AdminAddProduct : Form
+    public partial class AdminAddProducts : Form
     {
         //declare sqlconnetion
         SqlConnection cn = new SqlConnection();
@@ -15,9 +20,10 @@ namespace AHKPOSENKTHESIS
         SqlDataAdapter da = new SqlDataAdapter();
         DataTable dt = new DataTable();
         SqlDataReader dr;
+
         AdminProducts PRlist;
 
-        public AdminAddProduct(AdminProducts Plist)
+        public AdminAddProducts(AdminProducts Plist)
         {
             InitializeComponent();
             cn = new SqlConnection(dbcon.MyConnection());
@@ -40,11 +46,6 @@ namespace AHKPOSENKTHESIS
             txtWarnqty.Clear();
         }
 
-        private void FrmProduct_Load(object sender, EventArgs e)
-        {
-
-        }
-
         public void PopulateCategoryInCombobox()
         {
             txtCategory.Items.Clear();
@@ -57,12 +58,6 @@ namespace AHKPOSENKTHESIS
             }
             dr.Close();
             cn.Close();
-        }
-
-
-        private void FrmProduct_Click(object sender, EventArgs e)
-        {
-            WarningIndicator.Visible = false;
         }
 
         //Insertion of Data in tblCategory Function
@@ -94,8 +89,22 @@ namespace AHKPOSENKTHESIS
             cm.ExecuteNonQuery();
             cn.Close();
         }
- 
-    
+
+
+
+
+
+        private void AdminAddProducts_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AdminAddProducts_Click(object sender, EventArgs e)
+        {
+            WarningIndicator.Visible = false;
+
+        }
+
         private void txtPrice_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == 46)
@@ -112,7 +121,7 @@ namespace AHKPOSENKTHESIS
             }
         }
 
-        private void txtQuan_KeyPress_1(object sender, KeyPressEventArgs e)
+        private void txtQuan_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == 8)
             {
@@ -122,19 +131,19 @@ namespace AHKPOSENKTHESIS
             {
                 e.Handled = true;
             }
-
         }
 
-        private void BtnCancel_Click(object sender, EventArgs e)
+        private void AdminAddProducts_KeyDown(object sender, KeyEventArgs e)
         {
-            cn.Close();
-            ClearData();
-            this.Dispose();
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Dispose();
+            }
         }
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            if (txtDesc.Text == String.Empty) 
+            if (txtDesc.Text == String.Empty)
             {
                 WarningIndicator.Visible = true;
                 WarningIndicator.Location = new System.Drawing.Point(522, 100);
@@ -151,7 +160,7 @@ namespace AHKPOSENKTHESIS
             {
                 WarningIndicator.Location = new System.Drawing.Point(377, 247);
                 WarningIndicator.Visible = true;
-               
+
                 txtDesc.Focus();
                 return;
             }
@@ -235,17 +244,14 @@ namespace AHKPOSENKTHESIS
             }
         }
 
-        private void FrmProduct_KeyDown(object sender, KeyEventArgs e)
+        private void BtnCancel_Click(object sender, EventArgs e)
         {
-            if (e.KeyCode == Keys.Escape)
-            {
-                this.Dispose();
-            }
-        }
-
-        private void pnlWarning_Click(object sender, EventArgs e)
-        {
-
+            BtnSave.Enabled = false;
+            BtnUpdate.Enabled = false;
+            BtnCancel.Enabled = false;
+            cn.Close();
+            ClearData();
+            this.Dispose();
         }
     }
 }

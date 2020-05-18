@@ -17,8 +17,6 @@ namespace AHKPOSENKTHESIS
 
         AdminCustomer CSlist;
 
-        string stitle = "Routes";
-
         public AdminAddCustomer(AdminCustomer Clist)
         {
             InitializeComponent();

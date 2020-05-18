@@ -12,17 +12,16 @@ using Microsoft.Reporting.WinForms;
 
 namespace AHKPOSENKTHESIS
 {
-    public partial class FrmTopSellingProductsPrintPreview : Form
+    public partial class AdminPreviewTopSelling : Form
     {
         //declare sqlconnetion
         SqlConnection cn = new SqlConnection();
         SqlCommand cm = new SqlCommand();
         DatabaseConnection dbcon = new DatabaseConnection();
-        SqlDataReader dr;
 
-        FrmReports rep;
+        AdminReportsTopSelling rep;
 
-        public FrmTopSellingProductsPrintPreview(FrmReports port)
+        public AdminPreviewTopSelling(AdminReportsTopSelling port)
         {
             InitializeComponent();
             cn = new SqlConnection(dbcon.MyConnection());
@@ -47,15 +46,14 @@ namespace AHKPOSENKTHESIS
                 SqlDataAdapter da = new SqlDataAdapter();
 
                 cn.Open();
-                if (rep.cmbSortTop.Text == "Quantity")
+                if (rep.cmbTerms.Text == "Quantity")
                 {
-                   da.SelectCommand = new SqlCommand("SELECT top 10 prodcode, proddescrip, isnull(sum(qty),0) as qty, isnull(sum(total),0) as total FROM ViewSoldItems WHERE stockdate between '" + rep.date1.Value.ToString("yyyyMMdd") + "' and '" + rep.date2.Value.ToString("yyyyMMdd") + "' and status like 'Sold' group by prodcode, proddescrip order by qty desc", cn);
+                   da.SelectCommand = new SqlCommand("SELECT top 10 prodcode, proddescrip, isnull(sum(qty),0) as qty, isnull(sum(total),0) as total FROM ViewSoldItems WHERE stockdate between '" + rep.bunifuDatepicker1.Value.ToString("yyyyMMdd") + "' and '" + rep.bunifuDatepicker2.Value.ToString("yyyyMMdd") + "' and status like 'Sold' group by prodcode, proddescrip order by qty desc", cn);
                 }
                 else
                 {
-                    da.SelectCommand = new SqlCommand("SELECT top 10 prodcode, proddescrip, isnull(sum(qty),0) as qty, isnull(sum(total),0) as total FROM ViewSoldItems WHERE stockdate between '" + rep.date1.Value.ToString("yyyyMMdd") + "' and '" + rep.date2.Value.ToString("yyyyMMdd") + "' and status like 'Sold' group by prodcode, proddescrip order by total desc", cn);
+                    da.SelectCommand = new SqlCommand("SELECT top 10 prodcode, proddescrip, isnull(sum(qty),0) as qty, isnull(sum(total),0) as total FROM ViewSoldItems WHERE stockdate between '" + rep.bunifuDatepicker1.Value.ToString("yyyyMMdd") + "' and '" + rep.bunifuDatepicker2.Value.ToString("yyyyMMdd") + "' and status like 'Sold' group by prodcode, proddescrip order by total desc", cn);
                 }
-               // da.SelectCommand = new SqlCommand("SELECT  top 10 prodcode, proddescrip, sum(qty) as qty FROM ViewSoldItems WHERE stockdate between '" + rep.date1.Value.ToString("yyyyMMdd") + "' and '" + rep.date2.Value.ToString("yyyyMMdd") + "' and status like 'Sold' group by prodcode, proddescrip order by qty desc", cn);
                 da.Fill(ds.Tables["dbTopSellingProducts"]);
                 cn.Close();
 
