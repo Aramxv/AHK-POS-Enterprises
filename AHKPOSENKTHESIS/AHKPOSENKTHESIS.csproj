@@ -216,6 +216,18 @@
     <Compile Include="AdminProducts.Designer.cs">
       <DependentUpon>AdminProducts.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminReportCritical.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminReportCritical.Designer.cs">
+      <DependentUpon>AdminReportCritical.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminReportInventory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminReportInventory.Designer.cs">
+      <DependentUpon>AdminReportInventory.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminReportSold.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -356,11 +368,11 @@
     <Compile Include="FrmCreateNewInvoice.Designer.cs">
       <DependentUpon>FrmCreateNewInvoice.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmCriticalPreview.cs">
+    <Compile Include="AdminPreviewCriticalProducts.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmCriticalPreview.Designer.cs">
-      <DependentUpon>FrmCriticalPreview.cs</DependentUpon>
+    <Compile Include="AdminPreviewCriticalProducts.Designer.cs">
+      <DependentUpon>AdminPreviewCriticalProducts.cs</DependentUpon>
     </Compile>
     <Compile Include="AdminCustomerDetails.cs">
       <SubType>Form</SubType>
@@ -386,11 +398,11 @@
     <Compile Include="FrmEditInvoicesQuantity.Designer.cs">
       <DependentUpon>FrmEditInvoicesQuantity.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmInventoryPreview.cs">
+    <Compile Include="AdminPreviewInventoryLine.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmInventoryPreview.Designer.cs">
-      <DependentUpon>FrmInventoryPreview.cs</DependentUpon>
+    <Compile Include="AdminPreviewInventoryLine.Designer.cs">
+      <DependentUpon>AdminPreviewInventoryLine.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmInvoiceEditPrintPreview.cs">
       <SubType>Form</SubType>
@@ -482,17 +494,17 @@
     <Compile Include="AdminAdministrator.Designer.cs">
       <DependentUpon>AdminAdministrator.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmPrintStockAdjustment.cs">
+    <Compile Include="AdminPreviewStockAdjustment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmPrintStockAdjustment.Designer.cs">
-      <DependentUpon>FrmPrintStockAdjustment.cs</DependentUpon>
+    <Compile Include="AdminPreviewStockAdjustment.Designer.cs">
+      <DependentUpon>AdminPreviewStockAdjustment.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmPrintStockInHistory.cs">
+    <Compile Include="AdminPreviewStockInHistory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmPrintStockInHistory.Designer.cs">
-      <DependentUpon>FrmPrintStockInHistory.cs</DependentUpon>
+    <Compile Include="AdminPreviewStockInHistory.Designer.cs">
+      <DependentUpon>AdminPreviewStockInHistory.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmReports.cs">
       <SubType>Form</SubType>
@@ -632,6 +644,12 @@
     <EmbeddedResource Include="AdminProducts.resx">
       <DependentUpon>AdminProducts.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AdminReportCritical.resx">
+      <DependentUpon>AdminReportCritical.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminReportInventory.resx">
+      <DependentUpon>AdminReportInventory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminReportSold.resx">
       <DependentUpon>AdminReportSold.cs</DependentUpon>
     </EmbeddedResource>
@@ -695,8 +713,8 @@
     <EmbeddedResource Include="FrmCreateNewInvoice.resx">
       <DependentUpon>FrmCreateNewInvoice.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmCriticalPreview.resx">
-      <DependentUpon>FrmCriticalPreview.cs</DependentUpon>
+    <EmbeddedResource Include="AdminPreviewCriticalProducts.resx">
+      <DependentUpon>AdminPreviewCriticalProducts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminCustomerDetails.resx">
       <DependentUpon>AdminCustomerDetails.cs</DependentUpon>
@@ -710,8 +728,8 @@
     <EmbeddedResource Include="FrmEditInvoicesQuantity.resx">
       <DependentUpon>FrmEditInvoicesQuantity.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmInventoryPreview.resx">
-      <DependentUpon>FrmInventoryPreview.cs</DependentUpon>
+    <EmbeddedResource Include="AdminPreviewInventoryLine.resx">
+      <DependentUpon>AdminPreviewInventoryLine.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmInvoiceEditPrintPreview.resx">
       <DependentUpon>FrmInvoiceEditPrintPreview.cs</DependentUpon>
@@ -758,11 +776,11 @@
     <EmbeddedResource Include="AdminAdministrator.resx">
       <DependentUpon>AdminAdministrator.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmPrintStockAdjustment.resx">
-      <DependentUpon>FrmPrintStockAdjustment.cs</DependentUpon>
+    <EmbeddedResource Include="AdminPreviewStockAdjustment.resx">
+      <DependentUpon>AdminPreviewStockAdjustment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmPrintStockInHistory.resx">
-      <DependentUpon>FrmPrintStockInHistory.cs</DependentUpon>
+    <EmbeddedResource Include="AdminPreviewStockInHistory.resx">
+      <DependentUpon>AdminPreviewStockInHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmReports.resx">
       <DependentUpon>FrmReports.cs</DependentUpon>

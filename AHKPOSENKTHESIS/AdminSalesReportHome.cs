@@ -71,5 +71,53 @@ namespace AHKPOSENKTHESIS
             AdminAdministrator.Instance.BackToReportsButton.Visible = true;
             AdminAdministrator.Instance.BackToReportsButton.Location = new System.Drawing.Point(8, 7);
         }
+
+        private void BtnCritical_Click(object sender, EventArgs e)
+        {
+            if (!AdminAdministrator.Instance.PnlContainer.Controls.ContainsKey("AdminReportCritical"))
+            {
+                AdminReportCritical critical = new AdminReportCritical();
+                critical.Dock = DockStyle.Fill;
+                AdminAdministrator.Instance.PnlContainer.Controls.Add(critical);
+
+            }
+            AdminAdministrator.Instance.PnlContainer.Controls["AdminReportCritical"].BringToFront();
+            AdminAdministrator.Instance.BackToReportsButton.Visible = true;
+            AdminAdministrator.Instance.BackToReportsButton.Location = new System.Drawing.Point(8, 7);
+        }
+
+        private void BtnInventoryLine_Click(object sender, EventArgs e)
+        {
+            if (!AdminAdministrator.Instance.PnlContainer.Controls.ContainsKey("AdminReportInventory"))
+            {
+                AdminReportInventory inventory = new AdminReportInventory();
+                inventory.Dock = DockStyle.Fill;
+                AdminAdministrator.Instance.PnlContainer.Controls.Add(inventory);
+
+            }
+            AdminAdministrator.Instance.PnlContainer.Controls["AdminReportInventory"].BringToFront();
+            AdminAdministrator.Instance.BackToReportsButton.Visible = true;
+            AdminAdministrator.Instance.BackToReportsButton.Location = new System.Drawing.Point(8, 7);
+        }
+
+        private void BtnStockInHistory_Click(object sender, EventArgs e)
+        {
+            if (!AdminAdministrator.Instance.PnlContainer.Controls.ContainsKey("AdminStockInHistory"))
+            {
+                AdminStockInHistory his = new AdminStockInHistory();
+                his.Dock = DockStyle.Fill;
+                AdminAdministrator.Instance.PnlContainer.Controls.Add(his);
+
+            }
+            AdminAdministrator.Instance.PnlContainer.Controls["AdminStockInHistory"].BringToFront();
+            AdminAdministrator.Instance.BackToReportsButton.Visible = true;
+            AdminAdministrator.Instance.BackToReportsButton.Location = new System.Drawing.Point(8, 7);
+        }
+
+        private void BtnStockAdjustedHistory_Click(object sender, EventArgs e)
+        {
+            AdminStockAdjustDatePicker adjpicker = new AdminStockAdjustDatePicker();
+            adjpicker.ShowDialog();
+        }
     }
 }

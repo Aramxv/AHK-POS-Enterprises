@@ -45,6 +45,7 @@ namespace AHKPOSENKTHESIS
                 DataSet1 ds = new DataSet1();
                 SqlDataAdapter da = new SqlDataAdapter();
 
+
                 cn.Open();
                 da.SelectCommand = new SqlCommand("SELECT c.prodcode, p.proddescrip, c.prodprice, sum(c.qty) as total_qty, sum(c.discount) as total_discount, sum(c.total) as total_total from tblInvoiceOrder as c inner join tblProduct as p on c.prodcode = p.prodcode where status like 'Sold' and stockdate between '" + rep.bunifuDatepicker1.Value.ToString("yyyyMMdd") + "' and '" + rep.bunifuDatepicker2.Value.ToString("yyyyMMdd") + "' group by c.prodcode, p.proddescrip, c.prodprice", cn);
                 da.Fill(ds.Tables["dbSoldReport"]);

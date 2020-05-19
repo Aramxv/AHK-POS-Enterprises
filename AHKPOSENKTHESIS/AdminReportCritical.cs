@@ -11,9 +11,9 @@ using System.Data.SqlClient;
 
 namespace AHKPOSENKTHESIS
 {
-    public partial class AdminReportSold : UserControl
+    public partial class AdminReportCritical : UserControl
     {
-        // Declare sqlconnection Variables
+        // Declare SqlConnection Variables
         SqlConnection cn = new SqlConnection();
         SqlCommand cm = new SqlCommand();
         DatabaseConnection dbcon = new DatabaseConnection();
@@ -21,10 +21,10 @@ namespace AHKPOSENKTHESIS
 
         private const Int32 CUSTOM_CONTENT_HEIGHT = 18;
 
-        String SoldStartDate;
-        String SoldEndDate;
+        String StartCriticalDate;
+        String EndCriticalDate;
 
-        public AdminReportSold()
+        public AdminReportCritical()
         {
             InitializeComponent();
             cn = new SqlConnection(dbcon.MyConnection());
@@ -34,15 +34,15 @@ namespace AHKPOSENKTHESIS
             bunifuDatepicker2.Value = DateTime.Now;
 
             // Store a value of datetimepicker to a variable
-            SoldStartDate = bunifuDatepicker1.Value.ToString("dd-MMM-yyyy");
-            SoldEndDate = bunifuDatepicker2.Value.ToString("dd-MMM-yyyy");
+            StartCriticalDate = bunifuDatepicker1.Value.ToString("dd-MMM-yyyy");
+            EndCriticalDate = bunifuDatepicker2.Value.ToString("dd-MMM-yyyy");
 
             // Print the stored value of the variable
-            bunifuCustomLabel1.Text = SoldStartDate;
-            bunifuCustomLabel2.Text = SoldEndDate;
+            bunifuCustomLabel1.Text = StartCriticalDate;
+            bunifuCustomLabel2.Text = EndCriticalDate;
         }
 
-        private void AdminReportSold_Load(object sender, EventArgs e)
+        private void AdminReportCritical_Load(object sender, EventArgs e)
         {
             dataGridView1.BorderStyle = BorderStyle.None;
             dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
@@ -124,37 +124,27 @@ namespace AHKPOSENKTHESIS
             CollapseSettings();
         }
 
-        private void AdminReportSold_Click(object sender, EventArgs e)
+        private void AdminReportCritical_Click(object sender, EventArgs e)
         {
             UnCollapeSettings();
         }
 
-        //Load the Sold Products with filter such as Date
-        public void ShowSoldProductsRecords()
+        public void ShowCriticalProducts()
         {
             try
             {
                 int i = 0;
-                double _total = 0;
-                double _discount = 0;
-                double _qty = 0;
                 dataGridView1.Rows.Clear();
                 cn.Open();
-                cm = new SqlCommand("SELECT c.prodcode, p.proddescrip, c.prodprice, sum(c.qty) as total_qty, sum(c.discount) as total_discount, sum(c.total) as total_total from tblInvoiceOrder as c inner join tblProduct as p on c.prodcode = p.prodcode where status like 'Sold' and stockdate between '" + bunifuDatepicker1.Value.ToString("yyyyMMdd") + "' and '" + bunifuDatepicker2.Value.ToString("yyyyMMdd") + "' group by c.prodcode, p.proddescrip, c.prodprice", cn);
+                cm = new SqlCommand("SELECT * FROM ViewCritical order by proddescrip", cn);
                 dr = cm.ExecuteReader();
                 while (dr.Read())
                 {
-                    i += 1;
-                    _total += double.Parse(dr["total_total"].ToString());
-                    _discount += double.Parse(dr["total_discount"].ToString());
-                    _qty += double.Parse(dr["total_qty"].ToString());
-                    dataGridView1.Rows.Add(i, dr["prodcode"].ToString(), dr["proddescrip"].ToString(), double.Parse(dr["prodprice"].ToString()).ToString("#,##0.00"), dr["total_qty"].ToString(), double.Parse(dr["total_discount"].ToString()).ToString("#,##0.00"), double.Parse(dr["total_total"].ToString()).ToString("#,##0.00"));
+                    i++;
+                    dataGridView1.Rows.Add(i, dr["id"].ToString(), dr["prodcode"].ToString(), dr["proddescrip"].ToString(), dr["category"].ToString(), dr["prodqty"].ToString(), dr["warningqty"].ToString(), dr["prodstatus"].ToString());
                 }
                 dr.Close();
                 cn.Close();
-                lblTotalSales.Text = _total.ToString("₱#,##0.00") + " Total Sales";
-                lblTotalDiscount.Text = _discount.ToString("₱#,##0.00") + " Total Discount";
-                lblQuantityTotal.Text = _qty.ToString("#,###") + " Total Quantity Sold";
             }
             catch (Exception ex)
             {
@@ -163,42 +153,37 @@ namespace AHKPOSENKTHESIS
             }
         }
 
-        private void dataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
-            lblDataRowCount.Text = dataGridView1.Rows.Count.ToString() + " Sold Products Count";
-        }
 
-        private void dataGridView1_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
-        {
-            lblDataRowCount.Text = dataGridView1.Rows.Count.ToString() + " Sold Products Count";
-    }
-
-        private void bunifuDatepicker1_onValueChanged(object sender, EventArgs e)
-        {
-            bunifuCustomLabel1.Text = bunifuDatepicker1.Value.ToString("dd-MMM-yyyy");
-        }
-
-        private void bunifuDatepicker2_onValueChanged(object sender, EventArgs e)
-        {
-            bunifuCustomLabel2.Text = bunifuDatepicker1.Value.ToString("dd-MMM-yyyy");
         }
 
         private void BtnShowRecords_Click(object sender, EventArgs e)
         {
             // Popup Notification for critical products
-            Alert.Show("Generating All Sold Products into a Report.", Alert.AlertType.success);
+            Alert.Show("Generating Critical Products into a Report. Re-order " + dataGridView1.Rows.Count + " Critical Products.", Alert.AlertType.success);
 
-            ShowSoldProductsRecords();
+            ShowCriticalProducts();
         }
 
         private void BtnPrintRecords_Click(object sender, EventArgs e)
         {
             // Popup Notification for critical products
-            Alert.Show("Sold Products Report is now ready for printing.", Alert.AlertType.success);
+            Alert.Show("Critical Products Report is now ready for printing. You may review the Critical Products.", Alert.AlertType.success);
 
-            AdminPreviewSoldProducts sold = new AdminPreviewSoldProducts(this);
-            sold.PreviewSoldReport();
-            sold.ShowDialog();
+            AdminPreviewCriticalProducts critical = new AdminPreviewCriticalProducts(this);
+            critical.LoadCritical();
+            critical.Show();
+        }
+
+        private void dataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            lblDataRowCount.Text = dataGridView1.Rows.Count.ToString() + " Critical Products Count";
+        }
+
+        private void dataGridView1_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            lblDataRowCount.Text = dataGridView1.Rows.Count.ToString() + " Critical Products Count";
         }
     }
 }

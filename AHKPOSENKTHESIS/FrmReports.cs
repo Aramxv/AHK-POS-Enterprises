@@ -457,17 +457,16 @@ namespace AHKPOSENKTHESIS
 
         private void BtnPrintCritical_Click(object sender, EventArgs e)
         {
-            FrmCriticalPreview crit = new FrmCriticalPreview(this);
-            crit.LoadCritical();
-            crit.Show();
-
+            //AdminPreviewCriticalProducts crit = new AdminPreviewCriticalProducts(this);
+            //crit.LoadCritical();
+            //crit.Show();
         }
 
         private void BtnPrintInventory_Click(object sender, EventArgs e)
         {
-            FrmInventoryPreview inv = new FrmInventoryPreview(this);
-            inv.LoadInventory();
-            inv.Show();
+            //AdminPreviewInventoryLine inv = new AdminPreviewInventoryLine(this);
+            //inv.LoadInventory();
+            //inv.Show();
         }
 
         private void cmbSortTop_KeyPress(object sender, KeyPressEventArgs e)

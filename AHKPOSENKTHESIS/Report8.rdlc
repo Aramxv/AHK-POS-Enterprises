@@ -598,7 +598,9 @@
       </Tablix>
     </ReportItems>
     <Height>6.00833in</Height>
-    <Style />
+    <Style>
+      <BackgroundColor>White</BackgroundColor>
+    </Style>
   </Body>
   <Width>8.5in</Width>
   <Page>
@@ -620,7 +622,7 @@
                     <FontFamily>roboto</FontFamily>
                     <FontSize>11pt</FontSize>
                     <FontWeight>Bold</FontWeight>
-                    <Color>DarkBlue</Color>
+                    <Color>#4781a7</Color>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -860,10 +862,11 @@
         <Border>
           <Style>None</Style>
         </Border>
+        <BackgroundColor>White</BackgroundColor>
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>1.57cm</Height>
+      <Height>0.61811in</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -906,13 +909,7 @@
         <BackgroundColor>#f5f8fa</BackgroundColor>
       </Style>
     </PageFooter>
-    <PageHeight>29.7cm</PageHeight>
-    <PageWidth>21cm</PageWidth>
-    <LeftMargin>2cm</LeftMargin>
-    <RightMargin>2cm</RightMargin>
-    <TopMargin>2cm</TopMargin>
-    <BottomMargin>2cm</BottomMargin>
-    <ColumnSpacing>0.13cm</ColumnSpacing>
+    <ColumnSpacing>0.05118in</ColumnSpacing>
     <Style />
   </Page>
   <AutoRefresh>0</AutoRefresh>
@@ -1185,6 +1182,6 @@ vQU4nbSwk++uVBovg92VdwscR6u8FzTvuUAjs92VdwHsmfdYoJHh7spVD7Www9GIFPTMjGlQd+VwYd5b
 o5/SzP7oBz8TXYawxiuozyA87vXg93WfCn5gvzL9UR8ArUCj0HiZhse/F/s+/bHMfmbchdddWWi8PCDMPgY/p/7B45+KsdPHtAOW6HxyHn9dmPc5AJFfTfeVL/oidd/S7PFD+0eHC42XLyj6Ff/h4Fc7fcFFXzn7gKcKHy+f0Mj3H/z1LPpmDh3Yq3y8QuPlDx79FPzBjd7DH9UrvMrZX/zPB/aN7NqGGq+tCPr8QXFfKfgDFV7hRd/z+/eO7MLy6+529PH4FxbIFXT6MfY9s59Sf+SiD3Dv6J5d2zevL9R93qGx7we/W+FFZn9gp2927pO7h3ds24TMo7rn31Ign3DJ99jXVH9I901Pj+/csX3LxnWK+SLoVwGIfi/3B+kf8YN/cvK/bNuyacNAf3fB/OqBx32U7vOC/+83Dm4YWNPb1d5aML+qoOjXn/wY/Pzkh0Xfy+O7Btb293Z3thW9NqsQLvkRwd87uL2vr6e7s7212KhdpSD2mX439in4AZ0dQHzRZLWaEUE/hH97W2tLCz7lC+ZXNYLsA/2A5uamgvi7BS799PBvgi/wPf+vAqscyD2A2Kf/4p8XuBtAjCvwTwoUKHBX4QMf+P+v28B+6hNrBAAAAABJRU5ErkJggg==</ImageData>
     </EmbeddedImage>
   </EmbeddedImages>
-  <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:ReportID>04c523e3-8324-4013-8890-fc5c70051508</rd:ReportID>
 </Report>

@@ -101,7 +101,7 @@ namespace AHKPOSENKTHESIS
                 MessageBox.Show("Please Select on Stock Adjust By Options to Continue.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            FrmPrintStockAdjustment adjust = new FrmPrintStockAdjustment(this);
+            AdminPreviewStockAdjustment adjust = new AdminPreviewStockAdjustment(this);
             adjust.LoadStockAdjustReport();
             adjust.ShowDialog();
         }

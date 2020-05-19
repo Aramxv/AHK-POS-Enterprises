@@ -1,6 +1,6 @@
 ﻿namespace AHKPOSENKTHESIS
 {
-    partial class FrmCriticalPreview
+    partial class AdminPreviewInventoryLine
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCriticalPreview));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminPreviewInventoryLine));
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.SuspendLayout();
             // 
@@ -38,19 +38,19 @@
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Margin = new System.Windows.Forms.Padding(0);
             this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(1125, 731);
+            this.reportViewer1.Size = new System.Drawing.Size(1142, 739);
             this.reportViewer1.TabIndex = 0;
             // 
-            // FrmCriticalPreview
+            // FrmInventoryPreview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1125, 731);
+            this.ClientSize = new System.Drawing.Size(1142, 739);
             this.Controls.Add(this.reportViewer1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FrmCriticalPreview";
-            this.Text = "Critical Products Print Preview";
-            this.Load += new System.EventHandler(this.FrmCriticalPreview_Load);
+            this.Name = "FrmInventoryPreview";
+            this.Text = "Print Preview";
+            this.Load += new System.EventHandler(this.FrmInventoryPreview_Load);
             this.ResumeLayout(false);
 
         }

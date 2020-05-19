@@ -187,7 +187,7 @@ namespace AHKPOSENKTHESIS
             }
 
             // Popup Notification for critical products
-            Alert.Show("Generating Track Sales Performance Report.", Alert.AlertType.success);
+            Alert.Show("Generating Track Sales Performance into a Report.", Alert.AlertType.success);
 
             DisplayTrackSalesReport();
         }

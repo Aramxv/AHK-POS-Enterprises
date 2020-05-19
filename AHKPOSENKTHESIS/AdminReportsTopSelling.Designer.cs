@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title5 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminReportsTopSelling));
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.BtnCustomers = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,17 +48,18 @@
             this.QTY = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.lblTotalQty = new System.Windows.Forms.Label();
             this.lblGRSI = new System.Windows.Forms.Label();
             this.lblTotalSales = new System.Windows.Forms.Label();
             this.lblDataRowCount = new System.Windows.Forms.Label();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.BtnPrintRecords = new Bunifu.Framework.UI.BunifuImageButton();
+            this.BtnDropDown = new Bunifu.Framework.UI.BunifuImageButton();
             this.TopSellingChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
-            this.BtnPrintRecords = new Bunifu.Framework.UI.BunifuImageButton();
             this.BtnShowRecords = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.BtnDropDown = new Bunifu.Framework.UI.BunifuImageButton();
             this.cmbTerms = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.bunifuDatepicker2 = new Bunifu.Framework.UI.BunifuDatepicker();
@@ -69,13 +70,14 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.lblTotalQty = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TopSellingChart)).BeginInit();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BtnPrintRecords)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnDropDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TopSellingChart)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // BtnCustomers
@@ -102,14 +104,14 @@
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
-            dataGridViewCellStyle25.Font = new System.Drawing.Font("Helvetica", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle25.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(231)))));
-            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Helvetica", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(231)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeight = 35;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -118,34 +120,34 @@
             this.Column3,
             this.QTY,
             this.Column17});
-            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle28.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle28.Font = new System.Drawing.Font("Helvetica", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle28.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(29)))), ((int)(((byte)(57)))));
-            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Helvetica", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(29)))), ((int)(((byte)(57)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.Gainsboro;
             this.dataGridView1.Location = new System.Drawing.Point(3, 99);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle29.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle29.Font = new System.Drawing.Font("Helvetica", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle29.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle29;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Helvetica", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
-            dataGridViewCellStyle30.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle30.Font = new System.Drawing.Font("Roboto", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(231)))));
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle30;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Roboto", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(231)))));
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1189, 318);
@@ -181,10 +183,10 @@
             // QTY
             // 
             this.QTY.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle26.Format = "N2";
-            dataGridViewCellStyle26.NullValue = null;
-            this.QTY.DefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Format = "N2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.QTY.DefaultCellStyle = dataGridViewCellStyle2;
             this.QTY.HeaderText = "QTY";
             this.QTY.MinimumWidth = 6;
             this.QTY.Name = "QTY";
@@ -194,10 +196,10 @@
             // Column17
             // 
             this.Column17.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle27.Format = "C2";
-            dataGridViewCellStyle27.NullValue = null;
-            this.Column17.DefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.Column17.DefaultCellStyle = dataGridViewCellStyle3;
             this.Column17.HeaderText = "TOTAL SALES";
             this.Column17.MinimumWidth = 6;
             this.Column17.Name = "Column17";
@@ -216,6 +218,19 @@
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(1195, 64);
             this.panel9.TabIndex = 220;
+            // 
+            // lblTotalQty
+            // 
+            this.lblTotalQty.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblTotalQty.AutoSize = true;
+            this.lblTotalQty.Font = new System.Drawing.Font("Roboto", 9F);
+            this.lblTotalQty.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lblTotalQty.Location = new System.Drawing.Point(455, 20);
+            this.lblTotalQty.Name = "lblTotalQty";
+            this.lblTotalQty.Size = new System.Drawing.Size(142, 19);
+            this.lblTotalQty.TabIndex = 114;
+            this.lblTotalQty.Text = "0,000 Total Quantity";
+            this.lblTotalQty.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblGRSI
             // 
@@ -260,6 +275,40 @@
             this.bunifuElipse1.ElipseRadius = 15;
             this.bunifuElipse1.TargetControl = this.dataGridView1;
             // 
+            // BtnPrintRecords
+            // 
+            this.BtnPrintRecords.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnPrintRecords.BackColor = System.Drawing.Color.Transparent;
+            this.BtnPrintRecords.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnPrintRecords.Image = ((System.Drawing.Image)(resources.GetObject("BtnPrintRecords.Image")));
+            this.BtnPrintRecords.ImageActive = null;
+            this.BtnPrintRecords.Location = new System.Drawing.Point(568, 5);
+            this.BtnPrintRecords.Name = "BtnPrintRecords";
+            this.BtnPrintRecords.Size = new System.Drawing.Size(48, 48);
+            this.BtnPrintRecords.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.BtnPrintRecords.TabIndex = 191;
+            this.BtnPrintRecords.TabStop = false;
+            this.toolTip1.SetToolTip(this.BtnPrintRecords, "Print Preview");
+            this.BtnPrintRecords.Zoom = 10;
+            this.BtnPrintRecords.Click += new System.EventHandler(this.BtnPrintRecords_Click);
+            // 
+            // BtnDropDown
+            // 
+            this.BtnDropDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnDropDown.BackColor = System.Drawing.Color.Transparent;
+            this.BtnDropDown.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnDropDown.Image = ((System.Drawing.Image)(resources.GetObject("BtnDropDown.Image")));
+            this.BtnDropDown.ImageActive = null;
+            this.BtnDropDown.Location = new System.Drawing.Point(304, 5);
+            this.BtnDropDown.Name = "BtnDropDown";
+            this.BtnDropDown.Size = new System.Drawing.Size(36, 36);
+            this.BtnDropDown.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.BtnDropDown.TabIndex = 189;
+            this.BtnDropDown.TabStop = false;
+            this.toolTip1.SetToolTip(this.BtnDropDown, "Click Here to make a first step on creating a report.");
+            this.BtnDropDown.Zoom = 10;
+            this.BtnDropDown.Click += new System.EventHandler(this.BtnDropDown_Click);
+            // 
             // TopSellingChart
             // 
             this.TopSellingChart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -269,43 +318,43 @@
             this.TopSellingChart.BorderlineColor = System.Drawing.Color.Transparent;
             this.TopSellingChart.BorderlineWidth = 0;
             this.TopSellingChart.BorderSkin.BorderWidth = 0;
-            chartArea5.AlignmentOrientation = System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal;
-            chartArea5.AlignmentStyle = System.Windows.Forms.DataVisualization.Charting.AreaAlignmentStyles.Position;
-            chartArea5.Area3DStyle.Inclination = 20;
-            chartArea5.Area3DStyle.LightStyle = System.Windows.Forms.DataVisualization.Charting.LightStyle.Realistic;
-            chartArea5.BackColor = System.Drawing.Color.White;
-            chartArea5.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
-            chartArea5.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Center;
-            chartArea5.BorderColor = System.Drawing.Color.White;
-            chartArea5.BorderWidth = 0;
-            chartArea5.Name = "ChartArea1";
-            this.TopSellingChart.ChartAreas.Add(chartArea5);
-            legend5.Name = "Legend1";
-            this.TopSellingChart.Legends.Add(legend5);
+            chartArea1.AlignmentOrientation = System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal;
+            chartArea1.AlignmentStyle = System.Windows.Forms.DataVisualization.Charting.AreaAlignmentStyles.Position;
+            chartArea1.Area3DStyle.Inclination = 20;
+            chartArea1.Area3DStyle.LightStyle = System.Windows.Forms.DataVisualization.Charting.LightStyle.Realistic;
+            chartArea1.BackColor = System.Drawing.Color.White;
+            chartArea1.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
+            chartArea1.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Center;
+            chartArea1.BorderColor = System.Drawing.Color.White;
+            chartArea1.BorderWidth = 0;
+            chartArea1.Name = "ChartArea1";
+            this.TopSellingChart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.TopSellingChart.Legends.Add(legend1);
             this.TopSellingChart.Location = new System.Drawing.Point(1, 423);
             this.TopSellingChart.Margin = new System.Windows.Forms.Padding(1);
             this.TopSellingChart.Name = "TopSellingChart";
             this.TopSellingChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Area;
-            series5.CustomProperties = "DrawingStyle=LightToDark";
-            series5.Font = new System.Drawing.Font("Roboto", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series5.IsValueShownAsLabel = true;
-            series5.IsVisibleInLegend = false;
-            series5.LabelAngle = 10;
-            series5.LabelBorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            series5.Legend = "Legend1";
-            series5.Name = "Series1";
-            series5.YValuesPerPoint = 10;
-            this.TopSellingChart.Series.Add(series5);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Area;
+            series1.CustomProperties = "DrawingStyle=LightToDark";
+            series1.Font = new System.Drawing.Font("Roboto", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series1.IsValueShownAsLabel = true;
+            series1.IsVisibleInLegend = false;
+            series1.LabelAngle = 10;
+            series1.LabelBorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            series1.YValuesPerPoint = 10;
+            this.TopSellingChart.Series.Add(series1);
             this.TopSellingChart.Size = new System.Drawing.Size(1192, 273);
             this.TopSellingChart.TabIndex = 221;
             this.TopSellingChart.Text = "chart1";
-            title5.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Left;
-            title5.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title5.Name = "Title1";
-            title5.TextStyle = System.Windows.Forms.DataVisualization.Charting.TextStyle.Shadow;
-            this.TopSellingChart.Titles.Add(title5);
+            title1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Left;
+            title1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title1.Name = "Title1";
+            title1.TextStyle = System.Windows.Forms.DataVisualization.Charting.TextStyle.Shadow;
+            this.TopSellingChart.Titles.Add(title1);
             // 
             // bunifuElipse2
             // 
@@ -333,23 +382,6 @@
             this.panel1.Size = new System.Drawing.Size(637, 50);
             this.panel1.TabIndex = 222;
             // 
-            // BtnPrintRecords
-            // 
-            this.BtnPrintRecords.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnPrintRecords.BackColor = System.Drawing.Color.Transparent;
-            this.BtnPrintRecords.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnPrintRecords.Image = ((System.Drawing.Image)(resources.GetObject("BtnPrintRecords.Image")));
-            this.BtnPrintRecords.ImageActive = null;
-            this.BtnPrintRecords.Location = new System.Drawing.Point(568, 5);
-            this.BtnPrintRecords.Name = "BtnPrintRecords";
-            this.BtnPrintRecords.Size = new System.Drawing.Size(48, 48);
-            this.BtnPrintRecords.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.BtnPrintRecords.TabIndex = 191;
-            this.BtnPrintRecords.TabStop = false;
-            this.toolTip1.SetToolTip(this.BtnPrintRecords, "Print Preview");
-            this.BtnPrintRecords.Zoom = 10;
-            this.BtnPrintRecords.Click += new System.EventHandler(this.BtnPrintRecords_Click);
-            // 
             // BtnShowRecords
             // 
             this.BtnShowRecords.ActiveBorderThickness = 1;
@@ -376,23 +408,6 @@
             this.BtnShowRecords.TabIndex = 190;
             this.BtnShowRecords.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.BtnShowRecords.Click += new System.EventHandler(this.BtnShowRecords_Click);
-            // 
-            // BtnDropDown
-            // 
-            this.BtnDropDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnDropDown.BackColor = System.Drawing.Color.Transparent;
-            this.BtnDropDown.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnDropDown.Image = ((System.Drawing.Image)(resources.GetObject("BtnDropDown.Image")));
-            this.BtnDropDown.ImageActive = null;
-            this.BtnDropDown.Location = new System.Drawing.Point(304, 5);
-            this.BtnDropDown.Name = "BtnDropDown";
-            this.BtnDropDown.Size = new System.Drawing.Size(36, 36);
-            this.BtnDropDown.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.BtnDropDown.TabIndex = 189;
-            this.BtnDropDown.TabStop = false;
-            this.toolTip1.SetToolTip(this.BtnDropDown, "Click Here to make a first step on creating a report.");
-            this.BtnDropDown.Zoom = 10;
-            this.BtnDropDown.Click += new System.EventHandler(this.BtnDropDown_Click);
             // 
             // cmbTerms
             // 
@@ -484,7 +499,7 @@
             this.BtnCreate.Location = new System.Drawing.Point(7, 11);
             this.BtnCreate.MouseState = MaterialSkin.MouseState.HOVER;
             this.BtnCreate.Name = "BtnCreate";
-            this.BtnCreate.Size = new System.Drawing.Size(291, 23);
+            this.BtnCreate.Size = new System.Drawing.Size(291, 24);
             this.BtnCreate.TabIndex = 179;
             this.BtnCreate.Text = "Create a Report for your business";
             this.BtnCreate.Click += new System.EventHandler(this.BtnCreate_Click);
@@ -522,18 +537,15 @@
             this.label8.TabIndex = 182;
             this.label8.Text = "Specified Date ";
             // 
-            // lblTotalQty
+            // pictureBox1
             // 
-            this.lblTotalQty.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblTotalQty.AutoSize = true;
-            this.lblTotalQty.Font = new System.Drawing.Font("Roboto", 9F);
-            this.lblTotalQty.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblTotalQty.Location = new System.Drawing.Point(455, 20);
-            this.lblTotalQty.Name = "lblTotalQty";
-            this.lblTotalQty.Size = new System.Drawing.Size(142, 19);
-            this.lblTotalQty.TabIndex = 114;
-            this.lblTotalQty.Text = "0,000 Total Quantity";
-            this.lblTotalQty.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(737, 391);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 227;
+            this.pictureBox1.TabStop = false;
             // 
             // AdminReportsTopSelling
             // 
@@ -545,6 +557,7 @@
             this.Controls.Add(this.panel9);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.BtnCustomers);
+            this.Controls.Add(this.pictureBox1);
             this.Name = "AdminReportsTopSelling";
             this.Size = new System.Drawing.Size(1195, 764);
             this.Load += new System.EventHandler(this.AdminReportsTopSelling_Load);
@@ -552,11 +565,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnPrintRecords)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnDropDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TopSellingChart)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BtnPrintRecords)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BtnDropDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -594,5 +608,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         public System.Windows.Forms.Label lblTotalQty;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

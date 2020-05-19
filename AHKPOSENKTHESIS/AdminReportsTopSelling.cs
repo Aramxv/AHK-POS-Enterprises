@@ -179,7 +179,7 @@ namespace AHKPOSENKTHESIS
             }
 
             // Popup Notification for critical products
-            Alert.Show("Generating Top Selling Products Report.", Alert.AlertType.success);
+            Alert.Show("Generating Top Selling Products into a Report.", Alert.AlertType.success);
 
             ShowRecordsOfTopSellingProducts();
             DisplayChartTopSelling();
@@ -194,7 +194,7 @@ namespace AHKPOSENKTHESIS
             }
             AdminPreviewTopSelling tra = new AdminPreviewTopSelling(this);
             // Popup Notification for critical products
-            Alert.Show("Generating Top Selling Products Report.", Alert.AlertType.success);
+            Alert.Show("Top Selling Products Report is now ready for printing.", Alert.AlertType.success);
 
             tra.LoadTopSellingProducts();
             tra.ShowDialog();

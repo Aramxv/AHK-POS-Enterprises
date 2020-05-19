@@ -90,7 +90,7 @@ namespace AHKPOSENKTHESIS
                 MessageBox.Show("Please Select on Stock-In By Options to Continue.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            FrmPrintStockInHistory stock = new FrmPrintStockInHistory(this);
+            AdminPreviewStockInHistory stock = new AdminPreviewStockInHistory(this);
             stock.LoadStockInReport();
             stock.ShowDialog();
         }

@@ -400,7 +400,7 @@
                               <Style>
                                 <FontFamily>roboto</FontFamily>
                                 <FontWeight>Medium</FontWeight>
-                                <Color>Teal</Color>
+                                <Color>#a9cbdb</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -682,19 +682,18 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox74">
+                    <Textbox Name="Textbox5">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!prodqty.Value)</Value>
+                              <Value />
                               <Style>
                                 <FontFamily>roboto</FontFamily>
                                 <FontSize>12pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
-                                <Format>#,0;(#,0)</Format>
                                 <Color>#4781a7</Color>
                               </Style>
                             </TextRun>
@@ -704,7 +703,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox74</rd:DefaultName>
+                      <rd:DefaultName>Textbox5</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>White</Color>
@@ -1000,7 +999,7 @@
                     <FontFamily>roboto</FontFamily>
                     <FontSize>11pt</FontSize>
                     <FontWeight>Bold</FontWeight>
-                    <Color>DarkBlue</Color>
+                    <Color>#4781a7</Color>
                   </Style>
                 </TextRun>
               </TextRuns>

@@ -12,16 +12,16 @@ using Microsoft.Reporting.WinForms;
 
 namespace AHKPOSENKTHESIS
 {
-    public partial class FrmCriticalPreview : Form
+    public partial class AdminPreviewCriticalProducts : Form
     {
         //declare sqlconnetion
         SqlConnection cn = new SqlConnection();
         SqlCommand cm = new SqlCommand();
         DatabaseConnection dbcon = new DatabaseConnection();
 
-        FrmReports rep;
+        AdminReportCritical rep;
 
-        public FrmCriticalPreview(FrmReports port)
+        public AdminPreviewCriticalProducts(AdminReportCritical port)
         {
             InitializeComponent();
             cn = new SqlConnection(dbcon.MyConnection());

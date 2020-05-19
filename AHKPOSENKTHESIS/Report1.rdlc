@@ -698,7 +698,7 @@
                   <FontSize>12pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                   <Format>'₱'#,0.00;('₱'#,0.00)</Format>
-                  <Color>#141948</Color>
+                  <Color>#4781a7</Color>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -738,7 +738,7 @@
                   <FontSize>12pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                   <Format>'₱'#,0.00;('₱'#,0.00)</Format>
-                  <Color>#141948</Color>
+                  <Color>#4781a7</Color>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -778,7 +778,7 @@
                   <FontSize>12pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                   <Format>'₱'#,0.00;('₱'#,0.00)</Format>
-                  <Color>#141948</Color>
+                  <Color>#4781a7</Color>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -852,7 +852,7 @@
                   <FontFamily>roboto</FontFamily>
                   <FontSize>9pt</FontSize>
                   <FontWeight>Bold</FontWeight>
-                  <Color>#141948</Color>
+                  <Color>#4781a7</Color>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -889,7 +889,7 @@
                   <FontFamily>roboto</FontFamily>
                   <FontSize>9pt</FontSize>
                   <FontWeight>Bold</FontWeight>
-                  <Color>#141948</Color>
+                  <Color>#4781a7</Color>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -959,7 +959,7 @@
                   <FontFamily>roboto</FontFamily>
                   <FontSize>9pt</FontSize>
                   <FontWeight>Bold</FontWeight>
-                  <Color>#141948</Color>
+                  <Color>#4781a7</Color>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -993,7 +993,7 @@
                 <Style>
                   <FontFamily>roboto</FontFamily>
                   <FontWeight>Bold</FontWeight>
-                  <Color>#141948</Color>
+                  <Color>#4781a7</Color>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -1031,7 +1031,7 @@
                   <FontSize>12pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                   <Format>'₱'#,0.00;('₱'#,0.00)</Format>
-                  <Color>#141948</Color>
+                  <Color>#4781a7</Color>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -1627,7 +1627,7 @@
                     <FontFamily>roboto</FontFamily>
                     <FontSize>11pt</FontSize>
                     <FontWeight>Bold</FontWeight>
-                    <Color>DarkBlue</Color>
+                    <Color>#4781a7</Color>
                   </Style>
                 </TextRun>
               </TextRuns>

@@ -12,7 +12,7 @@ using Microsoft.Reporting.WinForms;
 
 namespace AHKPOSENKTHESIS
 {
-    public partial class FrmPrintStockInHistory : Form
+    public partial class AdminPreviewStockInHistory : Form
     {
         //declare sqlconnetion
         SqlConnection cn = new SqlConnection();
@@ -21,7 +21,7 @@ namespace AHKPOSENKTHESIS
 
         AdminStockInDatePicker stock;
 
-        public FrmPrintStockInHistory(AdminStockInDatePicker stk)
+        public AdminPreviewStockInHistory(AdminStockInDatePicker stk)
         {
             InitializeComponent();
             cn = new SqlConnection(dbcon.MyConnection());

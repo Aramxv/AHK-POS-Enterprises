@@ -303,7 +303,7 @@
                               <Style>
                                 <FontFamily>roboto</FontFamily>
                                 <FontWeight>Bold</FontWeight>
-                                <Color>Teal</Color>
+                                <Color>#a9cbdb</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -736,7 +736,7 @@
                     <FontFamily>roboto</FontFamily>
                     <FontSize>11pt</FontSize>
                     <FontWeight>Bold</FontWeight>
-                    <Color>DarkBlue</Color>
+                    <Color>#4781a7</Color>
                   </Style>
                 </TextRun>
               </TextRuns>

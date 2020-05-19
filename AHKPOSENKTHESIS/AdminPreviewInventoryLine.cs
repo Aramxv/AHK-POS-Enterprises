@@ -12,16 +12,16 @@ using Microsoft.Reporting.WinForms;
 
 namespace AHKPOSENKTHESIS
 {
-    public partial class FrmInventoryPreview : Form
+    public partial class AdminPreviewInventoryLine : Form
     {
         //declare sqlconnetion
         SqlConnection cn = new SqlConnection();
         SqlCommand cm = new SqlCommand();
         DatabaseConnection dbcon = new DatabaseConnection();
 
-        FrmReports rep;
+        AdminReportInventory rep;
 
-        public FrmInventoryPreview(FrmReports port)
+        public AdminPreviewInventoryLine(AdminReportInventory port)
         {
             InitializeComponent();
             cn = new SqlConnection(dbcon.MyConnection());

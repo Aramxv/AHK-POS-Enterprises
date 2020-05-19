@@ -61,14 +61,14 @@
             this.reportViewer1.Size = new System.Drawing.Size(1142, 739);
             this.reportViewer1.TabIndex = 0;
             // 
-            // FrmTopSellingProductsPrintPreview
+            // AdminPreviewTopSelling
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1142, 739);
             this.Controls.Add(this.reportViewer1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FrmTopSellingProductsPrintPreview";
+            this.Name = "AdminPreviewTopSelling";
             this.Text = "Print Preview";
             this.Load += new System.EventHandler(this.FrmTopSellingProductsPrintPreview_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dbTopSellingProductsBindingSource)).EndInit();

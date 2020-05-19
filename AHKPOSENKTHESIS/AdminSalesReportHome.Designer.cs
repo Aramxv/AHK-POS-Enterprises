@@ -172,6 +172,7 @@
             this.toolTip1.SetToolTip(this.BtnCritical, "Click to view your products status which is in critical state or re-order level.\r" +
         "\nFor you to able to order again and keep your customers happy. ");
             this.BtnCritical.Zoom = 10;
+            this.BtnCritical.Click += new System.EventHandler(this.BtnCritical_Click);
             // 
             // label4
             // 
@@ -201,6 +202,7 @@
             this.BtnInventoryLine.TabStop = false;
             this.toolTip1.SetToolTip(this.BtnInventoryLine, "Click to view your business products on your inventory line. ");
             this.BtnInventoryLine.Zoom = 10;
+            this.BtnInventoryLine.Click += new System.EventHandler(this.BtnInventoryLine_Click);
             // 
             // label5
             // 
@@ -230,6 +232,7 @@
             this.BtnStockInHistory.TabStop = false;
             this.toolTip1.SetToolTip(this.BtnStockInHistory, "Click to view the stock-in activity history. ");
             this.BtnStockInHistory.Zoom = 10;
+            this.BtnStockInHistory.Click += new System.EventHandler(this.BtnStockInHistory_Click);
             // 
             // BtnSold
             // 
@@ -276,6 +279,7 @@
             this.BtnStockAdjustedHistory.TabStop = false;
             this.toolTip1.SetToolTip(this.BtnStockAdjustedHistory, "Click to view the stock-in activity history. ");
             this.BtnStockAdjustedHistory.Zoom = 10;
+            this.BtnStockAdjustedHistory.Click += new System.EventHandler(this.BtnStockAdjustedHistory_Click);
             // 
             // AdminSalesReportHome
             // 

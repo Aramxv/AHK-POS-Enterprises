@@ -1,6 +1,6 @@
 ﻿namespace AHKPOSENKTHESIS
 {
-    partial class FrmPrintStockAdjustment
+    partial class AdminPreviewCriticalProducts
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrintStockAdjustment));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminPreviewCriticalProducts));
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.SuspendLayout();
             // 
@@ -38,19 +38,19 @@
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Margin = new System.Windows.Forms.Padding(0);
             this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(1142, 739);
-            this.reportViewer1.TabIndex = 2;
+            this.reportViewer1.Size = new System.Drawing.Size(1125, 731);
+            this.reportViewer1.TabIndex = 0;
             // 
-            // FrmPrintStockAdjustment
+            // AdminPreviewCriticalProducts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1142, 739);
+            this.ClientSize = new System.Drawing.Size(1125, 731);
             this.Controls.Add(this.reportViewer1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FrmPrintStockAdjustment";
+            this.Name = "AdminPreviewCriticalProducts";
             this.Text = "Print Preview";
-            this.Load += new System.EventHandler(this.FrmPrintStockAdjustment_Load);
+            this.Load += new System.EventHandler(this.FrmCriticalPreview_Load);
             this.ResumeLayout(false);
 
         }
