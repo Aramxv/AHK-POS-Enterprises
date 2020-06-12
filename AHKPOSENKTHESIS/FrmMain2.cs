@@ -487,8 +487,7 @@ namespace AHKPOSENKTHESIS
 
         private void BtnOpUserProf_Click(object sender, EventArgs e)
         {
-            FrmUserProfile profile = new FrmUserProfile();
-            profile.ShowDialog();
+           
         }
     }
 }

@@ -19,8 +19,8 @@ namespace AHKPOSENKTHESIS
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            panel2.Width += 50;
-            if (panel2.Width >= 329)
+            panel2.Width += 24;
+            if (panel2.Width >= 769)
             {
                 timer1.Stop();
                 FrmMain2 inv = new FrmMain2();
@@ -36,10 +36,15 @@ namespace AHKPOSENKTHESIS
         private void timer2_Tick(object sender, EventArgs e)
         {
             panel4.Width += 87;
-            if (panel2.Width >= 329)
+            if (panel2.Width >= 769)
             {
                 panel4.Width = 25;
             }
+        }
+
+        private void FrmLoading2_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

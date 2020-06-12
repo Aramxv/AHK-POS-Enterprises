@@ -31,15 +31,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminSettings));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbl1 = new System.Windows.Forms.Label();
-            this.BtnApprovedInvoices = new Bunifu.Framework.UI.BunifuImageButton();
+            this.BtnSystemSettings = new Bunifu.Framework.UI.BunifuImageButton();
             this.label1 = new System.Windows.Forms.Label();
-            this.bunifuImageButton1 = new Bunifu.Framework.UI.BunifuImageButton();
+            this.BtnUserSettings = new Bunifu.Framework.UI.BunifuImageButton();
             this.label2 = new System.Windows.Forms.Label();
-            this.bunifuImageButton2 = new Bunifu.Framework.UI.BunifuImageButton();
+            this.BtnTrailLogs = new Bunifu.Framework.UI.BunifuImageButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BtnApprovedInvoices)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnSystemSettings)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnUserSettings)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnTrailLogs)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -58,100 +58,103 @@
             this.lbl1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbl1.Font = new System.Drawing.Font("Poppins", 15F);
             this.lbl1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(54)))), ((int)(((byte)(75)))));
-            this.lbl1.Location = new System.Drawing.Point(96, 155);
+            this.lbl1.Location = new System.Drawing.Point(83, 155);
             this.lbl1.Name = "lbl1";
             this.lbl1.Size = new System.Drawing.Size(220, 92);
             this.lbl1.TabIndex = 206;
             this.lbl1.Text = "System Settings";
             this.lbl1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // BtnApprovedInvoices
+            // BtnSystemSettings
             // 
-            this.BtnApprovedInvoices.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.BtnApprovedInvoices.BackColor = System.Drawing.Color.Transparent;
-            this.BtnApprovedInvoices.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnApprovedInvoices.Image = ((System.Drawing.Image)(resources.GetObject("BtnApprovedInvoices.Image")));
-            this.BtnApprovedInvoices.ImageActive = null;
-            this.BtnApprovedInvoices.Location = new System.Drawing.Point(146, 56);
-            this.BtnApprovedInvoices.Name = "BtnApprovedInvoices";
-            this.BtnApprovedInvoices.Size = new System.Drawing.Size(96, 96);
-            this.BtnApprovedInvoices.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.BtnApprovedInvoices.TabIndex = 205;
-            this.BtnApprovedInvoices.TabStop = false;
-            this.BtnApprovedInvoices.Zoom = 10;
+            this.BtnSystemSettings.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.BtnSystemSettings.BackColor = System.Drawing.Color.Transparent;
+            this.BtnSystemSettings.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnSystemSettings.Image = ((System.Drawing.Image)(resources.GetObject("BtnSystemSettings.Image")));
+            this.BtnSystemSettings.ImageActive = null;
+            this.BtnSystemSettings.Location = new System.Drawing.Point(146, 56);
+            this.BtnSystemSettings.Name = "BtnSystemSettings";
+            this.BtnSystemSettings.Size = new System.Drawing.Size(96, 96);
+            this.BtnSystemSettings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.BtnSystemSettings.TabIndex = 205;
+            this.BtnSystemSettings.TabStop = false;
+            this.BtnSystemSettings.Zoom = 10;
             // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label1.Font = new System.Drawing.Font("Poppins", 15F);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(54)))), ((int)(((byte)(75)))));
-            this.label1.Location = new System.Drawing.Point(96, 361);
+            this.label1.Location = new System.Drawing.Point(74, 361);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(220, 92);
+            this.label1.Size = new System.Drawing.Size(245, 92);
             this.label1.TabIndex = 208;
-            this.label1.Text = "User\'s Settings";
+            this.label1.Text = "Account Settings";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // bunifuImageButton1
+            // BtnUserSettings
             // 
-            this.bunifuImageButton1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.bunifuImageButton1.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuImageButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuImageButton1.Image = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton1.Image")));
-            this.bunifuImageButton1.ImageActive = null;
-            this.bunifuImageButton1.Location = new System.Drawing.Point(146, 262);
-            this.bunifuImageButton1.Name = "bunifuImageButton1";
-            this.bunifuImageButton1.Size = new System.Drawing.Size(96, 96);
-            this.bunifuImageButton1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.bunifuImageButton1.TabIndex = 207;
-            this.bunifuImageButton1.TabStop = false;
-            this.bunifuImageButton1.Zoom = 10;
+            this.BtnUserSettings.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.BtnUserSettings.BackColor = System.Drawing.Color.Transparent;
+            this.BtnUserSettings.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnUserSettings.Image = ((System.Drawing.Image)(resources.GetObject("BtnUserSettings.Image")));
+            this.BtnUserSettings.ImageActive = null;
+            this.BtnUserSettings.Location = new System.Drawing.Point(146, 262);
+            this.BtnUserSettings.Name = "BtnUserSettings";
+            this.BtnUserSettings.Size = new System.Drawing.Size(96, 96);
+            this.BtnUserSettings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.BtnUserSettings.TabIndex = 207;
+            this.BtnUserSettings.TabStop = false;
+            this.BtnUserSettings.Zoom = 10;
+            this.BtnUserSettings.Click += new System.EventHandler(this.BtnUserSettings_Click);
             // 
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label2.Font = new System.Drawing.Font("Poppins", 15F);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(54)))), ((int)(((byte)(75)))));
-            this.label2.Location = new System.Drawing.Point(96, 586);
+            this.label2.Location = new System.Drawing.Point(51, 586);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(220, 92);
+            this.label2.Size = new System.Drawing.Size(291, 92);
             this.label2.TabIndex = 210;
-            this.label2.Text = "Logout Administrator";
+            this.label2.Text = "Trail Logs";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // bunifuImageButton2
+            // BtnTrailLogs
             // 
-            this.bunifuImageButton2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.bunifuImageButton2.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuImageButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuImageButton2.Image = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton2.Image")));
-            this.bunifuImageButton2.ImageActive = null;
-            this.bunifuImageButton2.Location = new System.Drawing.Point(146, 487);
-            this.bunifuImageButton2.Name = "bunifuImageButton2";
-            this.bunifuImageButton2.Size = new System.Drawing.Size(96, 96);
-            this.bunifuImageButton2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.bunifuImageButton2.TabIndex = 209;
-            this.bunifuImageButton2.TabStop = false;
-            this.bunifuImageButton2.Zoom = 10;
+            this.BtnTrailLogs.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.BtnTrailLogs.BackColor = System.Drawing.Color.Transparent;
+            this.BtnTrailLogs.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnTrailLogs.Image = ((System.Drawing.Image)(resources.GetObject("BtnTrailLogs.Image")));
+            this.BtnTrailLogs.ImageActive = null;
+            this.BtnTrailLogs.Location = new System.Drawing.Point(146, 483);
+            this.BtnTrailLogs.Name = "BtnTrailLogs";
+            this.BtnTrailLogs.Size = new System.Drawing.Size(100, 100);
+            this.BtnTrailLogs.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.BtnTrailLogs.TabIndex = 211;
+            this.BtnTrailLogs.TabStop = false;
+            this.BtnTrailLogs.Zoom = 10;
+            this.BtnTrailLogs.Click += new System.EventHandler(this.BtnTrailLogs_Click);
             // 
             // AdminSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
+            this.Controls.Add(this.BtnTrailLogs);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.bunifuImageButton2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.bunifuImageButton1);
+            this.Controls.Add(this.BtnUserSettings);
             this.Controls.Add(this.lbl1);
-            this.Controls.Add(this.BtnApprovedInvoices);
+            this.Controls.Add(this.BtnSystemSettings);
             this.Controls.Add(this.pictureBox1);
             this.Name = "AdminSettings";
             this.Size = new System.Drawing.Size(1195, 764);
+            this.Load += new System.EventHandler(this.AdminSettings_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BtnApprovedInvoices)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnSystemSettings)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnUserSettings)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnTrailLogs)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -161,10 +164,10 @@
 
         private System.Windows.Forms.PictureBox pictureBox1;
         public System.Windows.Forms.Label lbl1;
-        private Bunifu.Framework.UI.BunifuImageButton BtnApprovedInvoices;
+        private Bunifu.Framework.UI.BunifuImageButton BtnSystemSettings;
         public System.Windows.Forms.Label label1;
-        private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton1;
+        private Bunifu.Framework.UI.BunifuImageButton BtnUserSettings;
         public System.Windows.Forms.Label label2;
-        private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton2;
+        private Bunifu.Framework.UI.BunifuImageButton BtnTrailLogs;
     }
 }

@@ -16,5 +16,38 @@ namespace AHKPOSENKTHESIS
         {
             InitializeComponent();
         }
+
+        private void AdminSettings_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnUserSettings_Click(object sender, EventArgs e)
+        {
+            if (!AdminAdministrator.Instance.PnlContainer.Controls.ContainsKey("AdminAccountSettings"))
+            {
+                AdminAccountSettings user = new AdminAccountSettings();
+                user.Dock = DockStyle.Fill;
+                AdminAdministrator.Instance.PnlContainer.Controls.Add(user);
+
+                user.ShowAllAccounts();
+            }
+            AdminAdministrator.Instance.PnlContainer.Controls["AdminAccountSettings"].BringToFront();
+            AdminAdministrator.Instance.BackButton.Visible = true;
+        }
+
+        private void BtnTrailLogs_Click(object sender, EventArgs e)
+        {
+            if (!AdminAdministrator.Instance.PnlContainer.Controls.ContainsKey("AdminAccountLogTrails"))
+            {
+                AdminAccountLogTrails log = new AdminAccountLogTrails();
+                log.Dock = DockStyle.Fill;
+                AdminAdministrator.Instance.PnlContainer.Controls.Add(log);
+
+                log.ShowAccountsLogTrails();
+            }
+            AdminAdministrator.Instance.PnlContainer.Controls["AdminAccountLogTrails"].BringToFront();
+            AdminAdministrator.Instance.BackButton.Visible = true;
+        }
     }
 }

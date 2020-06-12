@@ -132,6 +132,12 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminAccountLogTrails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminAccountLogTrails.Designer.cs">
+      <DependentUpon>AdminAccountLogTrails.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminAddProducts.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -311,6 +317,12 @@
     </Compile>
     <Compile Include="AdminUpdateInvoice.Designer.cs">
       <DependentUpon>AdminUpdateInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminAccountSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminAccountSettings.Designer.cs">
+      <DependentUpon>AdminAccountSettings.cs</DependentUpon>
     </Compile>
     <Compile Include="AHKENTPOSDATABASEDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -579,29 +591,20 @@
     <Compile Include="AdminSearchProductStockIn.Designer.cs">
       <DependentUpon>AdminSearchProductStockIn.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmUserList.cs">
+    <Compile Include="AdminAddAccount.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmUserList.Designer.cs">
-      <DependentUpon>FrmUserList.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmCreateUser.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmCreateUser.Designer.cs">
-      <DependentUpon>FrmCreateUser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmUserProfile.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmUserProfile.Designer.cs">
-      <DependentUpon>FrmUserProfile.cs</DependentUpon>
+    <Compile Include="AdminAddAccount.Designer.cs">
+      <DependentUpon>AdminAddAccount.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Watermark.cs">
       <SubType>Component</SubType>
     </Compile>
+    <EmbeddedResource Include="AdminAccountLogTrails.resx">
+      <DependentUpon>AdminAccountLogTrails.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminAddProducts.resx">
       <DependentUpon>AdminAddProducts.cs</DependentUpon>
     </EmbeddedResource>
@@ -691,6 +694,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminUpdateInvoice.resx">
       <DependentUpon>AdminUpdateInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminAccountSettings.resx">
+      <DependentUpon>AdminAccountSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Alert.resx">
       <DependentUpon>Alert.cs</DependentUpon>
@@ -818,14 +824,8 @@
     <EmbeddedResource Include="AdminSearchProductStockIn.resx">
       <DependentUpon>AdminSearchProductStockIn.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmUserList.resx">
-      <DependentUpon>FrmUserList.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmCreateUser.resx">
-      <DependentUpon>FrmCreateUser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmUserProfile.resx">
-      <DependentUpon>FrmUserProfile.cs</DependentUpon>
+    <EmbeddedResource Include="AdminAddAccount.resx">
+      <DependentUpon>AdminAddAccount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

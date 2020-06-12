@@ -19,17 +19,17 @@ namespace AHKPOSENKTHESIS
 
         private void materialFlatButton1_Click(object sender, EventArgs e)
         {
-            FrmCreateUser use = new FrmCreateUser();
+            //AdminAddAccount use = new AdminAddAccount(this);
 
-            //Make the Save Button Visible
-            use.btnSave.Visible = true;
+            ////Make the Save Button Visible
+            //use.BtnSave.Visible = true;
 
-            //Still the Update Button will not be visible 
-            use.btnUpdate.Visible = false;
+            ////Still the Update Button will not be visible 
+            //use.BtnUpdate.Visible = false;
 
-            //Relocate the Save button next to Cancel Button
-            use.btnSave.Location = new System.Drawing.Point(289, 619);
-            use.ShowDialog();
+            ////Relocate the Save button next to Cancel Button
+            //use.BtnSave.Location = new System.Drawing.Point(289, 619);
+            //use.ShowDialog();
         }
         
         private void materialFlatButton3_Click(object sender, EventArgs e)
@@ -41,9 +41,12 @@ namespace AHKPOSENKTHESIS
 
         private void materialFlatButton2_Click(object sender, EventArgs e)
         {
-            FrmUserList uselist = new FrmUserList();
-            uselist.LoadAccounts();
-            uselist.Show();
+          
+        }
+
+        private void FrmUserFiles_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

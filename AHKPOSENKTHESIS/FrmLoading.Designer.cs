@@ -47,6 +47,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.circularSpinners = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -216,6 +217,18 @@
             this.label6.TabIndex = 60;
             this.label6.Text = "Reading preferences...";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(54)))), ((int)(((byte)(75)))));
+            this.label7.Font = new System.Drawing.Font("Roboto", 8F);
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(210)))), ((int)(((byte)(230)))));
+            this.label7.Location = new System.Drawing.Point(610, 382);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(190, 18);
+            this.label7.TabIndex = 64;
+            this.label7.Text = "images: www.unsplash.com/";
+            // 
             // FrmLoading
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -224,6 +237,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(800, 400);
             this.ControlBox = false;
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.circularSpinners);
             this.Controls.Add(this.label5);
@@ -272,5 +286,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox circularSpinners;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
     }
 }
