@@ -89,7 +89,7 @@ namespace AHKPOSENKTHESIS
         {
             try
             {
-                AdminAddProducts addProduct = new AdminAddProducts(this);
+                AdminAddNewProducts addProduct = new AdminAddNewProducts(this);
 
                 //if the add product button is click 
                 //save button is present in the form
@@ -116,7 +116,7 @@ namespace AHKPOSENKTHESIS
             string colName = dataGridView1.Columns[e.ColumnIndex].Name;
             if (colName == "Edit")
             {
-                AdminAddProducts Frp = new AdminAddProducts(this);
+                AdminAddNewProducts Frp = new AdminAddNewProducts(this);
                 Frp.BtnSave.Enabled = false;
                 Frp.BtnUpdate.Enabled = true;
                 Frp.lbl1.Text = "Update Product";
@@ -135,7 +135,7 @@ namespace AHKPOSENKTHESIS
 
                 // Populate the Category Combobox
                 Frp.PopulateCategoryInCombobox();
-                Frp.ShowDialog();
+                Frp.Show();
             }
             else if (colName == "Delete")
             {
@@ -256,7 +256,7 @@ namespace AHKPOSENKTHESIS
                 case "edi":
 
                     contextMenuStrip1.Hide();
-                    AdminAddProducts c = new AdminAddProducts(this);
+                    AdminAddNewProducts c = new AdminAddNewProducts(this);
 
                     c.lblID.Text = ID.Text;
                     c.txtDesc.Text = label3.Text;

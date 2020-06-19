@@ -9,9 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
+
+
 namespace AHKPOSENKTHESIS
 {
-    public partial class AdminAddProducts : Form
+    public partial class AdminAddNewProducts : Form
     {
         //declare sqlconnetion
         SqlConnection cn = new SqlConnection();
@@ -21,13 +23,14 @@ namespace AHKPOSENKTHESIS
         DataTable dt = new DataTable();
         SqlDataReader dr;
 
-       
+        AdminProducts PRlist;
 
-        public AdminAddProducts()
+        public AdminAddNewProducts(AdminProducts pr)
         {
             InitializeComponent();
             cn = new SqlConnection(dbcon.MyConnection());
-            
+
+            PRlist = pr;
 
             this.KeyPreview = true;
             PopulateCategoryInCombobox();
@@ -91,15 +94,12 @@ namespace AHKPOSENKTHESIS
         }
 
 
-
-
-
-        private void AdminAddProducts_Load(object sender, EventArgs e)
+        private void AdminAddNewProducts_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void AdminAddProducts_Click(object sender, EventArgs e)
+        private void AdminAddNewProducts_Click(object sender, EventArgs e)
         {
             WarningIndicator.Visible = false;
         }
@@ -132,15 +132,127 @@ namespace AHKPOSENKTHESIS
             }
         }
 
-        private void AdminAddProducts_KeyDown(object sender, KeyEventArgs e)
+        private void txtWarnqty_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyCode == Keys.Escape)
+            if (e.KeyChar == 8)
             {
+                //accept backspace 
+            }
+            else if ((e.KeyChar < 48) || (e.KeyChar > 57))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void BtnSave_Click(object sender, EventArgs e)
+        {
+            if (txtDesc.Text == String.Empty)
+            {
+                WarningIndicator.Visible = true;
+                WarningIndicator.Location = new System.Drawing.Point(522, 100);
+                txtDesc.Focus();
+                return;
+            }
+            if (txtCode.Text == String.Empty)
+            {
+                WarningIndicator.Visible = true;
+                WarningIndicator.Location = new System.Drawing.Point(522, 173);
+                return;
+            }
+            if (txtCategory.Text == String.Empty)
+            {
+                WarningIndicator.Location = new System.Drawing.Point(377, 247);
+                WarningIndicator.Visible = true;
+
+                txtDesc.Focus();
+                return;
+            }
+            if (txtPrice.Text == String.Empty)
+            {
+                WarningIndicator.Visible = true;
+                WarningIndicator.Location = new System.Drawing.Point(319, 313);
+                txtDesc.Focus();
+                return;
+            }
+            else
+            {
+                cn.Open();
+                cm = new SqlCommand("SELECT category FROM tblCategory WHERE category = @category", cn);
+                cm.Parameters.AddWithValue("@category", txtCategory.Text);
+                da = new SqlDataAdapter(cm);
+                dt = new DataTable();
+                da.Fill(dt);
+                cn.Close();
+                if (dt.Rows.Count >= 1)
+                {
+                    InsertProductInformation();
+                    MessageBox.Show("Product Information Successfully Saved. ", "Product Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    cn.Close();
+
+                    ClearData();
+                    PRlist.ShowAllProductsInDatabase();
+                    this.Dispose();
+                }
+                cn.Close();
+            }
+            if (dt.Rows.Count <= 0)
+            {
+                //Automation of Inserting Category in category table
+                InsertCategory();
+                InsertProductInformation();
+
+                MessageBox.Show("Product Information Successfully Saved.", "Product Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                cn.Close();
+
+                ClearData();
+                PRlist.ShowAllProductsInDatabase();
                 this.Dispose();
             }
         }
 
-     
+        private void BtnUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (MessageBox.Show("Are you Sure you want to Update this Product Information?", "Update Product", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    //set parameters to update the product information
+                    cn.Open();
+                    cm = new SqlCommand("UPDATE tblProduct SET prodcode = @code, proddescrip = @desc, prodprice = @price, category = @category, prodqty = @qty, warningqty = @warning, lastupdate = @update WHERE id like '" + lblID.Text + "'", cn);
+                    cm.Parameters.AddWithValue("@desc", txtDesc.Text);
+                    cm.Parameters.AddWithValue("@code", txtCode.Text);
+                    cm.Parameters.AddWithValue("@category", txtCategory.Text);
+                    cm.Parameters.AddWithValue("@price", txtPrice.Text);
+                    cm.Parameters.AddWithValue("@qty", int.Parse(txtQuan.Text));
+                    cm.Parameters.AddWithValue("@warning", int.Parse(txtWarnqty.Text));
+                    cm.Parameters.AddWithValue("@update", dateTimePicker.Value);
+                    cm.ExecuteNonQuery();
+                    cn.Close();
+                    MessageBox.Show("Product Information Successfully Saved.", "Product Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ClearData();
+                    PRlist.ShowAllProductsInDatabase();
+                    this.Dispose();
+                }
+            }
+            catch (Exception ex)
+            {
+                //Log exception
+                //Display Error message
+                cn.Close();
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void BtnCancel_Click(object sender, EventArgs e)
+        {
+            BtnSave.Enabled = false;
+            BtnUpdate.Enabled = false;
+            BtnCancel.Enabled = false;
+            cn.Close();
+            ClearData();
+            this.Dispose();
+        }
+
         private void BtnSave_Click_1(object sender, EventArgs e)
         {
             if (txtDesc.Text == String.Empty)
@@ -187,7 +299,7 @@ namespace AHKPOSENKTHESIS
                     cn.Close();
 
                     ClearData();
-                 //   PRlist.ShowAllProductsInDatabase();
+                    PRlist.ShowAllProductsInDatabase();
                     this.Dispose();
                 }
                 cn.Close();
@@ -202,52 +314,9 @@ namespace AHKPOSENKTHESIS
                 cn.Close();
 
                 ClearData();
-              //  PRlist.ShowAllProductsInDatabase();
+                PRlist.ShowAllProductsInDatabase();
                 this.Dispose();
             }
-        }
-
-        private void BtnUpdate_Click_1(object sender, EventArgs e)
-        {
-            try
-            {
-                if (MessageBox.Show("Are you Sure you want to Update this Product Information?", "Update Product", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    //set parameters to update the product information
-                    cn.Open();
-                    cm = new SqlCommand("UPDATE tblProduct SET prodcode = @code, proddescrip = @desc, prodprice = @price, category = @category, prodqty = @qty, warningqty = @warning, lastupdate = @update WHERE id like '" + lblID.Text + "'", cn);
-                    cm.Parameters.AddWithValue("@desc", txtDesc.Text);
-                    cm.Parameters.AddWithValue("@code", txtCode.Text);
-                    cm.Parameters.AddWithValue("@category", txtCategory.Text);
-                    cm.Parameters.AddWithValue("@price", txtPrice.Text);
-                    cm.Parameters.AddWithValue("@qty", int.Parse(txtQuan.Text));
-                    cm.Parameters.AddWithValue("@warning", int.Parse(txtWarnqty.Text));
-                    cm.Parameters.AddWithValue("@update", dateTimePicker.Value);
-                    cm.ExecuteNonQuery();
-                    cn.Close();
-                    MessageBox.Show("Product Information Successfully Saved.", "Product Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    ClearData();
-                //    PRlist.ShowAllProductsInDatabase();
-                    this.Dispose();
-                }
-            }
-            catch (Exception ex)
-            {
-                //Log exception
-                //Display Error message
-                cn.Close();
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void BtnCancel_Click_1(object sender, EventArgs e)
-        {
-            BtnSave.Enabled = false;
-            BtnUpdate.Enabled = false;
-            BtnCancel.Enabled = false;
-            cn.Close();
-            ClearData();
-            this.Dispose();
         }
     }
 }

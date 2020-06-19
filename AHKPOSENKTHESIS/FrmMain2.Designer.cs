@@ -289,7 +289,7 @@
             this.BtnAvatar.Location = new System.Drawing.Point(1471, 58);
             this.BtnAvatar.Name = "BtnAvatar";
             this.BtnAvatar.Size = new System.Drawing.Size(50, 50);
-            this.BtnAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.BtnAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.BtnAvatar.TabIndex = 55;
             this.BtnAvatar.TabStop = false;
             this.BtnAvatar.Click += new System.EventHandler(this.BtnAvatar_Click);

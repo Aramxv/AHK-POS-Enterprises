@@ -138,6 +138,12 @@
     <Compile Include="AdminAccountLogTrails.Designer.cs">
       <DependentUpon>AdminAccountLogTrails.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminAddNewProducts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminAddNewProducts.Designer.cs">
+      <DependentUpon>AdminAddNewProducts.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminAddProducts.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -604,6 +610,9 @@
     </Compile>
     <EmbeddedResource Include="AdminAccountLogTrails.resx">
       <DependentUpon>AdminAccountLogTrails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminAddNewProducts.resx">
+      <DependentUpon>AdminAddNewProducts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminAddProducts.resx">
       <DependentUpon>AdminAddProducts.cs</DependentUpon>

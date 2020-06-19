@@ -32,7 +32,7 @@ namespace AHKPOSENKTHESIS
 
         private void FrmLogin_Load(object sender, EventArgs e)
         {
-            txtUser.Focus();
+           // txtUser.Focus();
         }
 
         private void ClearLogin()
@@ -79,26 +79,11 @@ namespace AHKPOSENKTHESIS
             return;
         }
 
-        private void misCredentials()
-        {
-            // Set the location 
-            pnlWarning.Visible = true;
-            pnlWarning.Location = new System.Drawing.Point(23, 568);
-
-            // Set a message to the user
-            lblWarning.Text = "Username and Password is invalid.";
-            txtUser.Focus();
-            return;
-        }
+     
 
         private void onClickHideIndicators()
         {
             pnlWarning.Visible = false;
-        }
-
-        private void btnEnter_Click(object sender, EventArgs e)
-        {
-           
         }
 
         private void FrmLogin_Click(object sender, EventArgs e)
@@ -108,11 +93,7 @@ namespace AHKPOSENKTHESIS
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-        }
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-           
         }
 
 
@@ -213,7 +194,14 @@ namespace AHKPOSENKTHESIS
                     }
                     else
                     {
-                        misCredentials();
+                        // Set the location 
+                        pnlWarning.Visible = true;
+                        pnlWarning.Location = new System.Drawing.Point(9, 532);
+
+                        // Set a message to the user
+                        lblWarning.Text = "Username and Password is invalid.";
+                        txtUser.Focus();
+                        return;
                         ClearLogin();
                     }
 
@@ -227,11 +215,6 @@ namespace AHKPOSENKTHESIS
         }
 
         private void txtUser_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-        }
-
-        public void AHKLoginUsingEnterKeyPress()
         {
 
         }
@@ -331,7 +314,14 @@ namespace AHKPOSENKTHESIS
                 }
                 else
                 {
-                    misCredentials();
+                    // Set the location 
+                    pnlWarning.Visible = true;
+                    pnlWarning.Location = new System.Drawing.Point(9, 532);
+
+                    // Set a message to the user
+                    lblWarning.Text = "Username and Password is invalid.";
+                    txtUser.Focus();
+                    return;
                     ClearLogin();
                 }
 

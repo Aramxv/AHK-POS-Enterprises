@@ -172,15 +172,15 @@ namespace AHKPOSENKTHESIS
                 if (hasrecord == true)
                 {
                     BtnDiscount.Enabled = true;
-                    BtnRecord.Enabled = true;
-                    BtnPrint.Enabled = true;
+                    BtnSaveInvoice.Enabled = true;
+                    BtnPrintPreview.Enabled = true;
                 }
                 else
                 {
                     // If the datagrid is null or has no rows or data, still the buttons will be disabled
                     BtnDiscount.Enabled = true;
-                    BtnRecord.Enabled = true;
-                    BtnPrint.Enabled = true;
+                    BtnSaveInvoice.Enabled = true;
+                    BtnPrintPreview.Enabled = true;
                 }
             }
             catch (Exception ex)
@@ -551,122 +551,20 @@ namespace AHKPOSENKTHESIS
 
         private void BtnSaveAsDraft_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (txtCustomer.Text == String.Empty || txtAddress.Text == String.Empty)
-                {
-                    MessageBox.Show("Please Fill the Customer's Name and Address to Create a New Invoice.", "Saving As Draft", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                    return;
-                }
-                else
-                {
-                    for (int i = 0; i < dataGridView1.Rows.Count; i++)
-                    {
-                        // SQL<tblInvoiceOrder> Update the status to 'Draft' after the draft processed
-                        cn.Open();
-                        cm = new SqlCommand("UPDATE tblInvoiceOrder SET status = 'Draft' WHERE id = '" + dataGridView1.Rows[i].Cells[1].Value.ToString() + "'", cn);
-                        cm.ExecuteNonQuery();
-                        cn.Close();
-
-                        // SQL<tblInvoiceRecords> Update the status to 'Draft  after the draft processed
-                        cn.Open();
-                        cm = new SqlCommand("UPDATE tblInvoiceRecords SET status = 'Draft' WHERE invoiceno like '" + lblInvoiceNo.Text + "' and customer like '" + txtCustomer.Text + "' and address like '" + txtAddress.Text + "'", cn);
-                        cm.ExecuteNonQuery();
-                        cn.Close();
-                    }
-                    Alert.Show("Saved as Draft Successfully", Alert.AlertType.success);
-                    UpdateDataInInvoiceRecords();
-                    LoadInvoiceOrder();
-                }
-            }
-            catch (Exception ex)
-            {
-                cn.Close();
-                MessageBox.Show(ex.Message, "Application Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            
         }
 
         // Save the invoice and store it in invoice list
         private void BtnRecord_Click_1(object sender, EventArgs e)
         {
-            try
-            {
-                if (txtCustomer.Text == String.Empty || txtAddress.Text == String.Empty)
-                {
-                    MessageBox.Show("Please Fill the Customer's Name and Address to Create a New Invoice.", "Saving Invoice", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                    return;
-                }
-                else
-                {
-                    for (int i = 0; i < dataGridView1.Rows.Count; i++)
-                    {
-                        // SQL<tblProduct> Update the quantity of the onhand product;  
-                        // SQL<tblProduct> Subtract the quantity of ordered product in datagrid 
-                        // For the sake of the inventory purposes
-                        cn.Open();
-                        cm = new SqlCommand("UPDATE tblProduct SET prodqty = prodqty - '" + int.Parse(dataGridView1.Rows[i].Cells[2].Value.ToString()) + "' WHERE prodcode = '" + dataGridView1.Rows[i].Cells[3].Value.ToString() + "'", cn);
-                        cm.ExecuteNonQuery();
-                        cn.Close();
-
-                        // SQL<tblInvoiceOrder> Update the status to 'Sold' after the recording procesed
-                        cn.Open();
-                        cm = new SqlCommand("UPDATE tblInvoiceOrder SET status = 'Sold' WHERE id = '" + dataGridView1.Rows[i].Cells[1].Value.ToString() + "'", cn);
-                        cm.ExecuteNonQuery();
-                        cn.Close();
-                    }
-                    Alert.Show("Saved Successfully", Alert.AlertType.success);
-                    UpdateDataInInvoiceRecords();
-                    LoadInvoiceOrder();
-                }
-            }
-            catch (Exception ex)
-            {
-                cn.Close();
-                MessageBox.Show(ex.Message, "Application Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+           
         }
 
         // Save the invoice and store it in invoice list
         // Show the print preview of the invoice receipt
         private void BtnPrint_Click_1(object sender, EventArgs e)
         {
-            try
-            {
-                if (txtCustomer.Text == String.Empty || txtAddress.Text == String.Empty)
-                {
-                    MessageBox.Show("Please Fill the Customer's Name and Address to Create a New Invoice.", "Printing Invoice", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                    return;
-                }
-                else
-                {
-                    for (int i = 0; i < dataGridView1.Rows.Count; i++)
-                    {
-                        // SQL<tblProduct> Update the quantity of the onhand product;  
-                        // SQL<tblProduct> Subtract the quantity of ordered product in datagrid 
-                        // For the sake of the inventory purposes
-                        cn.Open();
-                        cm = new SqlCommand("UPDATE tblProduct SET prodqty = prodqty - '" + int.Parse(dataGridView1.Rows[i].Cells[2].Value.ToString()) + "' WHERE prodcode = '" + dataGridView1.Rows[i].Cells[3].Value.ToString() + "'", cn);
-                        cm.ExecuteNonQuery();
-                        cn.Close();
-
-                        // SQL<tblInvoiceOrder> Update the status to 'Sold' after the recording procesed
-                        cn.Open();
-                        cm = new SqlCommand("UPDATE tblInvoiceOrder SET status = 'Sold' WHERE id = '" + dataGridView1.Rows[i].Cells[1].Value.ToString() + "'", cn);
-                        cm.ExecuteNonQuery();
-                        cn.Close();
-                    }
-                    Alert.Show("Saved Successfully", Alert.AlertType.success);
-                    FrmInvoicePreview inv = new FrmInvoicePreview(this);
-                    inv.ShowDialog();
-                    UpdateDataInInvoiceRecords();
-                    LoadInvoiceOrder();
-                }
-            }
-            catch (Exception ex)
-            {
-                cn.Close();
-                MessageBox.Show(ex.Message, "Application Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+           
         }
 
         // Save the invoice and store it in invoice list
@@ -840,31 +738,9 @@ namespace AHKPOSENKTHESIS
             look.ShowDialog();
         }
 
-        // Shows the  option panel
-        private void bunifuThinButton25_Click(object sender, EventArgs e)
-        {
-            if (OptionPanel.Visible == false)
-            {
-                OptionPanel.Visible = true;
-                OptionPanel.Location = new System.Drawing.Point(1282, 63); // set the location of option panel under option button
-            }
-            else
-            {
-                OptionPanel.Visible = false;
-            }
-        }
-
-        // Hides the save as panel if the form is clicked
         private void FrmCreateNewInvoice_Click(object sender, EventArgs e)
         {
-            if (OptionPanel.Visible == true)
-            {
-                OptionPanel.Visible = false;
-            }
-            else
-            {
-                OptionPanel.Visible = false;
-            }
+           
         }
 
         private void BtnCancelInvoice_Click(object sender, EventArgs e)
@@ -936,7 +812,124 @@ namespace AHKPOSENKTHESIS
             lblDataRowCount.Text = dataGridView1.Rows.Count.ToString() + " Products";
         }
 
-        
+        private void BtnSaveInvoice_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtCustomer.Text == String.Empty || txtAddress.Text == String.Empty)
+                {
+                    MessageBox.Show("Please Fill the Customer's Name and Address to Create a New Invoice.", "Saving Invoice", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    return;
+                }
+                else
+                {
+                    for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                    {
+                        // SQL<tblProduct> Update the quantity of the onhand product;  
+                        // SQL<tblProduct> Subtract the quantity of ordered product in datagrid 
+                        // For the sake of the inventory purposes
+                        cn.Open();
+                        cm = new SqlCommand("UPDATE tblProduct SET prodqty = prodqty - '" + int.Parse(dataGridView1.Rows[i].Cells[2].Value.ToString()) + "' WHERE prodcode = '" + dataGridView1.Rows[i].Cells[3].Value.ToString() + "'", cn);
+                        cm.ExecuteNonQuery();
+                        cn.Close();
+
+                        // SQL<tblInvoiceOrder> Update the status to 'Sold' after the recording procesed
+                        cn.Open();
+                        cm = new SqlCommand("UPDATE tblInvoiceOrder SET status = 'Sold' WHERE id = '" + dataGridView1.Rows[i].Cells[1].Value.ToString() + "'", cn);
+                        cm.ExecuteNonQuery();
+                        cn.Close();
+                    }
+                    Alert.Show("Saved Successfully", Alert.AlertType.success);
+                    UpdateDataInInvoiceRecords();
+                    LoadInvoiceOrder();
+                }
+            }
+            catch (Exception ex)
+            {
+                cn.Close();
+                MessageBox.Show(ex.Message, "Application Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void BtnPrintPreview_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtCustomer.Text == String.Empty || txtAddress.Text == String.Empty)
+                {
+                    MessageBox.Show("Please Fill the Customer's Name and Address to Create a New Invoice.", "Printing Invoice", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    return;
+                }
+                else
+                {
+                    for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                    {
+                        // SQL<tblProduct> Update the quantity of the onhand product;  
+                        // SQL<tblProduct> Subtract the quantity of ordered product in datagrid 
+                        // For the sake of the inventory purposes
+                        cn.Open();
+                        cm = new SqlCommand("UPDATE tblProduct SET prodqty = prodqty - '" + int.Parse(dataGridView1.Rows[i].Cells[2].Value.ToString()) + "' WHERE prodcode = '" + dataGridView1.Rows[i].Cells[3].Value.ToString() + "'", cn);
+                        cm.ExecuteNonQuery();
+                        cn.Close();
+
+                        // SQL<tblInvoiceOrder> Update the status to 'Sold' after the recording procesed
+                        cn.Open();
+                        cm = new SqlCommand("UPDATE tblInvoiceOrder SET status = 'Sold' WHERE id = '" + dataGridView1.Rows[i].Cells[1].Value.ToString() + "'", cn);
+                        cm.ExecuteNonQuery();
+                        cn.Close();
+                    }
+                    Alert.Show("Saved Successfully", Alert.AlertType.success);
+                    FrmInvoicePreview inv = new FrmInvoicePreview(this);
+                    inv.ShowDialog();
+                    UpdateDataInInvoiceRecords();
+                    LoadInvoiceOrder();
+                }
+            }
+            catch (Exception ex)
+            {
+                cn.Close();
+                MessageBox.Show(ex.Message, "Application Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void BtnSaveAsDraft_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtCustomer.Text == String.Empty || txtAddress.Text == String.Empty)
+                {
+                    MessageBox.Show("Please Fill the Customer's Name and Address to Create a New Invoice.", "Saving As Draft", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    return;
+                }
+                else
+                {
+                    for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                    {
+                        // SQL<tblInvoiceOrder> Update the status to 'Draft' after the draft processed
+                        cn.Open();
+                        cm = new SqlCommand("UPDATE tblInvoiceOrder SET status = 'Draft' WHERE id = '" + dataGridView1.Rows[i].Cells[1].Value.ToString() + "'", cn);
+                        cm.ExecuteNonQuery();
+                        cn.Close();
+
+                        // SQL<tblInvoiceRecords> Update the status to 'Draft  after the draft processed
+                        cn.Open();
+                        cm = new SqlCommand("UPDATE tblInvoiceRecords SET status = 'Draft' WHERE invoiceno like '" + lblInvoiceNo.Text + "' and customer like '" + txtCustomer.Text + "' and address like '" + txtAddress.Text + "'", cn);
+                        cm.ExecuteNonQuery();
+                        cn.Close();
+                    }
+                    Alert.Show("Saved as Draft Successfully", Alert.AlertType.success);
+                    UpdateDataInInvoiceRecords();
+                    LoadInvoiceOrder();
+                }
+            }
+            catch (Exception ex)
+            {
+                cn.Close();
+                MessageBox.Show(ex.Message, "Application Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
 
 
 

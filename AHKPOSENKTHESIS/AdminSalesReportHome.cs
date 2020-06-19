@@ -46,7 +46,7 @@ namespace AHKPOSENKTHESIS
 
         private void BtnTopSelling_Click(object sender, EventArgs e)
         {
-            if (!AdminAdministrator.Instance.PnlContainer.Controls.ContainsKey("AdminReportsTrackSales"))
+            if (!AdminAdministrator.Instance.PnlContainer.Controls.ContainsKey("AdminReportsTopSelling"))
             {
                 AdminReportsTopSelling top = new AdminReportsTopSelling();
                 top.Dock = DockStyle.Fill;

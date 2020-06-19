@@ -30,18 +30,18 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCreateNewInvoice));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.BtnCreateInvoice = new Bunifu.Framework.UI.BunifuThinButton2();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuDatepicker1 = new Bunifu.Framework.UI.BunifuDatepicker();
@@ -76,19 +76,16 @@
             this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.BtnNewInvoice = new Bunifu.Framework.UI.BunifuThinButton2();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.BtnRecord = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.BtnPrint = new Bunifu.Framework.UI.BunifuThinButton2();
             this.BtnDiscount = new Bunifu.Framework.UI.BunifuThinButton2();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtRemarks = new System.Windows.Forms.TextBox();
             this.txtPrvComment = new System.Windows.Forms.TextBox();
             this.BtnSelectProduct = new Bunifu.Framework.UI.BunifuThinButton2();
             this.lblTotalAmount = new System.Windows.Forms.Label();
-            this.BtnSaveAsDraft = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.BtnSavePrint = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.bunifuThinButton25 = new Bunifu.Framework.UI.BunifuThinButton2();
             this.BtnCancelInvoice = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.bunifuThinButton23 = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.BtnSaveAsDraft = new Bunifu.Framework.UI.BunifuImageButton();
+            this.BtnSaveInvoice = new Bunifu.Framework.UI.BunifuImageButton();
+            this.BtnPrintPreview = new Bunifu.Framework.UI.BunifuImageButton();
             this.label14 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -131,8 +128,6 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.OptionPanel = new System.Windows.Forms.Panel();
-            this.label12 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.txtQty = new System.Windows.Forms.TextBox();
             this.lblDataRowCount = new System.Windows.Forms.Label();
@@ -141,6 +136,9 @@
             this.label18 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnSaveAsDraft)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnSaveInvoice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnPrintPreview)).BeginInit();
             this.panel5.SuspendLayout();
             this.BillingPanel.SuspendLayout();
             this.PaymentPanel.SuspendLayout();
@@ -152,7 +150,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.OptionPanel.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel9.SuspendLayout();
             this.SuspendLayout();
@@ -160,7 +157,7 @@
             // BtnCreateInvoice
             // 
             this.BtnCreateInvoice.ActiveBorderThickness = 1;
-            this.BtnCreateInvoice.ActiveCornerRadius = 20;
+            this.BtnCreateInvoice.ActiveCornerRadius = 1;
             this.BtnCreateInvoice.ActiveFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(99)))), ((int)(((byte)(246)))));
             this.BtnCreateInvoice.ActiveForecolor = System.Drawing.Color.White;
             this.BtnCreateInvoice.ActiveLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(99)))), ((int)(((byte)(246)))));
@@ -172,11 +169,11 @@
             this.BtnCreateInvoice.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Bold);
             this.BtnCreateInvoice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(99)))), ((int)(((byte)(246)))));
             this.BtnCreateInvoice.IdleBorderThickness = 1;
-            this.BtnCreateInvoice.IdleCornerRadius = 20;
-            this.BtnCreateInvoice.IdleFillColor = System.Drawing.Color.White;
-            this.BtnCreateInvoice.IdleForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(99)))), ((int)(((byte)(246)))));
+            this.BtnCreateInvoice.IdleCornerRadius = 1;
+            this.BtnCreateInvoice.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(99)))), ((int)(((byte)(246)))));
+            this.BtnCreateInvoice.IdleForecolor = System.Drawing.Color.White;
             this.BtnCreateInvoice.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(99)))), ((int)(((byte)(246)))));
-            this.BtnCreateInvoice.Location = new System.Drawing.Point(598, 183);
+            this.BtnCreateInvoice.Location = new System.Drawing.Point(584, 184);
             this.BtnCreateInvoice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BtnCreateInvoice.Name = "BtnCreateInvoice";
             this.BtnCreateInvoice.Size = new System.Drawing.Size(138, 45);
@@ -188,10 +185,10 @@
             // bunifuCustomLabel1
             // 
             this.bunifuCustomLabel1.Enabled = false;
-            this.bunifuCustomLabel1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
-            this.bunifuCustomLabel1.Location = new System.Drawing.Point(562, 59);
+            this.bunifuCustomLabel1.Font = new System.Drawing.Font("Poppins", 8.25F);
+            this.bunifuCustomLabel1.Location = new System.Drawing.Point(542, 59);
             this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
-            this.bunifuCustomLabel1.Size = new System.Drawing.Size(102, 18);
+            this.bunifuCustomLabel1.Size = new System.Drawing.Size(122, 18);
             this.bunifuCustomLabel1.TabIndex = 65;
             this.bunifuCustomLabel1.Text = "Apr-30-2020";
             this.bunifuCustomLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -221,8 +218,8 @@
             this.ChkSameBill.AutoSize = true;
             this.ChkSameBill.Depth = 0;
             this.ChkSameBill.Enabled = false;
-            this.ChkSameBill.Font = new System.Drawing.Font("Roboto", 10F);
-            this.ChkSameBill.Location = new System.Drawing.Point(23, 183);
+            this.ChkSameBill.Font = new System.Drawing.Font("Poppins", 8.25F);
+            this.ChkSameBill.Location = new System.Drawing.Point(22, 184);
             this.ChkSameBill.Margin = new System.Windows.Forms.Padding(0);
             this.ChkSameBill.MouseLocation = new System.Drawing.Point(-1, -1);
             this.ChkSameBill.MouseState = MaterialSkin.MouseState.HOVER;
@@ -242,7 +239,7 @@
             this.txtAddress.Enabled = false;
             this.txtAddress.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtAddress.ForeColor = System.Drawing.Color.Black;
-            this.txtAddress.Location = new System.Drawing.Point(23, 128);
+            this.txtAddress.Location = new System.Drawing.Point(25, 131);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtAddress.Size = new System.Drawing.Size(379, 25);
@@ -253,10 +250,10 @@
             // 
             this.lblDueDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
             this.lblDueDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lblDueDate.Font = new System.Drawing.Font("Roboto Light", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDueDate.Font = new System.Drawing.Font("Poppins", 8.25F);
             this.lblDueDate.Location = new System.Drawing.Point(136, 178);
             this.lblDueDate.Name = "lblDueDate";
-            this.lblDueDate.Size = new System.Drawing.Size(100, 19);
+            this.lblDueDate.Size = new System.Drawing.Size(100, 21);
             this.lblDueDate.TabIndex = 69;
             this.lblDueDate.TabStop = false;
             this.lblDueDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -291,7 +288,7 @@
             // 
             // cbxPayment
             // 
-            this.cbxPayment.Font = new System.Drawing.Font("Roboto", 12F);
+            this.cbxPayment.Font = new System.Drawing.Font("Poppins", 10F);
             this.cbxPayment.FormattingEnabled = true;
             this.cbxPayment.Items.AddRange(new object[] {
             "Cash",
@@ -299,7 +296,7 @@
             this.cbxPayment.Location = new System.Drawing.Point(55, 53);
             this.cbxPayment.Name = "cbxPayment";
             this.cbxPayment.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.cbxPayment.Size = new System.Drawing.Size(183, 33);
+            this.cbxPayment.Size = new System.Drawing.Size(183, 38);
             this.cbxPayment.TabIndex = 0;
             this.cbxPayment.Text = "Cash";
             this.toolTip1.SetToolTip(this.cbxPayment, "Select a terms of Payment. ");
@@ -311,7 +308,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Roboto", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Gray;
-            this.label6.Location = new System.Drawing.Point(241, 90);
+            this.label6.Location = new System.Drawing.Point(239, 92);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(144, 18);
             this.label6.TabIndex = 51;
@@ -319,8 +316,9 @@
             // 
             // Dmdays
             // 
+            this.Dmdays.AutoSize = true;
             this.Dmdays.Enabled = false;
-            this.Dmdays.Font = new System.Drawing.Font("Roboto", 12F);
+            this.Dmdays.Font = new System.Drawing.Font("Poppins", 10F);
             this.Dmdays.InterceptArrowKeys = false;
             this.Dmdays.Items.Add("30");
             this.Dmdays.Items.Add("29");
@@ -352,10 +350,10 @@
             this.Dmdays.Items.Add("3");
             this.Dmdays.Items.Add("2");
             this.Dmdays.Items.Add("1");
-            this.Dmdays.Location = new System.Drawing.Point(244, 52);
+            this.Dmdays.Location = new System.Drawing.Point(242, 56);
             this.Dmdays.Name = "Dmdays";
             this.Dmdays.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.Dmdays.Size = new System.Drawing.Size(46, 32);
+            this.Dmdays.Size = new System.Drawing.Size(54, 32);
             this.Dmdays.TabIndex = 1;
             this.Dmdays.Text = "0";
             this.toolTip1.SetToolTip(this.Dmdays, "Select a days of payments.");
@@ -365,7 +363,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Roboto", 12F);
             this.label5.ForeColor = System.Drawing.Color.Gray;
-            this.label5.Location = new System.Drawing.Point(293, 56);
+            this.label5.Location = new System.Drawing.Point(296, 59);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(53, 25);
             this.label5.TabIndex = 51;
@@ -491,14 +489,14 @@
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Roboto", 10F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeight = 35;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -513,31 +511,31 @@
             this.ccLess,
             this.ccAdd,
             this.Delete});
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.LightSteelBlue;
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.LightSteelBlue;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.Location = new System.Drawing.Point(0, 49);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Roboto", 9F);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(231)))));
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.White;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(231)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.White;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1361, 188);
@@ -550,8 +548,8 @@
             // Column1
             // 
             this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle2;
             this.Column1.HeaderText = "";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
@@ -559,9 +557,9 @@
             // 
             // Column3
             // 
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(29)))), ((int)(((byte)(57)))));
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(29)))), ((int)(((byte)(57)))));
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle3;
             this.Column3.HeaderText = "ID";
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
@@ -571,32 +569,32 @@
             // Quantity
             // 
             this.Quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(29)))), ((int)(((byte)(57)))));
-            this.Quantity.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(29)))), ((int)(((byte)(57)))));
+            this.Quantity.DefaultCellStyle = dataGridViewCellStyle4;
             this.Quantity.HeaderText = "Qty";
             this.Quantity.MinimumWidth = 6;
             this.Quantity.Name = "Quantity";
-            this.Quantity.Width = 70;
+            this.Quantity.Width = 63;
             // 
             // ProductCode
             // 
             this.ProductCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(29)))), ((int)(((byte)(57)))));
-            this.ProductCode.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(29)))), ((int)(((byte)(57)))));
+            this.ProductCode.DefaultCellStyle = dataGridViewCellStyle5;
             this.ProductCode.HeaderText = "Product Code";
             this.ProductCode.MinimumWidth = 6;
             this.ProductCode.Name = "ProductCode";
-            this.ProductCode.Width = 155;
+            this.ProductCode.Width = 142;
             // 
             // Description
             // 
             this.Description.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(29)))), ((int)(((byte)(57)))));
-            this.Description.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(29)))), ((int)(((byte)(57)))));
+            this.Description.DefaultCellStyle = dataGridViewCellStyle6;
             this.Description.HeaderText = "Product Description";
             this.Description.MinimumWidth = 6;
             this.Description.Name = "Description";
@@ -604,37 +602,37 @@
             // Price1
             // 
             this.Price1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(29)))), ((int)(((byte)(57)))));
-            this.Price1.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(29)))), ((int)(((byte)(57)))));
+            this.Price1.DefaultCellStyle = dataGridViewCellStyle7;
             this.Price1.HeaderText = "Unit Price";
             this.Price1.MinimumWidth = 6;
             this.Price1.Name = "Price1";
-            this.Price1.Width = 122;
+            this.Price1.Width = 110;
             // 
             // Column2
             // 
             this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(29)))), ((int)(((byte)(57)))));
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(29)))), ((int)(((byte)(57)))));
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle8;
             this.Column2.HeaderText = "Discount";
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
-            this.Column2.Width = 115;
+            this.Column2.Width = 104;
             // 
             // Amount
             // 
             this.Amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.Amount.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.Amount.DefaultCellStyle = dataGridViewCellStyle9;
             this.Amount.HeaderText = "Amount";
             this.Amount.MinimumWidth = 6;
             this.Amount.Name = "Amount";
-            this.Amount.Width = 109;
+            this.Amount.Width = 97;
             // 
             // ccLess
             // 
@@ -666,7 +664,7 @@
             // BtnNewInvoice
             // 
             this.BtnNewInvoice.ActiveBorderThickness = 1;
-            this.BtnNewInvoice.ActiveCornerRadius = 20;
+            this.BtnNewInvoice.ActiveCornerRadius = 1;
             this.BtnNewInvoice.ActiveFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(99)))), ((int)(((byte)(246)))));
             this.BtnNewInvoice.ActiveForecolor = System.Drawing.Color.White;
             this.BtnNewInvoice.ActiveLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(99)))), ((int)(((byte)(246)))));
@@ -677,11 +675,11 @@
             this.BtnNewInvoice.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Bold);
             this.BtnNewInvoice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(99)))), ((int)(((byte)(246)))));
             this.BtnNewInvoice.IdleBorderThickness = 1;
-            this.BtnNewInvoice.IdleCornerRadius = 20;
-            this.BtnNewInvoice.IdleFillColor = System.Drawing.Color.White;
-            this.BtnNewInvoice.IdleForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(99)))), ((int)(((byte)(246)))));
+            this.BtnNewInvoice.IdleCornerRadius = 1;
+            this.BtnNewInvoice.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(99)))), ((int)(((byte)(246)))));
+            this.BtnNewInvoice.IdleForecolor = System.Drawing.Color.White;
             this.BtnNewInvoice.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(99)))), ((int)(((byte)(246)))));
-            this.BtnNewInvoice.Location = new System.Drawing.Point(103, 19);
+            this.BtnNewInvoice.Location = new System.Drawing.Point(106, 12);
             this.BtnNewInvoice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BtnNewInvoice.Name = "BtnNewInvoice";
             this.BtnNewInvoice.Size = new System.Drawing.Size(138, 45);
@@ -691,85 +689,29 @@
             this.toolTip1.SetToolTip(this.BtnNewInvoice, "Hit to Create a New Invoice for your Customers.");
             this.BtnNewInvoice.Click += new System.EventHandler(this.BtnNewInvoice_Click_1);
             // 
-            // BtnRecord
-            // 
-            this.BtnRecord.ActiveBorderThickness = 1;
-            this.BtnRecord.ActiveCornerRadius = 20;
-            this.BtnRecord.ActiveFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(99)))), ((int)(((byte)(246)))));
-            this.BtnRecord.ActiveForecolor = System.Drawing.Color.White;
-            this.BtnRecord.ActiveLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(99)))), ((int)(((byte)(246)))));
-            this.BtnRecord.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnRecord.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
-            this.BtnRecord.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnRecord.BackgroundImage")));
-            this.BtnRecord.ButtonText = "Save";
-            this.BtnRecord.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnRecord.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Bold);
-            this.BtnRecord.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(99)))), ((int)(((byte)(246)))));
-            this.BtnRecord.IdleBorderThickness = 1;
-            this.BtnRecord.IdleCornerRadius = 20;
-            this.BtnRecord.IdleFillColor = System.Drawing.Color.White;
-            this.BtnRecord.IdleForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(99)))), ((int)(((byte)(246)))));
-            this.BtnRecord.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(99)))), ((int)(((byte)(246)))));
-            this.BtnRecord.Location = new System.Drawing.Point(1281, 19);
-            this.BtnRecord.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.BtnRecord.Name = "BtnRecord";
-            this.BtnRecord.Size = new System.Drawing.Size(138, 45);
-            this.BtnRecord.TabIndex = 9;
-            this.BtnRecord.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.toolTip1.SetToolTip(this.BtnRecord, "Hit to process the making of your Customer\'s Invoice.");
-            this.BtnRecord.Click += new System.EventHandler(this.BtnRecord_Click_1);
-            // 
-            // BtnPrint
-            // 
-            this.BtnPrint.ActiveBorderThickness = 1;
-            this.BtnPrint.ActiveCornerRadius = 20;
-            this.BtnPrint.ActiveFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(99)))), ((int)(((byte)(246)))));
-            this.BtnPrint.ActiveForecolor = System.Drawing.Color.White;
-            this.BtnPrint.ActiveLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(99)))), ((int)(((byte)(246)))));
-            this.BtnPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnPrint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
-            this.BtnPrint.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnPrint.BackgroundImage")));
-            this.BtnPrint.ButtonText = "Preview";
-            this.BtnPrint.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnPrint.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Bold);
-            this.BtnPrint.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(99)))), ((int)(((byte)(246)))));
-            this.BtnPrint.IdleBorderThickness = 1;
-            this.BtnPrint.IdleCornerRadius = 20;
-            this.BtnPrint.IdleFillColor = System.Drawing.Color.White;
-            this.BtnPrint.IdleForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(99)))), ((int)(((byte)(246)))));
-            this.BtnPrint.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(99)))), ((int)(((byte)(246)))));
-            this.BtnPrint.Location = new System.Drawing.Point(1135, 19);
-            this.BtnPrint.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.BtnPrint.Name = "BtnPrint";
-            this.BtnPrint.Size = new System.Drawing.Size(138, 45);
-            this.BtnPrint.TabIndex = 8;
-            this.BtnPrint.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.toolTip1.SetToolTip(this.BtnPrint, "Hit to process the making of your Customer\'s Invoice.");
-            this.BtnPrint.Click += new System.EventHandler(this.BtnPrint_Click_1);
-            // 
             // BtnDiscount
             // 
             this.BtnDiscount.ActiveBorderThickness = 1;
-            this.BtnDiscount.ActiveCornerRadius = 20;
-            this.BtnDiscount.ActiveFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(195)))), ((int)(((byte)(76)))));
+            this.BtnDiscount.ActiveCornerRadius = 1;
+            this.BtnDiscount.ActiveFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(73)))), ((int)(((byte)(73)))));
             this.BtnDiscount.ActiveForecolor = System.Drawing.Color.White;
-            this.BtnDiscount.ActiveLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(195)))), ((int)(((byte)(76)))));
+            this.BtnDiscount.ActiveLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(73)))), ((int)(((byte)(73)))));
             this.BtnDiscount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnDiscount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
             this.BtnDiscount.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnDiscount.BackgroundImage")));
-            this.BtnDiscount.ButtonText = "+ disc %";
+            this.BtnDiscount.ButtonText = "+ Discount";
             this.BtnDiscount.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnDiscount.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Bold);
-            this.BtnDiscount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(195)))), ((int)(((byte)(76)))));
+            this.BtnDiscount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(73)))), ((int)(((byte)(73)))));
             this.BtnDiscount.IdleBorderThickness = 1;
-            this.BtnDiscount.IdleCornerRadius = 20;
-            this.BtnDiscount.IdleFillColor = System.Drawing.Color.White;
-            this.BtnDiscount.IdleForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(195)))), ((int)(((byte)(76)))));
-            this.BtnDiscount.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(195)))), ((int)(((byte)(76)))));
-            this.BtnDiscount.Location = new System.Drawing.Point(1260, 6);
+            this.BtnDiscount.IdleCornerRadius = 1;
+            this.BtnDiscount.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(73)))), ((int)(((byte)(73)))));
+            this.BtnDiscount.IdleForecolor = System.Drawing.Color.White;
+            this.BtnDiscount.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(73)))), ((int)(((byte)(73)))));
+            this.BtnDiscount.Location = new System.Drawing.Point(1241, 2);
             this.BtnDiscount.Margin = new System.Windows.Forms.Padding(4);
             this.BtnDiscount.Name = "BtnDiscount";
-            this.BtnDiscount.Size = new System.Drawing.Size(90, 38);
+            this.BtnDiscount.Size = new System.Drawing.Size(108, 46);
             this.BtnDiscount.TabIndex = 6;
             this.BtnDiscount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.toolTip1.SetToolTip(this.BtnDiscount, "Hit to process the making of your Customer\'s Invoice.");
@@ -793,7 +735,7 @@
             this.txtRemarks.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
             this.txtRemarks.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtRemarks.Enabled = false;
-            this.txtRemarks.Font = new System.Drawing.Font("Roboto", 10F);
+            this.txtRemarks.Font = new System.Drawing.Font("Poppins", 9F);
             this.txtRemarks.Location = new System.Drawing.Point(32, 44);
             this.txtRemarks.MaxLength = 100;
             this.txtRemarks.Multiline = true;
@@ -810,7 +752,7 @@
             this.txtPrvComment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
             this.txtPrvComment.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPrvComment.Enabled = false;
-            this.txtPrvComment.Font = new System.Drawing.Font("Roboto", 10F);
+            this.txtPrvComment.Font = new System.Drawing.Font("Poppins", 9F);
             this.txtPrvComment.Location = new System.Drawing.Point(32, 157);
             this.txtPrvComment.MaxLength = 100;
             this.txtPrvComment.Multiline = true;
@@ -825,7 +767,7 @@
             // BtnSelectProduct
             // 
             this.BtnSelectProduct.ActiveBorderThickness = 1;
-            this.BtnSelectProduct.ActiveCornerRadius = 20;
+            this.BtnSelectProduct.ActiveCornerRadius = 1;
             this.BtnSelectProduct.ActiveFillColor = System.Drawing.Color.SeaGreen;
             this.BtnSelectProduct.ActiveForecolor = System.Drawing.Color.White;
             this.BtnSelectProduct.ActiveLineColor = System.Drawing.Color.SeaGreen;
@@ -837,14 +779,14 @@
             this.BtnSelectProduct.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Bold);
             this.BtnSelectProduct.ForeColor = System.Drawing.Color.SeaGreen;
             this.BtnSelectProduct.IdleBorderThickness = 1;
-            this.BtnSelectProduct.IdleCornerRadius = 20;
-            this.BtnSelectProduct.IdleFillColor = System.Drawing.Color.White;
-            this.BtnSelectProduct.IdleForecolor = System.Drawing.Color.SeaGreen;
+            this.BtnSelectProduct.IdleCornerRadius = 1;
+            this.BtnSelectProduct.IdleFillColor = System.Drawing.Color.SeaGreen;
+            this.BtnSelectProduct.IdleForecolor = System.Drawing.Color.White;
             this.BtnSelectProduct.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.BtnSelectProduct.Location = new System.Drawing.Point(13, 2);
+            this.BtnSelectProduct.Location = new System.Drawing.Point(13, 1);
             this.BtnSelectProduct.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BtnSelectProduct.Name = "BtnSelectProduct";
-            this.BtnSelectProduct.Size = new System.Drawing.Size(138, 45);
+            this.BtnSelectProduct.Size = new System.Drawing.Size(141, 46);
             this.BtnSelectProduct.TabIndex = 5;
             this.BtnSelectProduct.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.toolTip1.SetToolTip(this.BtnSelectProduct, "Hit to process the making of your Customer\'s Invoice.");
@@ -865,110 +807,26 @@
             this.toolTip1.SetToolTip(this.lblTotalAmount, "Total Ordered Amount");
             this.lblTotalAmount.Visible = false;
             // 
-            // BtnSaveAsDraft
-            // 
-            this.BtnSaveAsDraft.ActiveBorderThickness = 1;
-            this.BtnSaveAsDraft.ActiveCornerRadius = 20;
-            this.BtnSaveAsDraft.ActiveFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(99)))), ((int)(((byte)(246)))));
-            this.BtnSaveAsDraft.ActiveForecolor = System.Drawing.Color.White;
-            this.BtnSaveAsDraft.ActiveLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(99)))), ((int)(((byte)(246)))));
-            this.BtnSaveAsDraft.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnSaveAsDraft.BackColor = System.Drawing.Color.GhostWhite;
-            this.BtnSaveAsDraft.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnSaveAsDraft.BackgroundImage")));
-            this.BtnSaveAsDraft.ButtonText = "Save as draft";
-            this.BtnSaveAsDraft.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnSaveAsDraft.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Bold);
-            this.BtnSaveAsDraft.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(99)))), ((int)(((byte)(246)))));
-            this.BtnSaveAsDraft.IdleBorderThickness = 1;
-            this.BtnSaveAsDraft.IdleCornerRadius = 20;
-            this.BtnSaveAsDraft.IdleFillColor = System.Drawing.Color.White;
-            this.BtnSaveAsDraft.IdleForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(99)))), ((int)(((byte)(246)))));
-            this.BtnSaveAsDraft.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(99)))), ((int)(((byte)(246)))));
-            this.BtnSaveAsDraft.Location = new System.Drawing.Point(11, 33);
-            this.BtnSaveAsDraft.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.BtnSaveAsDraft.Name = "BtnSaveAsDraft";
-            this.BtnSaveAsDraft.Size = new System.Drawing.Size(148, 45);
-            this.BtnSaveAsDraft.TabIndex = 0;
-            this.BtnSaveAsDraft.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.toolTip1.SetToolTip(this.BtnSaveAsDraft, "Hit to process the making of your Customer\'s Invoice.");
-            this.BtnSaveAsDraft.Click += new System.EventHandler(this.BtnSaveAsDraft_Click);
-            // 
-            // BtnSavePrint
-            // 
-            this.BtnSavePrint.ActiveBorderThickness = 1;
-            this.BtnSavePrint.ActiveCornerRadius = 20;
-            this.BtnSavePrint.ActiveFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(99)))), ((int)(((byte)(246)))));
-            this.BtnSavePrint.ActiveForecolor = System.Drawing.Color.White;
-            this.BtnSavePrint.ActiveLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(99)))), ((int)(((byte)(246)))));
-            this.BtnSavePrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnSavePrint.BackColor = System.Drawing.Color.GhostWhite;
-            this.BtnSavePrint.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnSavePrint.BackgroundImage")));
-            this.BtnSavePrint.ButtonText = "Save and print";
-            this.BtnSavePrint.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnSavePrint.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Bold);
-            this.BtnSavePrint.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(99)))), ((int)(((byte)(246)))));
-            this.BtnSavePrint.IdleBorderThickness = 1;
-            this.BtnSavePrint.IdleCornerRadius = 20;
-            this.BtnSavePrint.IdleFillColor = System.Drawing.Color.White;
-            this.BtnSavePrint.IdleForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(99)))), ((int)(((byte)(246)))));
-            this.BtnSavePrint.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(99)))), ((int)(((byte)(246)))));
-            this.BtnSavePrint.Location = new System.Drawing.Point(11, 78);
-            this.BtnSavePrint.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.BtnSavePrint.Name = "BtnSavePrint";
-            this.BtnSavePrint.Size = new System.Drawing.Size(148, 45);
-            this.BtnSavePrint.TabIndex = 102;
-            this.BtnSavePrint.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.toolTip1.SetToolTip(this.BtnSavePrint, "Hit to process the making of your Customer\'s Invoice.");
-            this.BtnSavePrint.Click += new System.EventHandler(this.BtnSavePrint_Click);
-            // 
-            // bunifuThinButton25
-            // 
-            this.bunifuThinButton25.ActiveBorderThickness = 1;
-            this.bunifuThinButton25.ActiveCornerRadius = 20;
-            this.bunifuThinButton25.ActiveFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(99)))), ((int)(((byte)(246)))));
-            this.bunifuThinButton25.ActiveForecolor = System.Drawing.Color.White;
-            this.bunifuThinButton25.ActiveLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(99)))), ((int)(((byte)(246)))));
-            this.bunifuThinButton25.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bunifuThinButton25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
-            this.bunifuThinButton25.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton25.BackgroundImage")));
-            this.bunifuThinButton25.ButtonText = "⤵";
-            this.bunifuThinButton25.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuThinButton25.Font = new System.Drawing.Font("Typo Grotesk Black", 20F, System.Drawing.FontStyle.Bold);
-            this.bunifuThinButton25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(99)))), ((int)(((byte)(246)))));
-            this.bunifuThinButton25.IdleBorderThickness = 1;
-            this.bunifuThinButton25.IdleCornerRadius = 20;
-            this.bunifuThinButton25.IdleFillColor = System.Drawing.Color.White;
-            this.bunifuThinButton25.IdleForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(99)))), ((int)(((byte)(246)))));
-            this.bunifuThinButton25.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(99)))), ((int)(((byte)(246)))));
-            this.bunifuThinButton25.Location = new System.Drawing.Point(1419, 19);
-            this.bunifuThinButton25.Margin = new System.Windows.Forms.Padding(8);
-            this.bunifuThinButton25.Name = "bunifuThinButton25";
-            this.bunifuThinButton25.Size = new System.Drawing.Size(32, 45);
-            this.bunifuThinButton25.TabIndex = 106;
-            this.bunifuThinButton25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.toolTip1.SetToolTip(this.bunifuThinButton25, "Hit to process the making of your Customer\'s Invoice.");
-            this.bunifuThinButton25.Click += new System.EventHandler(this.bunifuThinButton25_Click);
-            // 
             // BtnCancelInvoice
             // 
             this.BtnCancelInvoice.ActiveBorderThickness = 1;
-            this.BtnCancelInvoice.ActiveCornerRadius = 20;
-            this.BtnCancelInvoice.ActiveFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(174)))), ((int)(((byte)(178)))));
+            this.BtnCancelInvoice.ActiveCornerRadius = 1;
+            this.BtnCancelInvoice.ActiveFillColor = System.Drawing.Color.LightCoral;
             this.BtnCancelInvoice.ActiveForecolor = System.Drawing.Color.White;
-            this.BtnCancelInvoice.ActiveLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(174)))), ((int)(((byte)(178)))));
+            this.BtnCancelInvoice.ActiveLineColor = System.Drawing.Color.LightCoral;
             this.BtnCancelInvoice.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.BtnCancelInvoice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
             this.BtnCancelInvoice.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnCancelInvoice.BackgroundImage")));
             this.BtnCancelInvoice.ButtonText = "Cancel";
             this.BtnCancelInvoice.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnCancelInvoice.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Bold);
-            this.BtnCancelInvoice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(174)))), ((int)(((byte)(178)))));
+            this.BtnCancelInvoice.ForeColor = System.Drawing.Color.LightCoral;
             this.BtnCancelInvoice.IdleBorderThickness = 1;
-            this.BtnCancelInvoice.IdleCornerRadius = 20;
-            this.BtnCancelInvoice.IdleFillColor = System.Drawing.Color.White;
-            this.BtnCancelInvoice.IdleForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(174)))), ((int)(((byte)(178)))));
-            this.BtnCancelInvoice.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(174)))), ((int)(((byte)(178)))));
-            this.BtnCancelInvoice.Location = new System.Drawing.Point(103, 661);
+            this.BtnCancelInvoice.IdleCornerRadius = 1;
+            this.BtnCancelInvoice.IdleFillColor = System.Drawing.Color.LightCoral;
+            this.BtnCancelInvoice.IdleForecolor = System.Drawing.Color.White;
+            this.BtnCancelInvoice.IdleLineColor = System.Drawing.Color.LightCoral;
+            this.BtnCancelInvoice.Location = new System.Drawing.Point(90, 661);
             this.BtnCancelInvoice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BtnCancelInvoice.Name = "BtnCancelInvoice";
             this.BtnCancelInvoice.Size = new System.Drawing.Size(138, 45);
@@ -977,61 +835,84 @@
             this.toolTip1.SetToolTip(this.BtnCancelInvoice, "Hit to process the making of your Customer\'s Invoice.");
             this.BtnCancelInvoice.Click += new System.EventHandler(this.BtnCancelInvoice_Click);
             // 
-            // bunifuThinButton23
+            // BtnSaveAsDraft
             // 
-            this.bunifuThinButton23.ActiveBorderThickness = 1;
-            this.bunifuThinButton23.ActiveCornerRadius = 20;
-            this.bunifuThinButton23.ActiveFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(99)))), ((int)(((byte)(246)))));
-            this.bunifuThinButton23.ActiveForecolor = System.Drawing.Color.White;
-            this.bunifuThinButton23.ActiveLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(99)))), ((int)(((byte)(246)))));
-            this.bunifuThinButton23.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bunifuThinButton23.BackColor = System.Drawing.Color.GhostWhite;
-            this.bunifuThinButton23.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton23.BackgroundImage")));
-            this.bunifuThinButton23.ButtonText = "Print invoice";
-            this.bunifuThinButton23.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuThinButton23.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Bold);
-            this.bunifuThinButton23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(99)))), ((int)(((byte)(246)))));
-            this.bunifuThinButton23.IdleBorderThickness = 1;
-            this.bunifuThinButton23.IdleCornerRadius = 20;
-            this.bunifuThinButton23.IdleFillColor = System.Drawing.Color.White;
-            this.bunifuThinButton23.IdleForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(99)))), ((int)(((byte)(246)))));
-            this.bunifuThinButton23.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(99)))), ((int)(((byte)(246)))));
-            this.bunifuThinButton23.Location = new System.Drawing.Point(11, 123);
-            this.bunifuThinButton23.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.bunifuThinButton23.Name = "bunifuThinButton23";
-            this.bunifuThinButton23.Size = new System.Drawing.Size(148, 45);
-            this.bunifuThinButton23.TabIndex = 109;
-            this.bunifuThinButton23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.toolTip1.SetToolTip(this.bunifuThinButton23, "Hit to process the making of your Customer\'s Invoice.");
-            this.bunifuThinButton23.Click += new System.EventHandler(this.bunifuThinButton23_Click_1);
+            this.BtnSaveAsDraft.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnSaveAsDraft.BackColor = System.Drawing.Color.Transparent;
+            this.BtnSaveAsDraft.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnSaveAsDraft.Image = ((System.Drawing.Image)(resources.GetObject("BtnSaveAsDraft.Image")));
+            this.BtnSaveAsDraft.ImageActive = null;
+            this.BtnSaveAsDraft.Location = new System.Drawing.Point(1403, 17);
+            this.BtnSaveAsDraft.Name = "BtnSaveAsDraft";
+            this.BtnSaveAsDraft.Size = new System.Drawing.Size(48, 48);
+            this.BtnSaveAsDraft.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.BtnSaveAsDraft.TabIndex = 189;
+            this.BtnSaveAsDraft.TabStop = false;
+            this.toolTip1.SetToolTip(this.BtnSaveAsDraft, "Save as Draft. Click to save invoice as draft.");
+            this.BtnSaveAsDraft.Zoom = 10;
+            this.BtnSaveAsDraft.Click += new System.EventHandler(this.BtnSaveAsDraft_Click_1);
+            // 
+            // BtnSaveInvoice
+            // 
+            this.BtnSaveInvoice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnSaveInvoice.BackColor = System.Drawing.Color.Transparent;
+            this.BtnSaveInvoice.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnSaveInvoice.Image = ((System.Drawing.Image)(resources.GetObject("BtnSaveInvoice.Image")));
+            this.BtnSaveInvoice.ImageActive = null;
+            this.BtnSaveInvoice.Location = new System.Drawing.Point(1295, 17);
+            this.BtnSaveInvoice.Name = "BtnSaveInvoice";
+            this.BtnSaveInvoice.Size = new System.Drawing.Size(48, 48);
+            this.BtnSaveInvoice.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.BtnSaveInvoice.TabIndex = 188;
+            this.BtnSaveInvoice.TabStop = false;
+            this.toolTip1.SetToolTip(this.BtnSaveInvoice, "Save Invoice. Click to save your work.");
+            this.BtnSaveInvoice.Zoom = 10;
+            this.BtnSaveInvoice.Click += new System.EventHandler(this.BtnSaveInvoice_Click);
+            // 
+            // BtnPrintPreview
+            // 
+            this.BtnPrintPreview.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnPrintPreview.BackColor = System.Drawing.Color.Transparent;
+            this.BtnPrintPreview.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnPrintPreview.Image = ((System.Drawing.Image)(resources.GetObject("BtnPrintPreview.Image")));
+            this.BtnPrintPreview.ImageActive = null;
+            this.BtnPrintPreview.Location = new System.Drawing.Point(1349, 17);
+            this.BtnPrintPreview.Name = "BtnPrintPreview";
+            this.BtnPrintPreview.Size = new System.Drawing.Size(48, 48);
+            this.BtnPrintPreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.BtnPrintPreview.TabIndex = 187;
+            this.BtnPrintPreview.TabStop = false;
+            this.toolTip1.SetToolTip(this.BtnPrintPreview, "Print Preview. Clickt to see invoice print preview.");
+            this.BtnPrintPreview.Zoom = 10;
+            this.BtnPrintPreview.Click += new System.EventHandler(this.BtnPrintPreview_Click);
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Typo Grotesk Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(117, 73);
+            this.label14.Font = new System.Drawing.Font("Poppins", 9F);
+            this.label14.Location = new System.Drawing.Point(117, 69);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(134, 18);
+            this.label14.Size = new System.Drawing.Size(146, 26);
             this.label14.TabIndex = 87;
             this.label14.Text = "Basic information";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Typo Grotesk Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(19, 29);
+            this.label8.Font = new System.Drawing.Font("Poppins", 8.25F);
+            this.label8.Location = new System.Drawing.Point(21, 29);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(76, 18);
+            this.label8.Size = new System.Drawing.Size(81, 25);
             this.label8.TabIndex = 87;
             this.label8.Text = "Customer";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Typo Grotesk Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(19, 102);
+            this.label1.Font = new System.Drawing.Font("Poppins", 8.25F);
+            this.label1.Location = new System.Drawing.Point(21, 97);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(133, 18);
+            this.label1.Size = new System.Drawing.Size(129, 25);
             this.label1.TabIndex = 87;
             this.label1.Text = "Shipping Address";
             // 
@@ -1042,7 +923,7 @@
             this.txtCustomer.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtCustomer.FormattingEnabled = true;
             this.txtCustomer.IntegralHeight = false;
-            this.txtCustomer.Location = new System.Drawing.Point(23, 52);
+            this.txtCustomer.Location = new System.Drawing.Point(22, 59);
             this.txtCustomer.Name = "txtCustomer";
             this.txtCustomer.Size = new System.Drawing.Size(314, 33);
             this.txtCustomer.TabIndex = 1;
@@ -1051,7 +932,7 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(99)))), ((int)(((byte)(246)))));
-            this.panel4.Location = new System.Drawing.Point(23, 159);
+            this.panel4.Location = new System.Drawing.Point(25, 162);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(379, 1);
             this.panel4.TabIndex = 91;
@@ -1098,30 +979,30 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Typo Grotesk Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Font = new System.Drawing.Font("Poppins", 8.25F);
             this.label13.Location = new System.Drawing.Point(497, 97);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(78, 18);
+            this.label13.Size = new System.Drawing.Size(77, 25);
             this.label13.TabIndex = 92;
             this.label13.Text = "Sale Date";
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Typo Grotesk Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Font = new System.Drawing.Font("Poppins", 8.25F);
             this.label15.Location = new System.Drawing.Point(497, 29);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(99, 18);
+            this.label15.Size = new System.Drawing.Size(98, 25);
             this.label15.TabIndex = 92;
             this.label15.Text = "Invoice Date";
             // 
             // bunifuCustomLabel2
             // 
             this.bunifuCustomLabel2.Enabled = false;
-            this.bunifuCustomLabel2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
-            this.bunifuCustomLabel2.Location = new System.Drawing.Point(562, 127);
+            this.bunifuCustomLabel2.Font = new System.Drawing.Font("Poppins", 8.25F);
+            this.bunifuCustomLabel2.Location = new System.Drawing.Point(542, 127);
             this.bunifuCustomLabel2.Name = "bunifuCustomLabel2";
-            this.bunifuCustomLabel2.Size = new System.Drawing.Size(102, 18);
+            this.bunifuCustomLabel2.Size = new System.Drawing.Size(122, 18);
             this.bunifuCustomLabel2.TabIndex = 65;
             this.bunifuCustomLabel2.Text = "Apr-30-2020";
             this.bunifuCustomLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1129,11 +1010,11 @@
             // BtnBilling
             // 
             this.BtnBilling.AutoSize = true;
-            this.BtnBilling.Font = new System.Drawing.Font("Typo Grotesk Black", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnBilling.Font = new System.Drawing.Font("Roboto", 10F);
             this.BtnBilling.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(99)))), ((int)(((byte)(246)))));
-            this.BtnBilling.Location = new System.Drawing.Point(1136, 75);
+            this.BtnBilling.Location = new System.Drawing.Point(1140, 75);
             this.BtnBilling.Name = "BtnBilling";
-            this.BtnBilling.Size = new System.Drawing.Size(60, 20);
+            this.BtnBilling.Size = new System.Drawing.Size(56, 22);
             this.BtnBilling.TabIndex = 93;
             this.BtnBilling.Text = "Billing";
             this.BtnBilling.Click += new System.EventHandler(this.BtnBilling_Click);
@@ -1163,21 +1044,21 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Typo Grotesk Black", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Font = new System.Drawing.Font("Poppins", 9F);
             this.label11.Location = new System.Drawing.Point(16, 39);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(130, 20);
+            this.label11.Size = new System.Drawing.Size(122, 26);
             this.label11.TabIndex = 92;
             this.label11.Text = "Billing Address";
             // 
             // BtnPayment
             // 
             this.BtnPayment.AutoSize = true;
-            this.BtnPayment.Font = new System.Drawing.Font("Typo Grotesk Black", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnPayment.Font = new System.Drawing.Font("Roboto", 10F);
             this.BtnPayment.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(190)))), ((int)(((byte)(198)))));
-            this.BtnPayment.Location = new System.Drawing.Point(1223, 75);
+            this.BtnPayment.Location = new System.Drawing.Point(1231, 75);
             this.BtnPayment.Name = "BtnPayment";
-            this.BtnPayment.Size = new System.Drawing.Size(83, 20);
+            this.BtnPayment.Size = new System.Drawing.Size(77, 22);
             this.BtnPayment.TabIndex = 93;
             this.BtnPayment.Text = "Payment";
             this.BtnPayment.Click += new System.EventHandler(this.BtnPayment_Click);
@@ -1185,11 +1066,11 @@
             // BtnRemarks
             // 
             this.BtnRemarks.AutoSize = true;
-            this.BtnRemarks.Font = new System.Drawing.Font("Typo Grotesk Black", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnRemarks.Font = new System.Drawing.Font("Roboto", 10F);
             this.BtnRemarks.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(190)))), ((int)(((byte)(198)))));
-            this.BtnRemarks.Location = new System.Drawing.Point(1328, 75);
+            this.BtnRemarks.Location = new System.Drawing.Point(1332, 75);
             this.BtnRemarks.Name = "BtnRemarks";
-            this.BtnRemarks.Size = new System.Drawing.Size(121, 20);
+            this.BtnRemarks.Size = new System.Drawing.Size(121, 22);
             this.BtnRemarks.TabIndex = 93;
             this.BtnRemarks.Text = "Remarks/Note";
             this.BtnRemarks.Click += new System.EventHandler(this.BtnRemarks_Click);
@@ -1233,7 +1114,7 @@
             this.PaymentPanel.Controls.Add(this.label6);
             this.PaymentPanel.Controls.Add(this.label4);
             this.PaymentPanel.Controls.Add(this.cbxPayment);
-            this.PaymentPanel.Location = new System.Drawing.Point(1538, 12);
+            this.PaymentPanel.Location = new System.Drawing.Point(1544, 33);
             this.PaymentPanel.Name = "PaymentPanel";
             this.PaymentPanel.Size = new System.Drawing.Size(575, 246);
             this.PaymentPanel.TabIndex = 98;
@@ -1251,20 +1132,20 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Typo Grotesk Black", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Poppins", 9F);
             this.label7.Location = new System.Drawing.Point(51, 106);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(84, 20);
+            this.label7.Size = new System.Drawing.Size(82, 26);
             this.label7.TabIndex = 94;
             this.label7.Text = "Due Date";
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Typo Grotesk Black", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Font = new System.Drawing.Font("Poppins", 9F);
             this.label16.Location = new System.Drawing.Point(51, 25);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(137, 20);
+            this.label16.Size = new System.Drawing.Size(129, 26);
             this.label16.TabIndex = 93;
             this.label16.Text = "Payment Terms";
             // 
@@ -1279,7 +1160,7 @@
             this.RemarksPanel.Controls.Add(this.label17);
             this.RemarksPanel.Controls.Add(this.txtRemarks);
             this.RemarksPanel.Controls.Add(this.label10);
-            this.RemarksPanel.Location = new System.Drawing.Point(1539, 222);
+            this.RemarksPanel.Location = new System.Drawing.Point(1545, 211);
             this.RemarksPanel.Name = "RemarksPanel";
             this.RemarksPanel.Size = new System.Drawing.Size(575, 246);
             this.RemarksPanel.TabIndex = 99;
@@ -1323,20 +1204,20 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Typo Grotesk Black", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Font = new System.Drawing.Font("Poppins", 9F);
             this.label17.Location = new System.Drawing.Point(31, 131);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(154, 20);
+            this.label17.Size = new System.Drawing.Size(145, 26);
             this.label17.TabIndex = 95;
             this.label17.Text = "Private Comment";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Typo Grotesk Black", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Font = new System.Drawing.Font("Poppins", 9F);
             this.label10.Location = new System.Drawing.Point(30, 19);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(78, 20);
+            this.label10.Size = new System.Drawing.Size(76, 26);
             this.label10.TabIndex = 93;
             this.label10.Text = "Remarks";
             this.label10.Click += new System.EventHandler(this.label10_Click);
@@ -1354,10 +1235,10 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Typo Grotesk Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(117, 367);
+            this.label20.Font = new System.Drawing.Font("Poppins", 9F);
+            this.label20.Location = new System.Drawing.Point(117, 362);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(149, 18);
+            this.label20.Size = new System.Drawing.Size(162, 26);
             this.label20.TabIndex = 100;
             this.label20.Text = "Add goods/services";
             // 
@@ -1474,30 +1355,6 @@
             this.label3.TabIndex = 104;
             this.label3.Text = "Discount";
             // 
-            // OptionPanel
-            // 
-            this.OptionPanel.BackColor = System.Drawing.Color.GhostWhite;
-            this.OptionPanel.Controls.Add(this.bunifuThinButton23);
-            this.OptionPanel.Controls.Add(this.BtnSavePrint);
-            this.OptionPanel.Controls.Add(this.BtnSaveAsDraft);
-            this.OptionPanel.Controls.Add(this.label12);
-            this.OptionPanel.Location = new System.Drawing.Point(1483, 728);
-            this.OptionPanel.Name = "OptionPanel";
-            this.OptionPanel.Size = new System.Drawing.Size(169, 195);
-            this.OptionPanel.TabIndex = 104;
-            this.OptionPanel.Visible = false;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Typo Grotesk Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(60)))), ((int)(((byte)(71)))));
-            this.label12.Location = new System.Drawing.Point(11, 11);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(103, 18);
-            this.label12.TabIndex = 101;
-            this.label12.Text = "more options";
-            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
@@ -1541,12 +1398,12 @@
             // lblInvoiceNo
             // 
             this.lblInvoiceNo.AutoSize = true;
-            this.lblInvoiceNo.Font = new System.Drawing.Font("Roboto", 17F, System.Drawing.FontStyle.Bold);
+            this.lblInvoiceNo.Font = new System.Drawing.Font("Poppins", 16F);
             this.lblInvoiceNo.ForeColor = System.Drawing.Color.Silver;
             this.lblInvoiceNo.Location = new System.Drawing.Point(683, 17);
             this.lblInvoiceNo.Name = "lblInvoiceNo";
             this.lblInvoiceNo.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblInvoiceNo.Size = new System.Drawing.Size(219, 35);
+            this.lblInvoiceNo.Size = new System.Drawing.Size(224, 48);
             this.lblInvoiceNo.TabIndex = 111;
             this.lblInvoiceNo.Text = "000000000000";
             // 
@@ -1554,14 +1411,14 @@
             // 
             this.label18.AutoSize = true;
             this.label18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
-            this.label18.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
+            this.label18.Font = new System.Drawing.Font("Poppins", 10F);
             this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(73)))), ((int)(((byte)(73)))));
-            this.label18.Location = new System.Drawing.Point(628, 22);
+            this.label18.Location = new System.Drawing.Point(610, 27);
             this.label18.Name = "label18";
             this.label18.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label18.Size = new System.Drawing.Size(49, 24);
+            this.label18.Size = new System.Drawing.Size(75, 30);
             this.label18.TabIndex = 112;
-            this.label18.Text = "Inv#";
+            this.label18.Text = "Invoice";
             // 
             // FrmCreateNewInvoice
             // 
@@ -1569,16 +1426,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
             this.ClientSize = new System.Drawing.Size(1530, 721);
+            this.Controls.Add(this.BtnSaveAsDraft);
+            this.Controls.Add(this.BtnSaveInvoice);
+            this.Controls.Add(this.BtnPrintPreview);
             this.Controls.Add(this.lblInvoiceNo);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.panel9);
             this.Controls.Add(this.BtnCancelInvoice);
             this.Controls.Add(this.txtQty);
-            this.Controls.Add(this.bunifuThinButton25);
-            this.Controls.Add(this.OptionPanel);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.BtnRecord);
-            this.Controls.Add(this.BtnPrint);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label20);
@@ -1606,6 +1462,9 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmCreateNewInvoice_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnSaveAsDraft)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnSaveInvoice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnPrintPreview)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.BillingPanel.ResumeLayout(false);
@@ -1623,8 +1482,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            this.OptionPanel.ResumeLayout(false);
-            this.OptionPanel.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
@@ -1657,8 +1514,6 @@
         private Bunifu.Framework.UI.BunifuThinButton2 BtnNewInvoice;
         private System.Windows.Forms.ToolTip toolTip1;
         private Bunifu.Framework.UI.BunifuThinButton2 BtnCreateInvoice;
-        private Bunifu.Framework.UI.BunifuThinButton2 BtnRecord;
-        private Bunifu.Framework.UI.BunifuThinButton2 BtnPrint;
         private Bunifu.Framework.UI.BunifuThinButton2 BtnDiscount;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -1702,12 +1557,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblTotalAmount;
-        private System.Windows.Forms.Panel OptionPanel;
-        private System.Windows.Forms.Label label12;
-        private Bunifu.Framework.UI.BunifuThinButton2 BtnSaveAsDraft;
         private System.Windows.Forms.Panel panel3;
-        private Bunifu.Framework.UI.BunifuThinButton2 BtnSavePrint;
-        private Bunifu.Framework.UI.BunifuThinButton2 bunifuThinButton25;
         private System.Windows.Forms.TextBox txtQty;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -1723,7 +1573,6 @@
         private Bunifu.Framework.UI.BunifuThinButton2 BtnCancelInvoice;
         private System.Windows.Forms.Label lblPrvCount;
         private System.Windows.Forms.Label lblRemCount;
-        private Bunifu.Framework.UI.BunifuThinButton2 bunifuThinButton23;
         private System.Windows.Forms.Label lblDataRowCount;
         private System.Windows.Forms.Label label13;
         public Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel2;
@@ -1731,5 +1580,8 @@
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Label label18;
         public System.Windows.Forms.Label lblInvoiceNo;
+        public Bunifu.Framework.UI.BunifuImageButton BtnSaveAsDraft;
+        public Bunifu.Framework.UI.BunifuImageButton BtnSaveInvoice;
+        public Bunifu.Framework.UI.BunifuImageButton BtnPrintPreview;
     }
 }
