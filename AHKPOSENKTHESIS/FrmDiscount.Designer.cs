@@ -77,13 +77,13 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Typo Grotesk Black", 12F, System.Drawing.FontStyle.Bold);
+            this.label1.Font = new System.Drawing.Font("Poppins", 11F);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(10, 12);
+            this.label1.Location = new System.Drawing.Point(10, 8);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(93, 24);
+            this.label1.Size = new System.Drawing.Size(99, 34);
             this.label1.TabIndex = 2;
-            this.label1.Text = "discount";
+            this.label1.Text = "Discount";
             // 
             // lblID
             // 
@@ -99,7 +99,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Open Sans", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label2.Location = new System.Drawing.Point(9, 71);
+            this.label2.Location = new System.Drawing.Point(19, 71);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(49, 23);
             this.label2.TabIndex = 4;
@@ -112,7 +112,7 @@
             this.txtPrice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
             this.txtPrice.Enabled = false;
             this.txtPrice.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Bold);
-            this.txtPrice.Location = new System.Drawing.Point(173, 68);
+            this.txtPrice.Location = new System.Drawing.Point(183, 68);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(127, 28);
             this.txtPrice.TabIndex = 5;
@@ -122,7 +122,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Open Sans", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label3.Location = new System.Drawing.Point(9, 101);
+            this.label3.Location = new System.Drawing.Point(19, 101);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(106, 23);
             this.label3.TabIndex = 4;
@@ -135,7 +135,7 @@
             this.txtPercentDiscount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
             this.txtPercentDiscount.Font = new System.Drawing.Font("Roboto", 10F);
             this.txtPercentDiscount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(231)))));
-            this.txtPercentDiscount.Location = new System.Drawing.Point(173, 101);
+            this.txtPercentDiscount.Location = new System.Drawing.Point(183, 101);
             this.txtPercentDiscount.Name = "txtPercentDiscount";
             this.txtPercentDiscount.Size = new System.Drawing.Size(127, 28);
             this.txtPercentDiscount.TabIndex = 5;
@@ -146,7 +146,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Open Sans", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label4.Location = new System.Drawing.Point(9, 137);
+            this.label4.Location = new System.Drawing.Point(19, 137);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(155, 23);
             this.label4.TabIndex = 4;
@@ -159,7 +159,7 @@
             this.txtAmountDiscount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
             this.txtAmountDiscount.Enabled = false;
             this.txtAmountDiscount.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Italic);
-            this.txtAmountDiscount.Location = new System.Drawing.Point(173, 134);
+            this.txtAmountDiscount.Location = new System.Drawing.Point(183, 134);
             this.txtAmountDiscount.Name = "txtAmountDiscount";
             this.txtAmountDiscount.Size = new System.Drawing.Size(127, 28);
             this.txtAmountDiscount.TabIndex = 5;
@@ -194,12 +194,12 @@
             this.BtnConfirm.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnConfirm.BackgroundImage")));
             this.BtnConfirm.ButtonText = "Discount";
             this.BtnConfirm.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnConfirm.Font = new System.Drawing.Font("Typo Grotesk Black", 10F, System.Drawing.FontStyle.Bold);
+            this.BtnConfirm.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Bold);
             this.BtnConfirm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(99)))), ((int)(((byte)(246)))));
             this.BtnConfirm.IdleBorderThickness = 1;
             this.BtnConfirm.IdleCornerRadius = 20;
-            this.BtnConfirm.IdleFillColor = System.Drawing.Color.White;
-            this.BtnConfirm.IdleForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(99)))), ((int)(((byte)(246)))));
+            this.BtnConfirm.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(99)))), ((int)(((byte)(246)))));
+            this.BtnConfirm.IdleForecolor = System.Drawing.Color.White;
             this.BtnConfirm.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(99)))), ((int)(((byte)(246)))));
             this.BtnConfirm.Location = new System.Drawing.Point(193, 185);
             this.BtnConfirm.Margin = new System.Windows.Forms.Padding(5);
