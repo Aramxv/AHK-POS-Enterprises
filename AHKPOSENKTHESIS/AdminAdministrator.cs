@@ -90,6 +90,7 @@ namespace AHKPOSENKTHESIS
             res.lblStockOnHand.Text = dbcon.StockOnHand().ToString("#,##0");
             res.lblCriticalProducts.Text = dbcon.CriticalProduct().ToString("#,##0");
             res.lblCustomerCount.Text = dbcon.CustomerCount().ToString("#,##0");
+            res.DisplayChartTopSelling();
 
             // Store a value for this variable -- and pass the value to AdminStockAdjustment.cs { txtAdjustment.text }
             PassStockUsername = lblUsername.Text;
@@ -189,6 +190,7 @@ namespace AHKPOSENKTHESIS
                 res.lblStockOnHand.Text = dbcon.StockOnHand().ToString("#,##0");
                 res.lblCriticalProducts.Text = dbcon.CriticalProduct().ToString("#,##0");
                 res.lblCustomerCount.Text = dbcon.CustomerCount().ToString("#,##0");
+                res.DisplayChartTopSelling();
             }
             AdminAdministrator.Instance.PnlContainer.Controls["AdminResources"].BringToFront();
             AdminAdministrator.Instance.BackButton.Visible = false;
@@ -238,6 +240,7 @@ namespace AHKPOSENKTHESIS
                 res.lblStockOnHand.Text = dbcon.StockOnHand().ToString("#,##0");
                 res.lblCriticalProducts.Text = dbcon.CriticalProduct().ToString("#,##0");
                 res.lblCustomerCount.Text = dbcon.CustomerCount().ToString("#,##0");
+                res.DisplayChartTopSelling();
             }
             AdminAdministrator.Instance.PnlContainer.Controls["AdminResources"].BringToFront();
             AdminAdministrator.Instance.BackButton.Visible = false;

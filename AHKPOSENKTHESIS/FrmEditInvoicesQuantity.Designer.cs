@@ -34,11 +34,11 @@
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.bunifuDragControl2 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.lbl1 = new System.Windows.Forms.Label();
-            this.BtnClose = new Bunifu.Framework.UI.BunifuImageButton();
             this.panel1 = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.BtnClose)).BeginInit();
+            this.label1 = new System.Windows.Forms.Label();
+            this.BtnClose = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnClose)).BeginInit();
             this.SuspendLayout();
             // 
             // txtQty
@@ -74,52 +74,49 @@
             this.bunifuDragControl2.TargetControl = null;
             this.bunifuDragControl2.Vertical = true;
             // 
-            // lbl1
-            // 
-            this.lbl1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbl1.Font = new System.Drawing.Font("Roboto", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl1.ForeColor = System.Drawing.Color.White;
-            this.lbl1.Location = new System.Drawing.Point(40, 8);
-            this.lbl1.Name = "lbl1";
-            this.lbl1.Size = new System.Drawing.Size(108, 23);
-            this.lbl1.TabIndex = 26;
-            this.lbl1.Text = "Quantity";
-            this.lbl1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbl1.Click += new System.EventHandler(this.lbl1_Click);
-            // 
-            // BtnClose
-            // 
-            this.BtnClose.BackColor = System.Drawing.Color.Transparent;
-            this.BtnClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnClose.Image = ((System.Drawing.Image)(resources.GetObject("BtnClose.Image")));
-            this.BtnClose.ImageActive = null;
-            this.BtnClose.Location = new System.Drawing.Point(12, 13);
-            this.BtnClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.BtnClose.Name = "BtnClose";
-            this.BtnClose.Size = new System.Drawing.Size(18, 18);
-            this.BtnClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.BtnClose.TabIndex = 27;
-            this.BtnClose.TabStop = false;
-            this.BtnClose.Zoom = 10;
-            this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click_1);
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(29)))), ((int)(((byte)(57)))));
-            this.panel1.Controls.Add(this.lbl1);
             this.panel1.Controls.Add(this.BtnClose);
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(189, 45);
+            this.panel1.Size = new System.Drawing.Size(202, 45);
             this.panel1.TabIndex = 28;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Poppins", 11F);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(12, 5);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(97, 34);
+            this.label1.TabIndex = 28;
+            this.label1.Text = "Quantity";
+            // 
+            // BtnClose
+            // 
+            this.BtnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnClose.BackColor = System.Drawing.Color.Transparent;
+            this.BtnClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BtnClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnClose.Image = ((System.Drawing.Image)(resources.GetObject("BtnClose.Image")));
+            this.BtnClose.Location = new System.Drawing.Point(161, 4);
+            this.BtnClose.Name = "BtnClose";
+            this.BtnClose.Size = new System.Drawing.Size(36, 36);
+            this.BtnClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.BtnClose.TabIndex = 29;
+            this.BtnClose.TabStop = false;
+            this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
             // FrmEditInvoicesQuantity
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ClientSize = new System.Drawing.Size(189, 122);
+            this.ClientSize = new System.Drawing.Size(202, 127);
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.txtQty);
@@ -129,8 +126,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.TopMost = true;
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmEditInvoicesQuantity_KeyDown);
-            ((System.ComponentModel.ISupportInitialize)(this.BtnClose)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnClose)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -141,8 +139,8 @@
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl2;
         public System.Windows.Forms.TextBox txtQty;
-        public System.Windows.Forms.Label lbl1;
         private System.Windows.Forms.Panel panel1;
-        private Bunifu.Framework.UI.BunifuImageButton BtnClose;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox BtnClose;
     }
 }

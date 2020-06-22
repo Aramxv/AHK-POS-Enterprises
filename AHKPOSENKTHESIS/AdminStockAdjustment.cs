@@ -22,7 +22,6 @@ namespace AHKPOSENKTHESIS
         // variable for character counting in remarks section
         int remarkstextcount = 0;
 
-
         int _qty;
 
         private const Int32 CUSTOM_CONTENT_HEIGHT = 18;
@@ -109,6 +108,7 @@ namespace AHKPOSENKTHESIS
             string colName = dataGridView1.Columns[e.ColumnIndex].Name;
             if (colName == "Adjust")
             {
+                SomeRandomReferenceNo();
                 lblID.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
                 txtProductCode.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
                 txtDescription.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString() + ", " + dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString() + ", " + dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
@@ -176,7 +176,7 @@ namespace AHKPOSENKTHESIS
                 //Validate the quantity input 
                 if (int.Parse(txtQuantity.Text) > _qty)
                 {
-                    MessageBox.Show("Stock on Hand Quantity should be greater than Adjustment Quantity", "Stock Adjustment", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Stock on Hand Quantity should be greater than Adjustment Quantity.", "Stock Adjustment", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
                 if (cmbCommand.Text == "Remove from Inventory")
@@ -189,7 +189,6 @@ namespace AHKPOSENKTHESIS
                 }
 
                 string StockDate = DateTime.Now.ToString("dd-MMM-yyyy");
-
                 SqlStatement("INSERT INTO tblStockAdjustment (referenceno, prodcode, proddescrip, prodqty, action, remarks, stockdate, stockby) VALUES ('" + txtReferenceNo.Text + "', '" + txtProductCode.Text + "', '" + txtDescription.Text + "', '" + txtQuantity.Text + "', '" + cmbCommand.Text + "', '" + txtRemarks.Text + "', '" + StockDate + "', '" + txtAdjustBy.Text + "')");
 
                 MessageBox.Show("Stock Adjustment Process Completely", "Stock Adjustment Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -200,7 +199,8 @@ namespace AHKPOSENKTHESIS
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                cn.Close();
+                MessageBox.Show(ex.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

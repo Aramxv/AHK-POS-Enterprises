@@ -16,6 +16,9 @@ namespace AHKPOSENKTHESIS
 
         FrmCreateNewInvoice F2;
 
+        private const Int32 CUSTOM_CONTENT_HEIGHT = 18;
+
+
         public FrmLookUp(FrmCreateNewInvoice Fr2)
         {
             InitializeComponent();
@@ -83,12 +86,25 @@ namespace AHKPOSENKTHESIS
             dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dataGridView1.DefaultCellStyle.SelectionBackColor = Color.DarkTurquoise;
             dataGridView1.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
-            dataGridView1.BackgroundColor = Color.White;
+            dataGridView1.BackgroundColor = Color.FromArgb(217, 219, 223);
 
             dataGridView1.EnableHeadersVisualStyles = false;
             dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(20, 25, 72);
+            dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(55, 54, 75);
             dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+
+            // Set a cell padding to provide space for the top of the focus 
+            // rectangle and for the content that spans multiple columns. 
+            Padding newPadding = new Padding(0, 5, 0, 5);
+            this.dataGridView1.RowTemplate.DefaultCellStyle.Padding = newPadding;
+
+            // Set the selection background color to transparent so 
+            // the cell won't paint over the custom selection background.
+            this.dataGridView1.RowTemplate.DefaultCellStyle.SelectionBackColor = Color.FromArgb(2, 119, 231);
+
+            // Set the row height to accommodate the content that 
+            // spans multiple columns.
+            this.dataGridView1.RowTemplate.Height += CUSTOM_CONTENT_HEIGHT;
         }
 
         private void txtSearch_TabIndexChanged(object sender, EventArgs e)

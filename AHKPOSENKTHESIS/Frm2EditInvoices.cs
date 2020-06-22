@@ -26,6 +26,8 @@ namespace AHKPOSENKTHESIS
 
         public int addqty;
 
+        private const Int32 CUSTOM_CONTENT_HEIGHT = 18;
+
         // variable for character counting in remarks and private comment section
         int remcharcount = 0;
         int prvcharcount = 0;
@@ -116,15 +118,15 @@ namespace AHKPOSENKTHESIS
                 if (hasrecord == true)
                 {
                     BtnDiscount.Enabled = true;
-                    BtnRecord.Enabled = true;
-                    BtnPrint.Enabled = true;
+                    BtnSaveInvoice.Enabled = true;
+                    BtnPrintPreview.Enabled = true;
                 }
                 //if the datagrid has rows or data, the following buttons is unclickable u
                 else
                 {
                     BtnDiscount.Enabled = true;
-                    BtnRecord.Enabled = true;
-                    BtnPrint.Enabled = true;
+                    BtnSaveInvoice.Enabled = true;
+                    BtnPrintPreview.Enabled = true;
                 }
             }
             catch (Exception ex)
@@ -142,12 +144,25 @@ namespace AHKPOSENKTHESIS
             dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dataGridView1.DefaultCellStyle.SelectionBackColor = Color.DarkTurquoise;
             dataGridView1.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
-            dataGridView1.BackgroundColor = Color.White;
+            dataGridView1.BackgroundColor = Color.FromArgb(217, 219, 223);
 
             dataGridView1.EnableHeadersVisualStyles = false;
             dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(20, 25, 72);
+            dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(55, 54, 75);
             dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+
+            // Set a cell padding to provide space for the top of the focus 
+            // rectangle and for the content that spans multiple columns. 
+            Padding newPadding = new Padding(0, 5, 0, 5);
+            this.dataGridView1.RowTemplate.DefaultCellStyle.Padding = newPadding;
+
+            // Set the selection background color to transparent so 
+            // the cell won't paint over the custom selection background.
+            this.dataGridView1.RowTemplate.DefaultCellStyle.SelectionBackColor = Color.FromArgb(2, 119, 231);
+
+            // Set the row height to accommodate the content that 
+            // spans multiple columns.
+            this.dataGridView1.RowTemplate.Height += CUSTOM_CONTENT_HEIGHT;
 
             //To compute the ordered products total
             GetOrderTotal();
@@ -202,131 +217,6 @@ namespace AHKPOSENKTHESIS
             cm.Parameters.AddWithValue("billaddress", txtBilling.Text);
             cm.ExecuteNonQuery();
             cn.Close();
-        }
-
-        
-        private void bunifuThinButton25_Click(object sender, EventArgs e)
-        {
-            if (OptionPanel.Visible == false)
-            {
-                OptionPanel.Visible = true;
-                OptionPanel.Location = new System.Drawing.Point(1146, 69); // set the location of option panel under option button
-            }
-            else
-            {
-                OptionPanel.Visible = false;
-            }
-        }
-
-        private void BtnRecord_Click_1(object sender, EventArgs e)
-        {
-            try
-            {
-                if (txtCustomer.Text == String.Empty || txtAddress.Text == String.Empty)
-                {
-                    MessageBox.Show("Please Enter Customer name and Address to Continue!", "Saving Invoice", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-                else
-                {
-                    for (int i = 0; i < dataGridView1.Rows.Count; i++)
-                    {
-                        // SQL<tblInvoiceRecords> Update the customer information if somehow the user edit out any value
-                        cn.Open();
-                        cm = new SqlCommand("UPDATE tblInvoiceRecords SET customer =@customer, address= @address, payment =@payment, days = @days, duedate = @duedate, billaddress = @billaddress, status =@status WHERE id like '" + lblID.Text + "' and invoiceno like '" + lblInvoiceNo.Text + "'", cn);
-                        cm.Parameters.AddWithValue("customer", txtCustomer.Text);
-                        cm.Parameters.AddWithValue("address", txtAddress.Text);
-                        cm.Parameters.AddWithValue("payment", cbxPayment.Text);
-                        cm.Parameters.AddWithValue("days", Dmdays.Text);
-                        cm.Parameters.AddWithValue("duedate", DueDateCalendar.Value);
-                        cm.Parameters.AddWithValue("billaddress", txtBilling.Text);
-                        cm.Parameters.AddWithValue("status", txtStatus.Text);
-                        cm.ExecuteNonQuery();
-                        cn.Close();
-
-                        // SQL<tblProduct> Update the quantity of the onhand product;  
-                        // SQL<tblProduct> Subtract the quantity of ordered product in datagrid 
-                        // For the sake of the inventory purposes
-                        cn.Open();
-                        cm = new SqlCommand("UPDATE tblProduct SET prodqty = prodqty - '" + int.Parse(dataGridView1.Rows[i].Cells[2].Value.ToString()) + "' WHERE prodcode = '" + dataGridView1.Rows[i].Cells[3].Value.ToString() + "'", cn);
-                        cm.ExecuteNonQuery();
-                        cn.Close();
-
-                        // SQL<tblInvoiceOrder> Update the status to 'Sold' after the recording procesed
-                        cn.Open();
-                        cm = new SqlCommand("UPDATE tblInvoiceOrder SET status = 'Sold' WHERE id = '" + dataGridView1.Rows[i].Cells[1].Value.ToString() + "'", cn);
-                        cm.ExecuteNonQuery();
-                        cn.Close();
-                    }
-                    // This will reload the DataGrid upon closing this form
-                    RefreshInvoiceRecords();
-                    UpdateDataInInvoiceRecords();
-                    LoadInvoiceOrder();
-                    UpdateTheCustomerInfoInInvoiceOrder();
-                    this.Close();
-                }
-            }
-            catch (Exception ex)
-            {
-                cn.Close();
-                MessageBox.Show(ex.Message, "Application Error", MessageBoxButtons.OK, MessageBoxIcon.Error); // Prompt a  messagebox to notify the user for an error
-            }
-        }
-
-        private void BtnPrint_Click_1(object sender, EventArgs e)
-        {
-            try
-            {
-                if (txtCustomer.Text == String.Empty || txtAddress.Text == String.Empty)
-                {
-                    MessageBox.Show("Please Enter Customer name and Address to Continue!", "Printing Invoice", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-                else
-                {
-                    for (int i = 0; i < dataGridView1.Rows.Count; i++)
-                    {
-                        // SQL<tblInvoiceRecords> Update the customer information if somehow the user edit out any value
-                        cn.Open();
-                        cm = new SqlCommand("UPDATE tblInvoiceRecords SET customer =@customer, address= @address, payment =@payment, days = @days, duedate = @duedate, billaddress = @billaddress, status =@status WHERE id like '" + lblID.Text + "' and invoiceno like '" + lblInvoiceNo.Text + "'", cn);
-                        cm.Parameters.AddWithValue("customer", txtCustomer.Text);
-                        cm.Parameters.AddWithValue("address", txtAddress.Text);
-                        cm.Parameters.AddWithValue("payment", cbxPayment.Text);
-                        cm.Parameters.AddWithValue("days", Dmdays.Text);
-                        cm.Parameters.AddWithValue("duedate", DueDateCalendar.Value.ToString("yyyyMMdd"));
-                        cm.Parameters.AddWithValue("billaddress", txtBilling.Text);
-                        cm.Parameters.AddWithValue("status", txtStatus.Text);
-                        cm.ExecuteNonQuery();
-                        cn.Close();
-
-                        // SQL<tblProduct> Update the quantity of the onhand product;  
-                        // SQL<tblProduct> Subtract the quantity of ordered product in datagrid 
-                        // For the sake of the inventory purposes
-                        cn.Open();
-                        cm = new SqlCommand("UPDATE tblProduct SET prodqty = prodqty - '" + int.Parse(dataGridView1.Rows[i].Cells[2].Value.ToString()) + "' WHERE prodcode = '" + dataGridView1.Rows[i].Cells[3].Value.ToString() + "'", cn);
-                        cm.ExecuteNonQuery();
-                        cn.Close();
-
-                        // SQL<tblInvoiceOrder> Update the status to 'Sold' after the recording procesed
-                        cn.Open();
-                        cm = new SqlCommand("UPDATE tblInvoiceOrder SET status = 'Sold' WHERE id = '" + dataGridView1.Rows[i].Cells[1].Value.ToString() + "'", cn);
-                        cm.ExecuteNonQuery();
-                        cn.Close();
-                    }
-                    // Shows the Print preview of the Invoice before Printing
-                    //FrmInvoiceEditPrintPreview prev = new FrmInvoiceEditPrintPreview(this);
-                    //prev.ShowDialog();
-
-                    UpdateDataInInvoiceRecords();
-                    LoadInvoiceOrder();
-                    UpdateTheCustomerInfoInInvoiceOrder();
-                }
-            }
-            catch (Exception ex)
-            {
-                cn.Close();
-                MessageBox.Show(ex.Message, "Application Error", MessageBoxButtons.OK, MessageBoxIcon.Error); // Prompt a  messagebox to notify the user for an error
-            }
         }
 
         private void BtnSaveAsDraft_Click(object sender, EventArgs e)
@@ -705,14 +595,7 @@ namespace AHKPOSENKTHESIS
 
         private void Frm2EditInvoices_Click(object sender, EventArgs e)
         {
-            if (OptionPanel.Visible == true)
-            {
-                OptionPanel.Visible = false;
-            }
-            else
-            {
-                OptionPanel.Visible = false;
-            }
+            
         }
 
         private void BtnSelectProduct_Click(object sender, EventArgs e)
@@ -721,9 +604,120 @@ namespace AHKPOSENKTHESIS
             {
                 return;
             }
-            //FrmEditInvoiceLookUp look = new FrmEditInvoiceLookUp(this);
+            //FrmEditInvoiceLookUp look = new FrmEditInvoiceLookUp();
             //look.LoadShitData();
             //look.ShowDialog();
+        }
+
+        private void BtnSaveInvoice_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtCustomer.Text == String.Empty || txtAddress.Text == String.Empty)
+                {
+                    MessageBox.Show("Please Enter Customer name and Address to Continue!", "Saving Invoice", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                else
+                {
+                    for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                    {
+                        // SQL<tblInvoiceRecords> Update the customer information if somehow the user edit out any value
+                        cn.Open();
+                        cm = new SqlCommand("UPDATE tblInvoiceRecords SET customer =@customer, address= @address, payment =@payment, days = @days, duedate = @duedate, billaddress = @billaddress, status =@status WHERE id like '" + lblID.Text + "' and invoiceno like '" + lblInvoiceNo.Text + "'", cn);
+                        cm.Parameters.AddWithValue("customer", txtCustomer.Text);
+                        cm.Parameters.AddWithValue("address", txtAddress.Text);
+                        cm.Parameters.AddWithValue("payment", cbxPayment.Text);
+                        cm.Parameters.AddWithValue("days", Dmdays.Text);
+                        cm.Parameters.AddWithValue("duedate", DueDateCalendar.Value);
+                        cm.Parameters.AddWithValue("billaddress", txtBilling.Text);
+                        cm.Parameters.AddWithValue("status", txtStatus.Text);
+                        cm.ExecuteNonQuery();
+                        cn.Close();
+
+                        // SQL<tblProduct> Update the quantity of the onhand product;  
+                        // SQL<tblProduct> Subtract the quantity of ordered product in datagrid 
+                        // For the sake of the inventory purposes
+                        cn.Open();
+                        cm = new SqlCommand("UPDATE tblProduct SET prodqty = prodqty - '" + int.Parse(dataGridView1.Rows[i].Cells[2].Value.ToString()) + "' WHERE prodcode = '" + dataGridView1.Rows[i].Cells[3].Value.ToString() + "'", cn);
+                        cm.ExecuteNonQuery();
+                        cn.Close();
+
+                        // SQL<tblInvoiceOrder> Update the status to 'Sold' after the recording procesed
+                        cn.Open();
+                        cm = new SqlCommand("UPDATE tblInvoiceOrder SET status = 'Sold' WHERE id = '" + dataGridView1.Rows[i].Cells[1].Value.ToString() + "'", cn);
+                        cm.ExecuteNonQuery();
+                        cn.Close();
+                    }
+                    // This will reload the DataGrid upon closing this form
+                    RefreshInvoiceRecords();
+                    UpdateDataInInvoiceRecords();
+                    LoadInvoiceOrder();
+                    UpdateTheCustomerInfoInInvoiceOrder();
+                    this.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                cn.Close();
+                MessageBox.Show(ex.Message, "Application Error", MessageBoxButtons.OK, MessageBoxIcon.Error); // Prompt a  messagebox to notify the user for an error
+            }
+        }
+
+        private void BtnPrintPreview_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtCustomer.Text == String.Empty || txtAddress.Text == String.Empty)
+                {
+                    MessageBox.Show("Please Enter Customer name and Address to Continue!", "Printing Invoice", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                else
+                {
+                    for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                    {
+                        // SQL<tblInvoiceRecords> Update the customer information if somehow the user edit out any value
+                        cn.Open();
+                        cm = new SqlCommand("UPDATE tblInvoiceRecords SET customer =@customer, address= @address, payment =@payment, days = @days, duedate = @duedate, billaddress = @billaddress, status =@status WHERE id like '" + lblID.Text + "' and invoiceno like '" + lblInvoiceNo.Text + "'", cn);
+                        cm.Parameters.AddWithValue("customer", txtCustomer.Text);
+                        cm.Parameters.AddWithValue("address", txtAddress.Text);
+                        cm.Parameters.AddWithValue("payment", cbxPayment.Text);
+                        cm.Parameters.AddWithValue("days", Dmdays.Text);
+                        cm.Parameters.AddWithValue("duedate", DueDateCalendar.Value.ToString("yyyyMMdd"));
+                        cm.Parameters.AddWithValue("billaddress", txtBilling.Text);
+                        cm.Parameters.AddWithValue("status", txtStatus.Text);
+                        cm.ExecuteNonQuery();
+                        cn.Close();
+
+                        // SQL<tblProduct> Update the quantity of the onhand product;  
+                        // SQL<tblProduct> Subtract the quantity of ordered product in datagrid 
+                        // For the sake of the inventory purposes
+                        cn.Open();
+                        cm = new SqlCommand("UPDATE tblProduct SET prodqty = prodqty - '" + int.Parse(dataGridView1.Rows[i].Cells[2].Value.ToString()) + "' WHERE prodcode = '" + dataGridView1.Rows[i].Cells[3].Value.ToString() + "'", cn);
+                        cm.ExecuteNonQuery();
+                        cn.Close();
+
+                        // SQL<tblInvoiceOrder> Update the status to 'Sold' after the recording procesed
+                        cn.Open();
+                        cm = new SqlCommand("UPDATE tblInvoiceOrder SET status = 'Sold' WHERE id = '" + dataGridView1.Rows[i].Cells[1].Value.ToString() + "'", cn);
+                        cm.ExecuteNonQuery();
+                        cn.Close();
+                    }
+                    // Shows the Print preview of the Invoice before Printing
+                    //FrmInvoiceEditPrintPreview prev = new FrmInvoiceEditPrintPreview(this);
+                    //prev.ShowDialog();
+
+                    UpdateDataInInvoiceRecords();
+                    LoadInvoiceOrder();
+                    UpdateTheCustomerInfoInInvoiceOrder();
+                }
+            }
+            catch (Exception ex)
+            {
+                cn.Close();
+                MessageBox.Show(ex.Message, "Application Error", MessageBoxButtons.OK, MessageBoxIcon.Error); // Prompt a  messagebox to notify the user for an error
+            }
         }
 
         // not done yet 

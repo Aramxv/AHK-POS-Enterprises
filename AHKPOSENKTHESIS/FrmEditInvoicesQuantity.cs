@@ -146,22 +146,17 @@ namespace AHKPOSENKTHESIS
 
         }
 
-        private void lbl1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BtnClose_Click_1(object sender, EventArgs e)
-        {
-            this.Dispose();
-        }
-
         private void FrmEditInvoicesQuantity_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
             {
                 this.Dispose();
             }
+        }
+
+        private void BtnClose_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
     }
 }

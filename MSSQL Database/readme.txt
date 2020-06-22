@@ -1,0 +1,1 @@
+Import the .bak file to your MSSQL SERVER to run the system with the database.

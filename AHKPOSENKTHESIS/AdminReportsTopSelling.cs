@@ -236,7 +236,7 @@ namespace AHKPOSENKTHESIS
             // Set series label format
             chart.Series[0].IsValueShownAsLabel = true;
             chart.Series[0].IsVisibleInLegend = false;
-            if (cmbTerms.Text == "Total Amount") { chart.Series[0].LabelFormat = "{₱#,##0.00}"; }
+            if (cmbTerms.Text == "Total Amount") { chart.Series[0].LabelFormat = "₱" + "{#,##0.00}"; }
             if (cmbTerms.Text == "Quantity") { chart.Series[0].LabelFormat = "{#,##0}"; }
 
             // Titles
